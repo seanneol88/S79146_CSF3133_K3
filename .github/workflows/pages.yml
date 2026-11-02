@@ -24,16 +24,47 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # GitHub Pages must be switched on once by the repository owner
+      # (Settings -> Pages -> Source: GitHub Actions). Until then this
+      # workflow exits cleanly instead of failing on every push.
+      - name: Check that Pages is enabled
+        id: pages
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages")
+
+          if [ "$code" = "200" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages is enabled - deploying." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "### GitHub Pages is not enabled yet - deployment skipped"
+              echo ""
+              echo "Enable it once, then re-run this workflow:"
+              echo ""
+              echo "1. Open https://github.com/${{ github.repository }}/settings/pages"
+              echo "2. Set **Source** to **GitHub Actions**"
+              echo "3. Re-run this workflow (Actions -> Deploy to GitHub Pages -> Run workflow)"
+              echo ""
+              echo "The site will then be published at https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "Pages not enabled (HTTP $code) - skipping deployment."
+          fi
+
       - name: Configure Pages
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload site
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - name: Deploy
         id: deployment
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/deploy-pages@v4
