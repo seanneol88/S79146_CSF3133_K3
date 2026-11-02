@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S79146 · CSF3133 Web Design Labs</title>
+    <meta name="description" content="Web design lab exercises (CSF3133, Group K3) - Lab 1 and Lab 2 HTML pages.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --ink: #14181f;
+            --muted: #5d6673;
+            --line: #e4e7ee;
+            --brand: #2f5bea;
+            --brand-soft: #eaefff;
+            --radius: 14px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ---------- Hero ---------- */
+        header.hero {
+            background: linear-gradient(135deg, #1b2a5e 0%, #2f5bea 55%, #4f8bff 100%);
+            color: #fff;
+            padding: 56px 0 64px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            padding: 5px 12px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+        }
+
+        header.hero h1 {
+            font-size: clamp(1.75rem, 4vw, 2.6rem);
+            line-height: 1.2;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
+        }
+
+        header.hero p.lead {
+            margin: 0;
+            max-width: 62ch;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .pill {
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+        }
+
+        /* ---------- Sections ---------- */
+        main { padding: 48px 0 24px; }
+
+        section.lab { margin-bottom: 48px; }
+
+        .lab-head {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            margin-bottom: 6px;
+        }
+
+        .lab-head h2 {
+            font-size: 1.35rem;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .lab-head span.folder {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            background: #eceff6;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 2px 8px;
+        }
+
+        section.lab > p.desc {
+            margin: 0 0 20px;
+            color: var(--muted);
+        }
+
+        /* ---------- Cards ---------- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        a.card {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px 18px 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+        }
+
+        a.card:hover,
+        a.card:focus-visible {
+            transform: translateY(-2px);
+            border-color: #c8d4f7;
+            box-shadow: 0 10px 24px rgba(24, 39, 75, 0.09);
+            outline: none;
+        }
+
+        a.card .tag {
+            align-self: flex-start;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--brand);
+            background: var(--brand-soft);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        a.card h3 {
+            margin: 4px 0 0;
+            font-size: 1.02rem;
+            line-height: 1.35;
+        }
+
+        a.card p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        a.card .file {
+            margin-top: 10px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.76rem;
+            color: #8a93a3;
+            word-break: break-all;
+        }
+
+        /* ---------- Screenshot gallery ---------- */
+        .shots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 16px;
+        }
+
+        figure.shot {
+            margin: 0;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        figure.shot a { display: block; }
+
+        figure.shot img {
+            display: block;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            object-position: top center;
+            background: #eef1f7;
+        }
+
+        figure.shot figcaption {
+            font-size: 0.8rem;
+            color: var(--muted);
+            padding: 10px 12px;
+            border-top: 1px solid var(--line);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            border-top: 1px solid var(--line);
+            margin-top: 32px;
+            padding: 24px 0 40px;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        footer a { color: var(--brand); }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.85em;
+            background: #eceff6;
+            padding: 1px 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="wrap">
+            <span class="eyebrow">CSF3133 · Web Design · Group K3</span>
+            <h1>S79146 Web Design Lab Portfolio</h1>
+            <p class="lead">
+                A GitHub Pages site collecting every HTML exercise from Lab&nbsp;1 and Lab&nbsp;2 —
+                structured text, links, images, lists, tables, forms and semantic elements.
+            </p>
+            <div class="pill-row">
+                <span class="pill">2 labs</span>
+                <span class="pill">10 HTML pages</span>
+                <span class="pill">Plain HTML &amp; CSS</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap">
+
+        <!-- ===================== LAB 1 ===================== -->
+        <section class="lab">
+            <div class="lab-head">
+                <h2>Lab 1 — HTML Basics</h2>
+                <span class="folder">Lab 1/</span>
+            </div>
+            <p class="desc">
+                Document structure, headings, emphasis, lists, images and relative links between pages.
+            </p>
+
+            <div class="grid">
+                <a class="card" href="Lab%201/lab1.html">
+                    <span class="tag">Exercise</span>
+                    <h3>About Me</h3>
+                    <p>Personal introduction with hobbies, favourite movies and an image element.</p>
+                    <span class="file">Lab 1/lab1.html</span>
+                </a>
+
+                <a class="card" href="Lab%201/lab1_ExerA.html">
+                    <span class="tag">Exercise A</span>
+                    <h3>Kopi Pantai Café</h3>
+                    <p>Seaside café page using headings, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code> and a description list.</p>
+                    <span class="file">Lab 1/lab1_ExerA.html</span>
+                </a>
+
+                <a class="card" href="Lab%201/lab1_ExerB.html">
+                    <span class="tag">Exercise B</span>
+                    <h3>Campus Coding Club</h3>
+                    <p>Thirteen markup errors identified and corrected, plus a two-page navigation bar.</p>
+                    <span class="file">Lab 1/lab1_ExerB.html</span>
+                </a>
+
+                <a class="card" href="Lab%201/contact.html">
+                    <span class="tag">Exercise B</span>
+                    <h3>Contact Us</h3>
+                    <p>Second page of the club site with committee members and contact details.</p>
+                    <span class="file">Lab 1/contact.html</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===================== LAB 2 ===================== -->
+        <section class="lab">
+            <div class="lab-head">
+                <h2>Lab 2 — Tables, Forms &amp; Semantic HTML</h2>
+                <span class="folder">Lab2_only/</span>
+            </div>
+            <p class="desc">
+                Semantic page structure, data tables with spanning cells, and interactive form controls.
+            </p>
+
+            <div class="grid">
+                <a class="card" href="Lab2_only/lab2.html">
+                    <span class="tag">Lab page</span>
+                    <h3>Personal Profile</h3>
+                    <p>Semantic layout combining a personal information table and a contact form.</p>
+                    <span class="file">Lab2_only/lab2.html</span>
+                </a>
+
+                <a class="card" href="Lab2_only/Lab2_ExerA.html">
+                    <span class="tag">Exercise A</span>
+                    <h3>FSKM Tech Day 2026</h3>
+                    <p>Event page with <code>header</code>, <code>nav</code>, <code>section</code> and <code>article</code> plus in-page anchors.</p>
+                    <span class="file">Lab2_only/Lab2_ExerA.html</span>
+                </a>
+
+                <a class="card" href="Lab2_only/Lab2_ExerB.html">
+                    <span class="tag">Exercise B</span>
+                    <h3>Course Feedback</h3>
+                    <p>Ten markup and accessibility errors fixed in a table-and-form feedback page.</p>
+                    <span class="file">Lab2_only/Lab2_ExerB.html</span>
+                </a>
+
+                <a class="card" href="Lab2_only/semantic.html">
+                    <span class="tag">Practice</span>
+                    <h3>Semantic HTML Example</h3>
+                    <p>Reference example of semantic elements replacing generic containers.</p>
+                    <span class="file">Lab2_only/semantic.html</span>
+                </a>
+
+                <a class="card" href="Lab2_only/table.html">
+                    <span class="tag">Practice</span>
+                    <h3>Working with Tables</h3>
+                    <p>Basic tables plus <code>colspan</code> for merged header and summary cells.</p>
+                    <span class="file">Lab2_only/table.html</span>
+                </a>
+
+                <a class="card" href="Lab2_only/form.html">
+                    <span class="tag">Practice</span>
+                    <h3>Creating Forms</h3>
+                    <p>Text inputs, radio buttons, checkboxes, select menus and a submit button.</p>
+                    <span class="file">Lab2_only/form.html</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===================== VALIDATION ===================== -->
+        <section class="lab">
+            <div class="lab-head">
+                <h2>Validation Evidence</h2>
+                <span class="folder">screenshots</span>
+            </div>
+            <p class="desc">
+                W3C markup validation results for the exercise pages.
+            </p>
+
+            <div class="shots">
+                <figure class="shot">
+                    <a href="Lab%201/Validation_ExerA.png">
+                        <img src="Lab%201/Validation_ExerA.png" alt="W3C validation result for Lab 1 Exercise A" loading="lazy">
+                    </a>
+                    <figcaption>Lab 1 · Exercise A</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="Lab%201/Validation_ExerB.png">
+                        <img src="Lab%201/Validation_ExerB.png" alt="W3C validation result for Lab 1 Exercise B" loading="lazy">
+                    </a>
+                    <figcaption>Lab 1 · Exercise B</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="Lab%201/lab1_ExerB_Error.png">
+                        <img src="Lab%201/lab1_ExerB_Error.png" alt="Validation errors found in the original Lab 1 Exercise B code" loading="lazy">
+                    </a>
+                    <figcaption>Lab 1 · Original errors</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="Lab2_only/Lab2_ExerA%20validation.png">
+                        <img src="Lab2_only/Lab2_ExerA%20validation.png" alt="Validation result for Lab 2 Exercise A" loading="lazy">
+                    </a>
+                    <figcaption>Lab 2 · Exercise A</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="Lab2_only/Lab2_ExerB%20validation.png">
+                        <img src="Lab2_only/Lab2_ExerB%20validation.png" alt="Validation result for Lab 2 Exercise B" loading="lazy">
+                    </a>
+                    <figcaption>Lab 2 · Exercise B</figcaption>
+                </figure>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="wrap">
+            S79146 · CSF3133 Web Design · Group K3 —
+            published with GitHub Pages. Source: <code>seanneol88/S79146_CSF3133_K3</code>
+        </div>
+    </footer>
+
+</body>
+</html>
