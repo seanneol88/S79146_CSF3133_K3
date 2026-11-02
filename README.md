@@ -67,26 +67,34 @@ S79146_CSF3133_K3/
 
 ## 🚀 Publishing (GitHub Pages)
 
-The site is deployed by the workflow in
-[`.github/workflows/pages.yml`](.github/workflows/pages.yml) on every push to
-`main`. GitHub requires the repository owner to enable Pages once:
+Everything needed to serve the site is already in this repository. The one
+remaining step is switching Pages on, which **only the repository owner can do**
+— the API refuses it for app/integration tokens (`403 Resource not accessible by
+integration`). Until then the URL above shows GitHub's *"There isn't a GitHub
+Pages site here"* 404 page.
 
-1. Open **Settings → Pages**:
-   <https://github.com/seanneol88/S79146_CSF3133_K3/settings/pages>
-2. Under **Build and deployment → Source**, choose **GitHub Actions**.
-3. Go to **Actions → Deploy to GitHub Pages → Run workflow**.
+Open <https://github.com/seanneol88/S79146_CSF3133_K3/settings/pages> and pick
+either option:
 
-The site is then live at
-<https://seanneol88.github.io/S79146_CSF3133_K3/> (first build takes about a minute).
+### Option A — deploy from the `main` branch (simplest)
 
-<details>
-<summary>Alternative: deploy straight from a branch (no Actions)</summary>
+1. **Build and deployment → Source**: *Deploy from a branch*
+2. **Branch**: `main`, **folder**: `/ (root)` → **Save**
 
-In **Settings → Pages**, set **Source** to *Deploy from a branch*, then pick
-`main` and folder `/ (root)`, and save. Nothing else is required — but you can
-then delete `.github/workflows/pages.yml` so the Actions workflow does not run.
+GitHub publishes the site itself within a minute; no further clicks needed.
+Nothing runs from Actions in this mode.
 
-</details>
+### Option B — deploy with the included workflow
+
+1. **Build and deployment → Source**: *GitHub Actions*
+2. **Actions → Deploy to GitHub Pages → Run workflow**
+
+The workflow then rebuilds and redeploys the site on every push to `main`.
+
+> The workflow checks the Pages settings before doing anything:
+> not enabled → it skips with a green run and prints these instructions;
+> branch mode → it skips because GitHub is already publishing;
+> Actions mode → it deploys. It never leaves a red ✗ on `main`.
 
 ---
 

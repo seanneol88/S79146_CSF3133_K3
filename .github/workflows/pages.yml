@@ -24,47 +24,69 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # GitHub Pages must be switched on once by the repository owner
-      # (Settings -> Pages -> Source: GitHub Actions). Until then this
-      # workflow exits cleanly instead of failing on every push.
-      - name: Check that Pages is enabled
+      # GitHub Pages has to be switched on once by the repository owner.
+      # Two supported setups, both handled here:
+      #   * Source = "GitHub Actions"      -> this workflow builds and deploys
+      #   * Source = branch "main" / root  -> GitHub publishes it by itself,
+      #                                       so this workflow steps aside
+      # Until either is done, the workflow exits cleanly instead of failing.
+      - name: Check Pages settings
         id: pages
         run: |
-          code=$(curl -s -o /dev/null -w "%{http_code}" \
+          body=$(curl -s -w "\n%{http_code}" \
             -H "Authorization: Bearer ${{ github.token }}" \
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${{ github.repository }}/pages")
+          code=$(printf '%s' "$body" | tail -n1)
+          json=$(printf '%s' "$body" | sed '$d')
+          build_type=$(printf '%s' "$json" | grep -o '"build_type": *"[^"]*"' | cut -d'"' -f4)
+          site_url="https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
 
-          if [ "$code" = "200" ]; then
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages is enabled - deploying." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          if [ "$code" != "200" ]; then
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
             {
               echo "### GitHub Pages is not enabled yet - deployment skipped"
               echo ""
-              echo "Enable it once, then re-run this workflow:"
+              echo "Nothing is broken; the site just needs to be switched on once."
+              echo "Open <https://github.com/${{ github.repository }}/settings/pages> and either:"
               echo ""
-              echo "1. Open https://github.com/${{ github.repository }}/settings/pages"
-              echo "2. Set **Source** to **GitHub Actions**"
-              echo "3. Re-run this workflow (Actions -> Deploy to GitHub Pages -> Run workflow)"
+              echo "**Option A (simplest)** - *Deploy from a branch* -> branch \`main\`, folder \`/ (root)\` -> **Save**."
+              echo "GitHub publishes the site immediately; this workflow then bows out."
               echo ""
-              echo "The site will then be published at https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+              echo "**Option B** - *Source: GitHub Actions*, then re-run this workflow"
+              echo "(Actions -> Deploy to GitHub Pages -> Run workflow)."
+              echo ""
+              echo "Either way the site appears at <$site_url>."
             } >> "$GITHUB_STEP_SUMMARY"
             echo "Pages not enabled (HTTP $code) - skipping deployment."
+          elif [ "$build_type" = "legacy" ]; then
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "### Pages is published from the \`main\` branch - workflow skipped"
+              echo ""
+              echo "Settings use *Deploy from a branch*, so GitHub publishes the site itself:"
+              echo "<$site_url>"
+              echo ""
+              echo "Switch **Source** to *GitHub Actions* if you would rather have this"
+              echo "workflow do the deploying."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "Pages build_type=legacy - GitHub publishes from the branch, skipping."
+          else
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+            echo "Pages build_type=$build_type - deploying with this workflow." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Configure Pages
-        if: steps.pages.outputs.enabled == 'true'
+        if: steps.pages.outputs.deploy == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload site
-        if: steps.pages.outputs.enabled == 'true'
+        if: steps.pages.outputs.deploy == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
       - name: Deploy
         id: deployment
-        if: steps.pages.outputs.enabled == 'true'
+        if: steps.pages.outputs.deploy == 'true'
         uses: actions/deploy-pages@v4
