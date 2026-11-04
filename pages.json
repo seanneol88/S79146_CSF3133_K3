@@ -4,7 +4,7 @@
       "title": "Lab 1 — HTML Basics",
       "description": "Document structure, headings, emphasis, lists, images and relative links between pages."
     },
-    "Lab 3 Web Design": {
+    "Lab 3": {
       "title": "Lab 3 — Elements, Layout & Forms",
       "description": "Block vs inline elements, `div` page layout, HTML entities, the HTML5 input types and the `output` element, plus a working contact page."
     }
@@ -34,32 +34,32 @@
       "title": "Contact Us",
       "description": "Second page of the club site with committee members and contact details."
     },
-    "Lab 3 Web Design/lab3.html": {
-      "tag": "Lab 3",
-      "title": "Contact Us — TechWeb Solutions",
-      "description": "Div-based layout with an HTML5 contact form (`email`, `date`, `range`) and a live `output` sum calculator."
-    },
-    "Lab 3 Web Design/block.html": {
+    "Lab 3/block.html": {
       "tag": "Demo",
       "title": "Block and Inline Elements",
       "description": "How block elements claim a whole line while inline elements stay inside the flow of the text."
     },
-    "Lab 3 Web Design/div.html": {
+    "Lab 3/div.html": {
       "tag": "Demo",
       "title": "Page Layout with div",
       "description": "Header, columns and footer built from `div` containers with inline background, width and float styles."
     },
-    "Lab 3 Web Design/entity.html": {
+    "Lab 3/entity.html": {
       "tag": "Demo",
       "title": "HTML Entities",
       "description": "Writing reserved characters — `&lt;`, `&gt;`, `&copy;`, non-breaking space — by name and by number."
     },
-    "Lab 3 Web Design/input5.html": {
+    "Lab 3/input5.html": {
       "tag": "Demo",
       "title": "HTML5 Input Types",
       "description": "A tour of `color`, `date`, `range`, `email` and friends so the browser shows the right picker."
     },
-    "Lab 3 Web Design/output5.html": {
+    "Lab 3/lab3.html": {
+      "tag": "Lab 3",
+      "title": "Contact Us — TechWeb Solutions",
+      "description": "Div-based layout with an HTML5 contact form (`email`, `date`, `range`) and a live `output` sum calculator."
+    },
+    "Lab 3/output5.html": {
       "tag": "Demo",
       "title": "The output Element",
       "description": "A live addition machine that recalculates into `output` on every keystroke or slider move."
