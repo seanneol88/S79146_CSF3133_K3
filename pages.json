@@ -4,6 +4,10 @@
       "title": "Lab 1 — HTML Basics",
       "description": "Document structure, headings, emphasis, lists, images and relative links between pages."
     },
+    "Lab 2": {
+      "title": "Lab 2 — Tables, Forms & Semantic HTML",
+      "description": "Semantic page structure, data tables with spanning cells, and interactive form controls."
+    },
     "Lab 3": {
       "title": "Lab 3 — Elements, Layout & Forms",
       "description": "Block vs inline elements, `div` page layout, HTML entities, the HTML5 input types and the `output` element, plus a working contact page."
@@ -63,15 +67,59 @@
       "tag": "Demo",
       "title": "The output Element",
       "description": "A live addition machine that recalculates into `output` on every keystroke or slider move."
+    },
+    "Lab 2/lab2.html": {
+      "tag": "Lab page",
+      "title": "Personal Profile",
+      "description": "Semantic layout combining a personal information table and a contact form."
+    },
+    "Lab 2/Lab2_ExerA.html": {
+      "tag": "Exercise A",
+      "title": "FSKM Tech Day 2026",
+      "description": "Event page with `header`, `nav`, `section` and `article` plus in-page anchors."
+    },
+    "Lab 2/Lab2_ExerB.html": {
+      "tag": "Exercise B",
+      "title": "Course Feedback",
+      "description": "Ten markup and accessibility errors fixed in a table-and-form feedback page."
+    },
+    "Lab 2/semantic.html": {
+      "tag": "Practice",
+      "title": "Semantic HTML Example",
+      "description": "Reference example of semantic elements replacing generic containers."
+    },
+    "Lab 2/table.html": {
+      "tag": "Practice",
+      "title": "Working with Tables",
+      "description": "Basic tables plus `colspan` for merged header and summary cells."
+    },
+    "Lab 2/form.html": {
+      "tag": "Practice",
+      "title": "Creating Forms",
+      "description": "Text inputs, radio buttons, checkboxes, select menu and submit button."
+    },
+    "Lab 3/lab3_ExerA.html": {
+      "tag": "Exercise A",
+      "title": "CampusBake® — Online Order",
+      "description": "Five `div` sections, a HTML5 order form (`tel`, `email`, `date`, `time`, `color`, `range`, `datalist`) and a live `output` price total."
+    },
+    "Lab 3/lab3_ExerB.html": {
+      "tag": "Exercise B",
+      "title": "Ticket Booking — Debug & Extend",
+      "description": "Thirteen deliberate errors found and fixed, then extended with a Now Showing sidebar, `tel`/`time` inputs and a second `output`."
     }
   },
   "images": {
     "Lab 1/Validation_ExerA.png": "Lab 1 · Exercise A",
     "Lab 1/Validation_ExerB.png": "Lab 1 · Exercise B",
     "Lab 1/lab1_ExerB_Error.png": "Lab 1 · Original errors",
-    "Lab 3/entity validation.png": "Lab 3 · Entity",
-    "Lab 3/input5 validation.png": "Lab 3 · Input5",
-    "Lab 3/output5 validation.png": "Lab 3 · Output5",
-    "Lab 3/Screenshot 2026-11-04 141515.png": "Lab 3 · Screenshot 2026 11 04 141515"
+    "Lab 2/Lab2_ExerA validation.png": "Lab 2 · Exercise A",
+    "Lab 2/Lab2_ExerB validation.png": "Lab 2 · Exercise B",
+    "Lab 3/entity validation.png": "Lab 3 · HTML Entities",
+    "Lab 3/input5 validation.png": "Lab 3 · HTML5 Input Types",
+    "Lab 3/output5 validation.png": "Lab 3 · The output Element",
+    "Lab 3/lab3 validation.png": "Lab 3 · Contact page",
+    "Lab 3/lab3_ExerA validation.png": "Lab 3 · Exercise A",
+    "Lab 3/lab3_ExerB validation.png": "Lab 3 · Exercise B"
   }
 }

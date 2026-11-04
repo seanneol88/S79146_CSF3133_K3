@@ -77,6 +77,14 @@ def discover() -> tuple[list[Path], list[Path], list[Path]]:
     return pages, images, files
 
 
+def natural_key(name: str) -> list:
+    """Sort "Lab 2" before "Lab 10" and keep "(root)" last."""
+    if name == "(root)":
+        return [chr(0x10FFFF)]
+    return [int(part) if part.isdigit() else part.lower()
+            for part in re.split(r"(\d+)", name)]
+
+
 def page_order(path: Path) -> tuple[int, str]:
     """Order within a folder: lab1.html, then the exercises, then the rest."""
     stem = path.stem.lower()
@@ -88,10 +96,10 @@ def page_order(path: Path) -> tuple[int, str]:
     return (2, stem)
 
 
-def image_order(path: Path) -> tuple[str, int, str]:
+def image_order(path: Path) -> tuple[list, int, str]:
     """Group by folder, validation screenshots first, then other images."""
     is_other = 1 if "validation" not in path.stem.lower() else 0
-    return (section_key(path).lower(), is_other, path.stem.lower())
+    return (natural_key(section_key(path)), is_other, path.stem.lower())
 
 
 def section_key(path: Path) -> str:
@@ -213,10 +221,9 @@ def rich(text: str, *, html_out: bool) -> str:
 
 
 def sections_in_order(meta: dict, pages: list[Path]) -> list[str]:
+    """Section keys present on disk, ordered naturally (Lab 1, Lab 2, Lab 10...)."""
     keys = {section_key(p) for p in pages}
-    ordered = [k for k in meta["sections"] if k in keys]
-    ordered += sorted(k for k in keys if k not in meta["sections"])
-    return ordered
+    return sorted(keys, key=natural_key)
 
 
 # --------------------------------------------------------------------------- #
