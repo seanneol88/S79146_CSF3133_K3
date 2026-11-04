@@ -107,6 +107,16 @@
       "tag": "Exercise B",
       "title": "Ticket Booking — Debug & Extend",
       "description": "Thirteen deliberate errors found and fixed, then extended with a Now Showing sidebar, `tel`/`time` inputs and a second `output`."
+    },
+    "Lab 3/inattribute5.html": {
+      "tag": "Demo",
+      "title": "HTML5 Input Attributes",
+      "description": "`placeholder`, `autofocus`, `required` and `autocomplete` at work on a club sign-up form."
+    },
+    "Lab 3/intro5_broken.html": {
+      "tag": "Before fix",
+      "title": "Intro Page — broken version",
+      "description": "Deliberately invalid `<!DOCTYPE>` used to practise the validator; the errors it triggers are listed at the end of the file."
     }
   },
   "images": {
