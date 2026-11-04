@@ -107,6 +107,16 @@
       "tag": "Exercise B",
       "title": "Ticket Booking — Debug & Extend",
       "description": "Thirteen deliberate errors found and fixed, then extended with a Now Showing sidebar, `tel`/`time` inputs and a second `output`."
+    },
+    "Lab 3/inattribute5.html": {
+      "tag": "Page",
+      "title": "HTML5 Input Attributes",
+      "description": "HTML page in Lab 3."
+    },
+    "Lab 3/intro5_broken.html": {
+      "tag": "Page",
+      "title": "Introduction to HTML5",
+      "description": "I like HTML5"
     }
   },
   "images": {
