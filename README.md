@@ -96,9 +96,13 @@ S79146_CSF3133_K3/
 ├── Lab 3/
 │   ├── block.html
 │   ├── div.html
+│   ├── entity validation.png
 │   ├── entity.html
+│   ├── input5 validation.png
 │   ├── input5.html
+│   ├── lab3 validation.png
 │   ├── lab3.html
+│   ├── output5 validation.png
 │   └── output5.html
 ├── tools/
 │   └── sync_site.py
@@ -156,6 +160,10 @@ results are shown in the gallery on the home page and stored in the lab folders:
 | [`Lab 1/lab1_ExerB_Error.png`](Lab%201/lab1_ExerB_Error.png) | Lab 1 — errors in the original code |
 | [`Lab 2/Lab2_ExerA validation.png`](Lab%202/Lab2_ExerA%20validation.png) | Lab 2 — Exercise A |
 | [`Lab 2/Lab2_ExerB validation.png`](Lab%202/Lab2_ExerB%20validation.png) | Lab 2 — Exercise B |
+| [`Lab 3/lab3 validation.png`](Lab%203/lab3%20validation.png) | Lab 3 — contact page |
+| [`Lab 3/entity validation.png`](Lab%203/entity%20validation.png) | Lab 3 — HTML entities |
+| [`Lab 3/input5 validation.png`](Lab%203/input5%20validation.png) | Lab 3 — HTML5 input types |
+| [`Lab 3/output5 validation.png`](Lab%203/output5%20validation.png) | Lab 3 — output element |
 
 ---
 
