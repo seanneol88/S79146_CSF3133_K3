@@ -87,10 +87,10 @@ S79146_CSF3133_K3/
 │   ├── entity.html
 │   ├── input5 validation.png
 │   ├── input5.html
+│   ├── lab3 validation.png
 │   ├── lab3.html
 │   ├── output5 validation.png
-│   ├── output5.html
-│   └── Screenshot 2026-11-04 141515.png
+│   └── output5.html
 ├── tools/
 │   └── sync_site.py
 └── .github/
