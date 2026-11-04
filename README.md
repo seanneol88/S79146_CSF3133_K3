@@ -100,8 +100,10 @@ S79146_CSF3133_K3/
 │   ├── div.html
 │   ├── entity validation.png
 │   ├── entity.html
+│   ├── inattribute5 validation.png
 │   ├── input5 validation.png
 │   ├── input5.html
+│   ├── intro5 before fix validation.png
 │   ├── lab3 validation.png
 │   ├── lab3.html
 │   ├── lab3_ExerA validation.png
@@ -172,6 +174,8 @@ results are shown in the gallery on the home page and stored in the lab folders:
 | [`Lab 3/output5 validation.png`](Lab%203/output5%20validation.png) | Lab 3 — output element |
 | [`Lab 3/lab3_ExerA validation.png`](Lab%203/lab3_ExerA%20validation.png) | Lab 3 — Exercise A (bakery order) |
 | [`Lab 3/lab3_ExerB validation.png`](Lab%203/lab3_ExerB%20validation.png) | Lab 3 — Exercise B (ticket booking) |
+| [`Lab 3/inattribute5 validation.png`](Lab%203/inattribute5%20validation.png) | Lab 3 — input attributes (clean validation) |
+| [`Lab 3/intro5 before fix validation.png`](Lab%203/intro5%20before%20fix%20validation.png) | Lab 3 — intro page, errors before the fix |
 
 ---
 
