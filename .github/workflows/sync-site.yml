@@ -1,0 +1,67 @@
+name: Sync site index and README
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sync-site
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate index.html and README.md
+        run: python3 tools/sync_site.py
+
+      - name: Commit if anything changed
+        id: commit
+        run: |
+          if git diff --quiet -- index.html README.md pages.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "### Everything already in sync" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html README.md pages.json
+          git commit -m "chore(site): sync index and README with repository files"
+          git push
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          {
+            echo "### Site index and README updated"
+            echo ""
+            git show --stat --oneline HEAD | tail -n +1
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Commits pushed with GITHUB_TOKEN do not trigger other workflows, so the
+      # "pages build and deployment" workflow would not run on its own.
+      # Ask GitHub for a Pages build explicitly.
+      - name: Trigger a GitHub Pages build
+        if: steps.commit.outputs.changed == 'true'
+        run: |
+          code=$(curl -s -o /tmp/build.json -w "%{http_code}" -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds")
+          echo "Pages build request -> HTTP $code"
+          cat /tmp/build.json
+          if [ "$code" != "201" ] && [ "$code" != "204" ]; then
+            echo "::warning::Could not trigger a Pages build (HTTP $code). The site will update on the next manual push."
+          fi
