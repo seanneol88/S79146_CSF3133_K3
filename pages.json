@@ -109,14 +109,14 @@
       "description": "Thirteen deliberate errors found and fixed, then extended with a Now Showing sidebar, `tel`/`time` inputs and a second `output`."
     },
     "Lab 3/inattribute5.html": {
-      "tag": "Page",
+      "tag": "Demo",
       "title": "HTML5 Input Attributes",
-      "description": "HTML page in Lab 3."
+      "description": "`placeholder`, `autofocus`, `required` and `autocomplete` at work on a club sign-up form."
     },
     "Lab 3/intro5_broken.html": {
-      "tag": "Page",
-      "title": "Introduction to HTML5",
-      "description": "I like HTML5"
+      "tag": "Before fix",
+      "title": "Intro Page — broken version",
+      "description": "Deliberately invalid `<!DOCTYPE>` used to practise the validator; the errors it triggers are listed at the end of the file."
     }
   },
   "images": {
@@ -130,6 +130,8 @@
     "Lab 3/output5 validation.png": "Lab 3 · The output Element",
     "Lab 3/lab3 validation.png": "Lab 3 · Contact page",
     "Lab 3/lab3_ExerA validation.png": "Lab 3 · Exercise A",
-    "Lab 3/lab3_ExerB validation.png": "Lab 3 · Exercise B"
+    "Lab 3/lab3_ExerB validation.png": "Lab 3 · Exercise B",
+    "Lab 3/inattribute5 validation.png": "Lab 3 · Input attributes — valid",
+    "Lab 3/intro5 before fix validation.png": "Lab 3 · Intro page — errors before the fix"
   }
 }
