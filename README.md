@@ -104,7 +104,9 @@ S79146_CSF3133_K3/
 │   ├── input5.html
 │   ├── lab3 validation.png
 │   ├── lab3.html
+│   ├── lab3_ExerA validation.png
 │   ├── lab3_ExerA.html
+│   ├── lab3_ExerB validation.png
 │   ├── lab3_ExerB.html
 │   ├── output5 validation.png
 │   └── output5.html
@@ -168,6 +170,8 @@ results are shown in the gallery on the home page and stored in the lab folders:
 | [`Lab 3/entity validation.png`](Lab%203/entity%20validation.png) | Lab 3 — HTML entities |
 | [`Lab 3/input5 validation.png`](Lab%203/input5%20validation.png) | Lab 3 — HTML5 input types |
 | [`Lab 3/output5 validation.png`](Lab%203/output5%20validation.png) | Lab 3 — output element |
+| [`Lab 3/lab3_ExerA validation.png`](Lab%203/lab3_ExerA%20validation.png) | Lab 3 — Exercise A (bakery order) |
+| [`Lab 3/lab3_ExerB validation.png`](Lab%203/lab3_ExerB%20validation.png) | Lab 3 — Exercise B (ticket booking) |
 
 ---
 
