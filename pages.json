@@ -97,6 +97,16 @@
       "tag": "Practice",
       "title": "Creating Forms",
       "description": "Text inputs, radio buttons, checkboxes, select menu and submit button."
+    },
+    "Lab 3/lab3_ExerA.html": {
+      "tag": "Exercise A",
+      "title": "CampusBake® — Online Order",
+      "description": "Five `div` sections, a HTML5 order form (`tel`, `email`, `date`, `time`, `color`, `range`, `datalist`) and a live `output` price total."
+    },
+    "Lab 3/lab3_ExerB.html": {
+      "tag": "Exercise B",
+      "title": "Ticket Booking — Debug & Extend",
+      "description": "Thirteen deliberate errors found and fixed, then extended with a Now Showing sidebar, `tel`/`time` inputs and a second `output`."
     }
   },
   "images": {
