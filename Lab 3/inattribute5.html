@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Input Attributes</title>
+</head>
+<body>
+
+    <!-- Demonstrating the new HTML5 input attributes:
+         placeholder = grey hint text shown while the box is empty
+         autofocus   = the cursor starts blinking in this box
+         required    = the form refuses to submit while empty
+         autocomplete = the browser offers previously typed values -->
+
+    <h1>Club Sign-Up Form</h1>
+    <form>
+
+        <label for="member">Member Name:</label>
+        <!-- This box grabs the cursor on page load (autofocus)
+             and the browser remembers past entries (autocomplete) -->
+        <input type="text" id="member" name="member"
+               placeholder="Type the member name here"
+               autofocus autocomplete="on">
+        <br><br>
+
+        <label for="guardian">Guardian Name:</label>
+        <!-- required: try submitting with this box empty and watch
+             the browser block the submit with a warning -->
+        <input type="text" id="guardian" name="guardian"
+               placeholder="Type the guardian name here"
+               required>
+        <br><br>
+
+        <input type="submit" value="Save">
+    </form>
+
+    <!-- Experiments to try:
+         1. Refresh the page - which box is already focused?
+         2. Leave Guardian Name empty and press Save - what happens?
+         3. Fill in a name, save, refresh, then type its first letter -
+            does autocomplete suggest it? -->
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a551b317decefd07',t:'MTc5Mzc3NTE4NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a551b317decefd07',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
