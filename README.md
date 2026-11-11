@@ -123,6 +123,7 @@ S79146_CSF3133_K3/
 │   ├── output5 validation.png
 │   └── output5.html
 ├── Lab 4/
+│   ├── cafe css validation.png
 │   ├── cafe.css
 │   ├── lab4_ExerA validation.png
 │   ├── lab4_ExerA.html
@@ -178,12 +179,10 @@ The workflow then rebuilds and redeploys the site on every push to `main`.
 
 All exercise pages were checked with the W3C Markup Validation Service; the
 results are shown in the gallery on the home page and stored in the lab folders.
-Problem A has two results filed: `Lab 4/lab4_ExerA validation.png` for the
-markup (W3C Nu) and `Lab 4/style css validation.png` for its style sheet
-(W3C CSS validator, CSS level 3). Problem B has its markup result
-(`Lab 4/lab4_ExerB validation.png`); its style sheet is still to come — drop it
-into `Lab 4/` as `cafe css validation.png` and the gallery picks it up
-automatically.
+Lab 4 has all four results filed: `lab4_ExerA validation.png` and
+`lab4_ExerB validation.png` for the markup (W3C Nu), and
+`style css validation.png` and `cafe css validation.png` for the two style
+sheets (W3C CSS validator, CSS level 3 — both "No Error Found").
 
 | Screenshot | Page checked |
 | --- | --- |
@@ -204,6 +203,7 @@ automatically.
 | [`Lab 4/lab4_ExerA validation.png`](Lab%204/lab4_ExerA%20validation.png) | Lab 4 — Problem A (Visit Terengganu) |
 | [`Lab 4/style css validation.png`](Lab%204/style%20css%20validation.png) | Lab 4 — Problem A style sheet (`style.css`) |
 | [`Lab 4/lab4_ExerB validation.png`](Lab%204/lab4_ExerB%20validation.png) | Lab 4 — Problem B (e-Café Campus) |
+| [`Lab 4/cafe css validation.png`](Lab%204/cafe%20css%20validation.png) | Lab 4 — Problem B style sheet (`cafe.css`) |
 
 ---
 
