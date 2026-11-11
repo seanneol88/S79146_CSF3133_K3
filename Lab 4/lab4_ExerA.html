@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 4 Problem A: Visit Terengganu, a tourism promotion page with an HTML5 layout, a CSS navigation bar, an embedded video and a trip interest form.">
+    <title>Visit Terengganu &ndash; Lab 4 Problem A</title>
+
+    <!-- ===== EXTERNAL CSS (requirement 4) =====
+         Most of the styling lives in style.css and is shared by any
+         page that links it. -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ===== INTERNAL CSS (requirement 4) =====
+         Only rules that make sense on THIS page go here: the seats
+         meter and the small note under the form. -->
+    <style>
+        /* The meter block above the form */
+        .seats {
+            margin: 0 0 20px;
+            font-size: 0.95rem;
+        }
+
+        /* The gauge itself: a little taller than the default so it is
+           readable on a projector */
+        .seats meter {
+            width: 260px;
+            height: 22px;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+
+        /* Page-only note under the form */
+        .form-note {
+            margin: 14px 0 0;
+            font-size: 0.82rem;
+            color: #6b7b88;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================================================================
+         LAB 4 - PROBLEM A : Visit Terengganu
+         CSF3133 Web Design · S79146 · Group K3
+
+         Requirement map
+           1  HTML5 structure .... header, nav, three sections with ids,
+                                   three articles, meter, footer, address
+           2  Navigation bar ..... <ul>/<li>/<a>, styled in style.css
+           3  Video .............. <video> + <source type="video/mp4">
+                                   + fallback text + <figcaption>
+           4  CSS ................ external style.css + internal <style>
+                                   2 id and 3 class selectors, 6+ properties
+           5  Text decoration .... overline on h1, underline on h2,
+                                   line-through on .old-price
+           6  Link states ........ :link :visited :hover :active, in order
+           7  Form ............... .trip-form with name, e-mail, radio,
+                                   checkboxes and submit
+           8  Responsive ......... width 90%, video max-width 100%
+         ================================================================== -->
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>Visit Terengganu</h1>
+        <p>Islands, culture and food &mdash; all in one state</p>
+    </header>
+
+    <!-- ===== NAVIGATION BAR (requirement 2) =====
+         A plain unordered list of in-page links. Every bullet, colour
+         and hover state is applied from style.css. -->
+    <nav aria-label="Page sections">
+        <ul>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#trip">Trip interest</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ===== SECTION 1 OF 3 : DESTINATIONS =====
+             Three <article> cards, each with an <h3>, a short
+             description and a promotion price. -->
+        <section id="destinations">
+            <h2>Destinations</h2>
+
+            <p>
+                Three places our student guides recommend for a weekend
+                away. Prices are per person and include the boat or bus
+                transfer from Kuala Terengganu.
+            </p>
+
+            <div class="card-row">
+
+                <article class="card">
+                    <h3>Pulau Redang</h3>
+                    <p>
+                        White sand, water clear enough to see your own feet,
+                        and a marine park full of coral. The snorkelling trip
+                        leaves at nine in the morning.
+                    </p>
+                    <p class="price">
+                        <span class="old-price">RM 399</span>
+                        <span class="new-price">RM 299</span>
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Masjid Kristal</h3>
+                    <p>
+                        The Crystal Mosque on Wan Man Island, built from steel,
+                        glass and crystal. Free to enter outside prayer times,
+                        and best photographed at sunset.
+                    </p>
+                    <p class="price">
+                        <span class="old-price">RM 150</span>
+                        <span class="new-price">RM 99</span>
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Kampung Cina</h3>
+                    <p>
+                        Chinatown in the middle of Kuala Terengganu: painted
+                        shophouses, a coffee shop on every corner and the
+                        weekend night market.
+                    </p>
+                    <p class="price">
+                        <span class="old-price">RM 220</span>
+                        <span class="new-price">RM 159</span>
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2 OF 3 : VIDEO =====
+             <video> with width, height and controls, a <source> with a
+             proper MIME type, and fallback text for browsers without
+             video support. The caption sits in a <figcaption>. -->
+        <section id="video">
+            <h2>Watch</h2>
+
+            <figure>
+                <video width="640" height="360" controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video element. You can
+                    <a href="https://www.w3schools.com/html/mov_bbb.mp4">download the clip</a> instead.
+                </video>
+                <figcaption>
+                    A sixty-second taste of the islands &mdash; swap this sample
+                    clip for the tourism office's own footage.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- ===== SECTION 3 OF 3 : TRIP INTEREST =====
+             The seats <meter>, then the form. -->
+        <section id="trip">
+            <h2>Trip interest</h2>
+
+            <!-- <meter> shows how full the next trip already is -->
+            <p class="seats">
+                Seats filled for the December trip:
+                <meter min="0" max="40" value="28">28 of 40 seats filled</meter>
+                <strong>28 / 40</strong>
+            </p>
+
+            <!-- Requirement 7: the form carries the class .trip-form,
+                 which supplies its background, padding, border and width. -->
+            <form class="trip-form" action="#" method="post">
+
+                <fieldset>
+                    <legend>Your details</legend>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Full name" required>
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="you@student.unisza.edu.my" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Traveller type</legend>
+
+                    <input type="radio" id="student" name="traveller" value="student" checked>
+                    <label for="student">Student</label>
+
+                    <input type="radio" id="staff" name="traveller" value="staff">
+                    <label for="staff">Staff</label>
+
+                    <input type="radio" id="public" name="traveller" value="public">
+                    <label for="public">Public</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Interests</legend>
+
+                    <input type="checkbox" id="islands" name="interests" value="islands">
+                    <label for="islands">Islands</label>
+
+                    <input type="checkbox" id="food" name="interests" value="food">
+                    <label for="food">Food</label>
+
+                    <input type="checkbox" id="culture" name="interests" value="culture">
+                    <label for="culture">Culture</label>
+
+                    <input type="checkbox" id="nature" name="interests" value="nature">
+                    <label for="nature">Nature</label>
+                </fieldset>
+
+                <input type="submit" value="Send my interest">
+            </form>
+
+            <p class="form-note">
+                We reply within two working days. Your details are used for this
+                trip only.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER =====
+         &copy; and an <address> with a mailto: link, as required. -->
+    <footer>
+        <p>&copy; 2026 Terengganu Tourism Office &middot; CSF3133 Lab 4 · S79146</p>
+        <address>
+            Questions? E-mail
+            <a href="mailto:tourism@terengganu.my">tourism@terengganu.my</a>
+            or call <a href="tel:+6096221500">09-622 1500</a>.
+        </address>
+    </footer>
+
+</body>
+</html>

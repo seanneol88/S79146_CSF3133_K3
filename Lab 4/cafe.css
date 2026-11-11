@@ -1,0 +1,278 @@
+/* ==================================================================
+   cafe.css  ·  CSF3133 Lab 4  ·  Problem B  ·  S79146
+   External style sheet for lab4_ExerB.html  ("e-Café Campus").
+
+   The navigation bar styles that used to sit in the page's internal
+   <style> block have been moved here, as Part 2 of the exercise asks.
+   Attached with:  <link rel="stylesheet" href="cafe.css">
+
+   Sections
+     1. Page and headings
+     2. Navigation bar (moved out of the page)
+     3. Intro paragraph and highlighted prices
+     4. Menu items and the line-through promotion
+     5. Video and caption
+     6. Feedback form
+     7. Footer and address
+     8. Link states, in the correct order
+     9. Small screens
+   ================================================================== */
+
+/* ===== 1. PAGE AND HEADINGS ===== */
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #333333;                 /* the colon that was missing on line 18 */
+    background-color: #fbf7f2;
+}
+
+header {
+    background-color: #6e2c00;
+    color: #ffffff;
+    padding: 28px 24px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    /* Was "overlined", which is not a CSS value: the line above the
+       heading only appears with overline. */
+    text-decoration: overline;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #6e2c00;
+    text-decoration: underline;
+}
+
+h3 {
+    margin: 0 0 6px;
+    color: #6e2c00;
+    font-size: 1.05rem;
+}
+
+/* ===== 2. NAVIGATION BAR =====
+   Moved out of the page's <style> block and completed: no bullets,
+   no underlines, block links, a background colour, padding, UPPERCASE
+   labels and a different background on hover. */
+nav {
+    background-color: #a04000;
+}
+
+nav ul {
+    list-style-type: none;          /* was "no", which does not exist */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: block;                 /* the whole padded area is clickable */
+    padding: 12px 22px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+nav a:hover {
+    background-color: #f0b429;
+    color: #6e2c00;
+}
+
+/* ===== 3. INTRO AND HIGHLIGHTED PRICES =====
+   The markup uses class="intro", so the selector needs the dot. */
+.intro {
+    font-size: 18px;
+    background-color: #FDEBD0;
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+/* .highlight was written without its dot in the original, so the
+   prices stayed plain. */
+.highlight {
+    font-weight: bold;
+    color: #C0392B;
+}
+
+/* ===== 4. MENU ITEMS =====
+   id="item" appeared twice in the original; as a class it is allowed
+   on any number of articles. */
+main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 26px 20px 40px;
+}
+
+section {
+    margin-bottom: 34px;
+}
+
+.item {
+    background-color: #ffffff;
+    border: 1px solid #e8d9c6;
+    border-left: 6px solid #a04000;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+}
+
+.item p {
+    margin: 0;
+}
+
+/* Requirement 6: the old price keeps a line through it */
+.old-price {
+    text-decoration: line-through;
+    color: #9b8b7a;
+    margin-right: 10px;
+}
+
+.new-price {
+    color: #C0392B;
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+/* ===== 5. VIDEO AND CAPTION ===== */
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+video {
+    /* Requirement 7: the clip shrinks with the window */
+    max-width: 100%;
+    height: auto;
+    border: 6px solid #6e2c00;
+    border-radius: 8px;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 0.86rem;
+    font-style: italic;
+    color: #6b5c4d;
+}
+
+/* ===== 6. FEEDBACK FORM ===== */
+.feedback-form {
+    background-color: #ffffff;
+    padding: 20px 24px;
+    border: 2px solid #a04000;
+    border-radius: 10px;
+    max-width: 560px;
+}
+
+.feedback-form fieldset {
+    border: 1px solid #e8d9c6;
+    border-radius: 8px;
+    margin: 0 0 16px;
+    padding: 12px 16px;
+}
+
+.feedback-form legend {
+    padding: 0 6px;
+    font-weight: 700;
+    color: #6e2c00;
+    font-size: 0.9rem;
+}
+
+.feedback-form label {
+    display: inline-block;
+    margin: 4px 16px 4px 0;
+    font-size: 0.95rem;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"] {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    padding: 8px 10px;
+    margin: 4px 0 12px;
+    border: 1px solid #d8c6b0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.feedback-form input[type="submit"] {
+    background-color: #6e2c00;
+    color: #ffffff;
+    padding: 10px 26px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.feedback-form input[type="submit"]:hover {
+    background-color: #f0b429;
+    color: #6e2c00;
+}
+
+/* ===== 7. FOOTER AND ADDRESS ===== */
+footer {
+    background-color: #6e2c00;
+    color: #f3e3d3;
+    text-align: center;
+    padding: 20px 18px;
+    font-size: 0.86rem;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 6px;
+}
+
+footer a {
+    color: #f0b429;
+}
+
+/* ===== 8. LINK STATES, CORRECT ORDER =====
+   The original had :hover before :visited, so the visited colour won
+   and the hover never showed. link, visited, hover, active. */
+a:link {
+    color: #1A5276;
+}
+
+a:visited {
+    color: #7D3C98;
+}
+
+a:hover {
+    color: #E67E22;
+    background-color: #fdf0d5;
+}
+
+a:active {
+    color: #C0392B;
+}
+
+/* ===== 9. SMALL SCREENS ===== */
+@media (max-width: 560px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        padding: 10px 14px;
+        font-size: 0.76rem;
+    }
+
+    .feedback-form {
+        padding: 16px;
+    }
+}

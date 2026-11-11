@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 4 Problem B: the e-Café Campus page with fourteen faults found and corrected by line number, then extended with an external style sheet, promotions, a captioned video and a feedback form.">
+    <title>e-Café Campus &ndash; Lab 4 Problem B</title>
+
+    <!-- Part 2, step 5: the navigation bar styles now live in their own
+         external file instead of an internal style block. -->
+    <link rel="stylesheet" href="cafe.css">
+</head>
+<body>
+
+    <!-- ==================================================================
+         LAB 4 - PROBLEM B : e-Café Campus
+         CSF3133 Web Design · S79146 · Group K3
+
+         PART 1  The given code was copied into this file and every fault
+                 was corrected. Line numbers refer to the listing printed
+                 in the lab handout.
+
+           1.  Line 6      The style tag carried type="text/css". That
+                           attribute is obsolete in HTML5 and is removed.
+           2.  Line 7      An HTML comment labelled the navigation block
+                           inside the style element. Inside CSS a comment
+                           must be written with slash and star instead.
+           3.  Line 9      list-style-type: no; is not a value. The
+                           keyword is none, which is why the bullets
+                           were still showing.
+           4.  Lines 13-16 The link states were in the wrong order:
+                           :hover came before :visited. With equal
+                           weight the later rule wins, so the visited
+                           colour killed the hover. Correct order is
+                           :link, :visited, :hover, :active.
+           5.  Line 17     text-decoration: overlined; is not a value.
+                           The keyword is overline, so the h1 had no
+                           line above it.
+           6.  Line 18     color #333333; was missing its colon, so the
+                           whole declaration was thrown away.
+           7.  Line 19     The selector #intro targets an id, but the
+                           paragraph is written class="intro". It has
+                           to be .intro.
+           8.  Lines 19-22 The #intro block was never closed. Without
+                           its closing brace the rules that followed
+                           were swallowed by it and stopped working.
+           9.  Line 22     highlight { was missing its leading dot, so
+                           the browser looked for an element called
+                           highlight and never matched the span. This
+                           is why the prices were not bold and red.
+           10. Line 34     href="menu" points at a file called menu.
+                           It must be href="#menu" to jump to the
+                           section on this page.
+           11. Lines 42,46 id="item" was used on two articles. An id
+                           must be unique, so both became class="item".
+                           This was also a validation error.
+           12. Line 53     The video element had no controls
+                           attribute, so there was no play button.
+           13. Line 54     type="mp4" is not a MIME type. It must be
+                           type="video/mp4" or the browser cannot pick
+                           a decoder and the clip will not play.
+           14. Lines 4-5   There was no viewport meta tag, so the page
+                           did not fit a phone. Added in Part 2.
+
+         PART 2  Extensions: external cafe.css, navigation bar styled
+                 and given a Feedback link, a line-through promotion on
+                 every menu item, a figure caption on the video, the
+                 viewport meta, a responsive video, a feedback form and
+                 an address in the footer.
+         ================================================================== -->
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>e-Café Campus</h1>
+    </header>
+
+    <!-- ===== NAVIGATION BAR =====
+         Link 1 now jumps to #menu, and a fourth link was added for the
+         new feedback section. All the styling is in cafe.css. -->
+    <nav aria-label="Page sections">
+        <ul>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#feedback">Feedback</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ===== MENU SECTION =====
+             Two articles, now carrying a class instead of a duplicate
+             id. Part 2 added the old price crossed out beside the new
+             one. -->
+        <section id="menu">
+            <h2>Today's Menu</h2>
+
+            <p class="intro">Freshly brewed coffee and local delights every day.</p>
+
+            <article class="item">
+                <h3>Kopi Tarik</h3>
+                <p>
+                    Only <span class="old-price">RM 4.50</span>
+                    <span class="new-price">RM 3.50</span>
+                </p>
+            </article>
+
+            <article class="item">
+                <h3>Nasi Lemak</h3>
+                <p>
+                    Only <span class="old-price">RM 6.00</span>
+                    <span class="new-price">RM 5.00</span>
+                </p>
+            </article>
+
+            <article class="item">
+                <h3>Roti Bakar</h3>
+                <p>
+                    Only <span class="old-price">RM 4.00</span>
+                    <span class="new-price">RM 3.20</span>
+                </p>
+            </article>
+        </section>
+
+        <!-- ===== VIDEO SECTION =====
+             controls added, the MIME type corrected to video/mp4, and a
+             caption wrapped in figure and figcaption. -->
+        <section id="video">
+            <h2>Watch Our Story</h2>
+
+            <figure>
+                <video width="400" height="300" controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag. You can
+                    <a href="https://www.w3schools.com/html/mov_bbb.mp4">download the clip</a> instead.
+                </video>
+                <figcaption>
+                    Two minutes inside the café &mdash; a sample clip standing in
+                    for our own footage.
+                </figcaption>
+            </figure>
+        </section>
+
+        <!-- ===== FEEDBACK SECTION (Part 2, step 8) ===== -->
+        <section id="feedback">
+            <h2>Tell us what you think</h2>
+
+            <form class="feedback-form" action="#" method="post">
+
+                <fieldset>
+                    <legend>Your details</legend>
+
+                    <label for="fb-name">Name</label>
+                    <input type="text" id="fb-name" name="name" placeholder="Your name" required>
+
+                    <label for="fb-email">E-mail</label>
+                    <input type="email" id="fb-email" name="email" placeholder="you@student.unisza.edu.my" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Visit type</legend>
+
+                    <input type="radio" id="dine-in" name="visit" value="dine-in" checked>
+                    <label for="dine-in">Dine-in</label>
+
+                    <input type="radio" id="take-away" name="visit" value="take-away">
+                    <label for="take-away">Take-away</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Favourite items</legend>
+
+                    <input type="checkbox" id="kopi" name="favourite" value="kopi-tarik">
+                    <label for="kopi">Kopi Tarik</label>
+
+                    <input type="checkbox" id="nasi" name="favourite" value="nasi-lemak">
+                    <label for="nasi">Nasi Lemak</label>
+
+                    <input type="checkbox" id="roti" name="favourite" value="roti-bakar">
+                    <label for="roti">Roti Bakar</label>
+
+                    <input type="checkbox" id="kuih" name="favourite" value="kuih">
+                    <label for="kuih">Kuih</label>
+                </fieldset>
+
+                <input type="submit" value="Send feedback">
+            </form>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER =====
+         Part 2, step 9: an address element with a mailto link. -->
+    <footer id="contact">
+        <p>&copy; 2026 e-Café Campus &middot; CSF3133 Lab 4 · S79146</p>
+        <address>
+            E-mail <a href="mailto:ecafe@unisza.edu.my">ecafe@unisza.edu.my</a>
+            &middot; FSKM cafeteria, Universiti Sultan Zainal Abidin
+        </address>
+    </footer>
+
+</body>
+</html>
