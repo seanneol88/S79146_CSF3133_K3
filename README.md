@@ -125,6 +125,7 @@ S79146_CSF3133_K3/
 ├── Lab 4/
 │   ├── cafe css validation.png
 │   ├── cafe.css
+│   ├── Lab4.pdf
 │   ├── lab4_ExerA validation.png
 │   ├── lab4_ExerA.html
 │   ├── lab4_ExerB validation.png
@@ -247,6 +248,9 @@ Opening `index.html` directly in a browser also works.
   e-Café Campus page). Problem A also keeps a small internal `<style>` block,
   because the handout asks for internal *and* external CSS; Problem B's nav
   styles were moved out of the page into `cafe.css`.
+- The brief these two pages answer is the lecturer's Lab Exercise 4 handout,
+  kept next to the work as [`Lab 4/Lab4.pdf`](Lab%204/Lab4.pdf). Both Lab 4
+  pages link to it from their footer.
 - The `<video>` on both Lab 4 pages uses a public sample MP4 so it actually
   plays; swap the `src` for your own clip when you have one.
 - Both Lab 4 pages post their forms to `action="#"`, so submitting simply
