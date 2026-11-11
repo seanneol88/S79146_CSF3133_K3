@@ -124,6 +124,7 @@ S79146_CSF3133_K3/
 │   └── output5.html
 ├── Lab 4/
 │   ├── cafe.css
+│   ├── lab4_ExerA validation.png
 │   ├── lab4_ExerA.html
 │   ├── lab4_ExerB.html
 │   └── style.css
@@ -175,9 +176,9 @@ The workflow then rebuilds and redeploys the site on every push to `main`.
 
 All exercise pages were checked with the W3C Markup Validation Service; the
 results are shown in the gallery on the home page and stored in the lab folders.
-The Lab 4 screenshots are not here yet — drop them into `Lab 4/` as
-`lab4_ExerA validation.png` and `lab4_ExerB validation.png` and the gallery
-picks them up automatically.
+Problem A's result is filed as `Lab 4/lab4_ExerA validation.png`. Problem B's
+screenshot is still to come — drop it into `Lab 4/` as
+`lab4_ExerB validation.png` and the gallery picks it up automatically.
 
 | Screenshot | Page checked |
 | --- | --- |
@@ -195,6 +196,7 @@ picks them up automatically.
 | [`Lab 3/inattribute5 validation.png`](Lab%203/inattribute5%20validation.png) | Lab 3 — input attributes (clean validation) |
 | [`Lab 3/intro5 before fix validation.png`](Lab%203/intro5%20before%20fix%20validation.png) | Lab 3 — intro page, errors before the fix |
 | [`Lab 3/intro5 validation.png`](Lab%203/intro5%20validation.png) | Lab 3 — intro page, clean after the fix |
+| [`Lab 4/lab4_ExerA validation.png`](Lab%204/lab4_ExerA%20validation.png) | Lab 4 — Problem A (Visit Terengganu) |
 
 ---
 
