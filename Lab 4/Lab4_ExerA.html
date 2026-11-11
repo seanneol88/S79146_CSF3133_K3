@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 4 Exercise A: the CampusBake menu page, styled entirely with an embedded style sheet using type, class and id selectors, the box model and link states.">
+    <title>CampusBake&reg; Menu &ndash; Lab 4 Exercise A</title>
+
+    <!-- ==================================================================
+         LAB 4 - EXERCISE A : style the CampusBake menu page
+
+         THE BRIEF (from Chapter 4)
+
+           Build one page for the CampusBake&reg; kiosk and style it with
+           CSS. Content and presentation must be kept apart: the HTML
+           carries the words, the CSS carries every colour, font, space
+           and border.
+
+         REQUIREMENTS
+
+           1. Correct HTML5 skeleton: <!DOCTYPE html>, lang, charset,
+              viewport meta, <title>, meta description.            [done]
+           2. A header with the shop name in an <h1> and a tagline.
+           3. A nav bar of four links that jump to ids on this page.
+           4. Three or more product cards, each an <article> with a
+              name, a price and a one-line description.
+           5. At least one badge styled differently from the others.
+           6. A price table with <thead>/<tbody>, striped rows and a
+              highlighted row on hover.
+           7. A footer with the group and matric number.
+           8. CSS must be EMBEDDED in <head> - no external file and
+              no style="" attributes anywhere.
+           9. The sheet must contain at least:
+                 one type selector      one class selector
+                 one id selector        one descendant selector
+                 one pseudo-class       one pseudo-element
+          10. Use the box model on purpose: margin, border, padding
+              and border-radius on the cards.
+          11. Style all four link states: link, visited, hover, active.
+          12. The finished file must validate with zero errors and
+              zero warnings in the W3C validator.
+         ================================================================== -->
+
+    <style>
+        /* ===== UNIVERSAL: predictable widths ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* ===== TYPE SELECTORS (requirement 9) ===== */
+        body {
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #33261c;
+            background-color: #fdf6ec;
+        }
+
+        h2 {
+            color: #8a4b1d;
+            border-bottom: 3px solid #f0b429;
+            padding-bottom: 6px;
+        }
+
+        /* ===== LINK STATES (requirement 11) =====
+           The order matters: link, visited, hover, active. */
+        a:link {
+            color: #8a4b1d;
+        }
+
+        a:visited {
+            color: #7d5a8c;
+        }
+
+        a:hover {
+            color: #c0392b;
+            background-color: #ffe9b8;
+        }
+
+        a:active {
+            color: #2e8b57;
+        }
+
+        /* ===== HEADER ===== */
+        .shop-header {
+            background-color: #8a4b1d;
+            color: #fff8ec;
+            padding: 28px 24px 24px;
+            text-align: center;
+        }
+
+        .shop-header h1 {
+            margin: 0;
+            font-size: 1.9rem;
+            letter-spacing: 1px;
+        }
+
+        .shop-header .slogan {
+            display: block;
+            margin-top: 6px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #f7d9a8;
+        }
+
+        /* ===== NAV ===== */
+        .menu-nav {
+            background-color: #5c3210;
+        }
+
+        .menu-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Descendant selector (requirement 9) */
+        .menu-nav a {
+            display: block;
+            padding: 11px 22px;
+            color: #ffe9c7;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .menu-nav a:hover {
+            background-color: #f0b429;
+            color: #4a2609;
+        }
+
+        /* ===== PAGE COLUMN ===== */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 28px 20px 48px;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        /* ===== ID SELECTOR (requirement 9) =====
+           #order-note is used once, on the call-out box. */
+        #order-note {
+            background-color: #fff4d6;
+            border-left: 6px solid #f0b429;
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* ===== PRODUCT CARDS (requirement 4 & 10) ===== */
+        .card-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .item {
+            flex: 1 1 240px;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 18px 20px;
+            border: 1px solid #e6d3ba;
+            border-top: 5px solid #8a4b1d;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(92, 50, 16, 0.10);
+        }
+
+        .item h3 {
+            margin: 0 0 4px;
+            font-size: 1.05rem;
+            color: #5c3210;
+        }
+
+        .item .price {
+            display: inline-block;
+            margin: 0 0 10px;
+            padding: 2px 10px;
+            background-color: #8a4b1d;
+            color: #fff8ec;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .item p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #5a4a3c;
+        }
+
+        /* Requirement 5: one badge stands out from the rest */
+        .item .badge {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 2px 9px;
+            background-color: #f0b429;
+            color: #4a2609;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* The featured card gets the gold edge instead of brown */
+        .item.featured {
+            border-top-color: #f0b429;
+            background-color: #fffdf7;
+        }
+
+        /* ===== PRICE TABLE (requirement 6) ===== */
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+
+        .price-table caption {
+            caption-side: bottom;
+            padding-top: 10px;
+            font-size: 0.8rem;
+            color: #7a6a5a;
+            text-align: left;
+        }
+
+        .price-table th,
+        .price-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid #e6d3ba;
+            text-align: left;
+        }
+
+        .price-table thead th {
+            background-color: #8a4b1d;
+            color: #fff8ec;
+            font-size: 0.85rem;
+        }
+
+        /* Pseudo-class (requirement 9) */
+        .price-table tbody tr:nth-child(even) {
+            background-color: #fdf0d5;
+        }
+
+        .price-table tbody tr:hover {
+            background-color: #ffe9b8;
+        }
+
+        .price-table .money {
+            text-align: right;
+            font-weight: 700;
+        }
+
+        /* ===== PSEUDO-ELEMENT (requirement 9) =====
+           A star is drawn before every line of the opening-hours list,
+           without a single extra character in the HTML. */
+        .hours {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hours li {
+            padding: 4px 0 4px 26px;
+            position: relative;
+        }
+
+        .hours li::before {
+            content: "\2605";
+            position: absolute;
+            left: 0;
+            color: #f0b429;
+            font-size: 1.05rem;
+        }
+
+        /* ===== FOOTER (requirement 7) ===== */
+        .shop-footer {
+            background-color: #5c3210;
+            color: #ffe9c7;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.82rem;
+        }
+
+        .shop-footer a {
+            color: #f0b429;
+        }
+
+        /* ===== SMALL SCREENS ===== */
+        @media (max-width: 560px) {
+            .shop-header h1 {
+                font-size: 1.45rem;
+            }
+
+            .menu-nav a {
+                padding: 10px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 2. HEADER ===== -->
+    <header class="shop-header">
+        <h1>CampusBake&reg;</h1>
+        <span class="slogan">Warm from the oven, five minutes from your lecture hall</span>
+    </header>
+
+    <!-- ===== 3. NAVIGATION : four in-page links ===== -->
+    <nav class="menu-nav" aria-label="CampusBake menu sections">
+        <ul>
+            <li><a href="#favourites">Favourites</a></li>
+            <li><a href="#price-list">Price list</a></li>
+            <li><a href="#hours">Opening hours</a></li>
+            <li><a href="#order">How to order</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ===== 4. PRODUCT CARDS ===== -->
+        <section id="favourites">
+            <h2>Today at the kiosk</h2>
+
+            <div class="card-row">
+
+                <!-- Card 1 - the featured one, with the gold top border -->
+                <article class="item featured">
+                    <h3>Roti Bakar</h3>
+                    <p class="price">RM 3.50</p>
+                    <p>
+                        Two slices of thick white bread, grilled over charcoal,
+                        with kaya and a slab of cold butter.
+                        <span class="badge">Best seller</span>
+                    </p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="item">
+                    <h3>Nasi Lemak Bungkus</h3>
+                    <p class="price">RM 2.80</p>
+                    <p>
+                        Coconut rice, sambal, half a boiled egg, peanuts and
+                        ikan bilis, wrapped in banana leaf.
+                    </p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="item">
+                    <h3>Teh Tarik</h3>
+                    <p class="price">RM 2.20</p>
+                    <p>
+                        Pulled until frothy, served in a plastic bag with a
+                        straw, the way it should be.
+                        <span class="badge">New</span>
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ===== 6. PRICE TABLE ===== -->
+        <section id="price-list">
+            <h2>Price list</h2>
+
+            <table class="price-table">
+                <caption>All prices in Malaysian Ringgit and inclusive of everything.</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Student price</th>
+                        <th scope="col">Walk-in price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Roti Bakar</th>
+                        <td>Bread</td>
+                        <td class="money">RM 3.50</td>
+                        <td class="money">RM 4.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nasi Lemak Bungkus</th>
+                        <td>Rice</td>
+                        <td class="money">RM 2.80</td>
+                        <td class="money">RM 3.20</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Teh Tarik</th>
+                        <td>Drink</td>
+                        <td class="money">RM 2.20</td>
+                        <td class="money">RM 2.50</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kuih Lapis (per slice)</th>
+                        <td>Kuih</td>
+                        <td class="money">RM 1.20</td>
+                        <td class="money">RM 1.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ===== OPENING HOURS : the ::before pseudo-element ===== -->
+        <section id="hours">
+            <h2>Opening hours</h2>
+
+            <ul class="hours">
+                <li>Monday to Thursday &mdash; 7.30 a.m. to 6.00 p.m.</li>
+                <li>Friday &mdash; 7.30 a.m. to 12.15 p.m. only</li>
+                <li>Saturday &mdash; 8.00 a.m. to 2.00 p.m.</li>
+                <li>Sunday and public holidays &mdash; closed</li>
+            </ul>
+        </section>
+
+        <!-- ===== HOW TO ORDER : the #id selector ===== -->
+        <section id="order">
+            <h2>How to order</h2>
+
+            <div id="order-note">
+                <p>
+                    Walk up to the counter beside the FSKM cafeteria, tell us
+                    what you want, and pay with your student card or cash. No
+                    app, no queue numbers, no delivery fee.
+                </p>
+                <p>
+                    Bulk orders for events: e-mail
+                    <a href="mailto:campusbake@unisza.edu.my">campusbake@unisza.edu.my</a>
+                    at least two days ahead.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== 7. FOOTER ===== -->
+    <footer class="shop-footer">
+        <p>
+            CampusBake&reg; kiosk &middot; FSKM, Universiti Sultan Zainal Abidin &middot;
+            CSF3133 Lab 4 Exercise A &middot; S79146 &middot; Group K3
+        </p>
+        <p><a href="lab4.html">Back to Lab 4</a></p>
+    </footer>
+
+</body>
+</html>

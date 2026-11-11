@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 4: the CSS box model explained, margin, border, padding and content shown as nested boxes, with the margin shorthand and box-sizing compared.">
+    <title>The CSS Box Model</title>
+    <link rel="stylesheet" href="style4.css">
+
+    <!-- ===== EMBEDDED STYLE BLOCK (this page only) ===== -->
+    <style>
+        /* ---- the nested diagram ----
+           Each layer is a div whose background colour shows what it is.
+           Padding is used to draw the thickness of that layer. */
+        .bm-margin {
+            background-color: #fdf0d5;
+            border: 1px dashed #d9a53b;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .bm-border {
+            background-color: #f7d7d7;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .bm-padding {
+            background-color: #dcf0e3;
+            padding: 24px;
+            border-radius: 4px;
+        }
+
+        .bm-content {
+            background-color: #ffffff;
+            border: 1px dashed #1f4e79;
+            padding: 24px 16px;
+            text-align: center;
+            font-weight: 700;
+            color: #1f4e79;
+        }
+
+        .bm-tag {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #5b6b7c;
+            margin-bottom: 8px;
+        }
+
+        /* ---- box-sizing comparison ---- */
+        .bm-compare {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .bm-box {
+            width: 200px;
+            padding: 20px;
+            border: 5px solid #1f4e79;
+            background-color: #eef4fa;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* default: width means the CONTENT only */
+        .bm-content-box {
+            box-sizing: content-box;
+        }
+
+        /* width means the whole visible box */
+        .bm-border-box {
+            box-sizing: border-box;
+        }
+
+        /* ---- property table ---- */
+        .bm-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+
+        .bm-table th,
+        .bm-table td {
+            padding: 10px 14px;
+            border: 1px solid #d7e1ec;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .bm-table thead th {
+            background-color: #1f4e79;
+            color: #ffffff;
+        }
+
+        .bm-table code {
+            color: #c0392b;
+        }
+
+        /* ---- shorthand demo strip ---- */
+        .bm-sides {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .bm-side {
+            flex: 1 1 120px;
+            background-color: #ffffff;
+            border: 1px solid #d7e1ec;
+            border-top: 4px solid #3b7cb8;
+            padding: 12px 14px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================================================================
+         LAB 4 - CHAPTER 4 : CASCADING STYLE SHEETS
+         Page 4 of 6 : the box model.
+
+         Every element on a page is a rectangular box made of four layers,
+         from the outside in:  margin  ->  border  ->  padding  ->  content.
+         ================================================================== -->
+
+    <header class="site-header">
+        <h1>The <span class="brand-accent">Box Model</span></h1>
+        <p class="tagline">margin &middot; border &middot; padding &middot; content</p>
+    </header>
+
+    <nav class="site-nav" aria-label="Lab 4 pages">
+        <ul>
+            <li><a href="lab4.html">Lab 4</a></li>
+            <li><a href="css4.html">Attaching CSS</a></li>
+            <li><a href="selector4.html">Selectors</a></li>
+            <li><a href="boxmodel4.html">Box model</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ===== 1. THE FOUR LAYERS ===== -->
+        <section>
+            <h2>Four layers, outside in</h2>
+
+            <div class="bm-margin">
+                <span class="bm-tag">margin &mdash; 24px, outside the border, always transparent</span>
+
+                <div class="bm-border">
+                    <span class="bm-tag">border &mdash; 8px, the visible edge</span>
+
+                    <div class="bm-padding">
+                        <span class="bm-tag">padding &mdash; 24px, inside the border, same colour as the content</span>
+
+                        <div class="bm-content">
+                            content &mdash; the text or image itself
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. PROPERTY TABLE ===== -->
+        <section>
+            <h2>The properties</h2>
+
+            <table class="bm-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Property</th>
+                        <th scope="col">Sits</th>
+                        <th scope="col">Takes a colour?</th>
+                        <th scope="col">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">width / height</th>
+                        <td>Innermost &mdash; the content</td>
+                        <td>No</td>
+                        <td><code>width: 200px;</code></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">padding</th>
+                        <td>Between the content and the border</td>
+                        <td>No &mdash; takes the background colour</td>
+                        <td><code>padding: 20px;</code></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">border</th>
+                        <td>Around the padding</td>
+                        <td>Yes</td>
+                        <td><code>border: 5px solid #1f4e79;</code></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">margin</th>
+                        <td>Outside the border</td>
+                        <td>No &mdash; always transparent</td>
+                        <td><code>margin: 24px auto;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ===== 3. THE SHORTHAND ===== -->
+        <section>
+            <h2>One property, four sides</h2>
+
+            <p>
+                <code>margin: 10px 20px 30px 40px;</code> is read
+                <strong>clockwise from the top</strong>, so it means exactly the
+                same as the four long-hand lines below it. With two values,
+                <code>margin: 10px 20px;</code>, the first is top/bottom and the
+                second is left/right. With one value all four sides match.
+            </p>
+
+            <div class="bm-sides">
+                <div class="bm-side"><strong>top</strong><br>10px</div>
+                <div class="bm-side"><strong>right</strong><br>20px</div>
+                <div class="bm-side"><strong>bottom</strong><br>30px</div>
+                <div class="bm-side"><strong>left</strong><br>40px</div>
+            </div>
+        </section>
+
+        <!-- ===== 4. BOX-SIZING ===== -->
+        <section>
+            <h2>Why the two boxes below are different sizes</h2>
+
+            <p>
+                Both boxes are told <code>width: 200px</code> and both have
+                <code>20px</code> padding and a <code>5px</code> border. The left
+                one is the CSS default, <code>content-box</code>: the 200px covers
+                the content only, so the box on the screen is
+                200 + 20 + 20 + 5 + 5 = <strong>250px</strong> wide. The right one
+                sets <code>box-sizing: border-box</code>, so the 200px covers
+                everything and the content is squeezed to 150px.
+            </p>
+
+            <div class="bm-compare">
+                <div class="bm-box bm-content-box">
+                    content-box<br>
+                    screen width 250px
+                </div>
+
+                <div class="bm-box bm-border-box">
+                    border-box<br>
+                    screen width 200px
+                </div>
+            </div>
+
+            <div class="notebox">
+                <p>
+                    That is why <code>style4.css</code> starts with
+                    <code>* { box-sizing: border-box; }</code> &mdash; one line
+                    that makes every width on the site mean what it says.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== 5. CENTRING ===== -->
+        <section>
+            <h2>Centring a column</h2>
+
+            <p>
+                <code>max-width: 960px;</code> stops the column growing past
+                960px, and <code>margin: 0 auto;</code> shares the leftover space
+                equally on the left and right. Together they centre the content
+                without any float or flexbox:
+            </p>
+
+            <pre><code>main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+}</code></pre>
+
+            <p>That is the exact rule used by this page, and by every other page in Lab 4.</p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            Lab 4 &middot; CSF3133 Web Design &middot; S79146 &middot; Group K3 &middot;
+            <a href="../index.html">Back to the portfolio</a>
+        </p>
+    </footer>
+
+</body>
+</html>

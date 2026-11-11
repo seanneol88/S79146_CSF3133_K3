@@ -11,6 +11,10 @@
     "Lab 3": {
       "title": "Lab 3 — Elements, Layout & Forms",
       "description": "Block vs inline elements, `div` page layout, HTML entities, the HTML5 input types and the `output` element, plus a working contact page."
+    },
+    "Lab 4": {
+      "title": "Lab 4 — Cascading Style Sheets",
+      "description": "Separating content from presentation: the three ways to attach CSS, the selector types, the box model, and two styled exercises."
     }
   },
   "gallery": {
@@ -122,6 +126,36 @@
       "tag": "After fix",
       "title": "Introduction to HTML5",
       "description": "The corrected intro page — proper `<!DOCTYPE html>`, `lang`, UTF-8 charset — validating with no errors or warnings."
+    },
+    "Lab 4/boxmodel4.html": {
+      "tag": "Demo",
+      "title": "The CSS Box Model",
+      "description": "Margin, border, padding and content shown as nested boxes, plus the four-value shorthand and `content-box` versus `border-box`."
+    },
+    "Lab 4/css4.html": {
+      "tag": "Demo",
+      "title": "Three Ways to Attach CSS",
+      "description": "Inline, embedded and external style sheets side by side, followed by the cascade rules that decide which one wins."
+    },
+    "Lab 4/lab4.html": {
+      "tag": "Lab page",
+      "title": "TechWeb Solutions — Styled Page",
+      "description": "A complete page with no styling of its own: one external `style4.css` supplies the colours, type, zebra table and responsive card row."
+    },
+    "Lab 4/Lab4_ExerA.html": {
+      "tag": "Exercise A",
+      "title": "CampusBake® Menu — Styled",
+      "description": "The CampusBake kiosk page styled from an embedded sheet: product cards, a striped price table, all four link states and a `::before` star list."
+    },
+    "Lab 4/Lab4_ExerB.html": {
+      "tag": "Exercise B",
+      "title": "Twelve Faults — Debugging CSS",
+      "description": "Twelve styling and markup faults found by line number and corrected, followed by the working page that proves each fix."
+    },
+    "Lab 4/selector4.html": {
+      "tag": "Demo",
+      "title": "CSS Selectors — Working Reference",
+      "description": "Type, class, id, descendant, child, grouping, pseudo-class, pseudo-element and attribute selectors, each shown live on the page."
     }
   },
   "images": {
