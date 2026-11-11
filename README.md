@@ -125,7 +125,6 @@ S79146_CSF3133_K3/
 ├── Lab 4/
 │   ├── cafe css validation.png
 │   ├── cafe.css
-│   ├── Lab4.pdf
 │   ├── lab4_ExerA validation.png
 │   ├── lab4_ExerA.html
 │   ├── lab4_ExerB validation.png
