@@ -136,6 +136,46 @@
       "tag": "Problem B",
       "title": "e-Café Campus — Debug & Extend",
       "description": "Fourteen faults in the given code found and listed by line number, then corrected and extended: `cafe.css`, a styled nav bar, `.old-price` line-through, a captioned video and a `.feedback-form`."
+    },
+    "Lab 4/Class.html": {
+      "tag": "Page",
+      "title": "Class Selector",
+      "description": "This paragraph shares the same class."
+    },
+    "Lab 4/navigation.html": {
+      "tag": "Page",
+      "title": "Navigation Bar with CSS",
+      "description": "HTML page in Lab 4."
+    },
+    "Lab 4/stail.html": {
+      "tag": "Page",
+      "title": "My First CSS",
+      "description": "on this page turns blue and centres itself, because one CSS rule styles them all at once --> Hello UMT!"
+    },
+    "Lab 4/stailID.html": {
+      "tag": "Page",
+      "title": "ID Selector",
+      "description": "Hello UMT!"
+    },
+    "Lab 4/stailLink.html": {
+      "tag": "Page",
+      "title": "Styling Link States",
+      "description": "This is a link - watch it change colour as you hover and click it."
+    },
+    "Lab 4/structure.html": {
+      "tag": "Page",
+      "title": "Semantic Page Structure",
+      "description": "Below is an example of the meter element:"
+    },
+    "Lab 4/Teks.html": {
+      "tag": "Page",
+      "title": "Text Decoration",
+      "description": "Note: the old \"blink\" decoration is ignored by modern browsers, so we combine other values instead."
+    },
+    "Lab 4/video.html": {
+      "tag": "Page",
+      "title": "Video in HTML5",
+      "description": "HTML page in Lab 4."
     }
   },
   "images": {
