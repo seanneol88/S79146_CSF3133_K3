@@ -20,8 +20,10 @@
             margin-bottom: 20px;
         }
 
-        .d-panel h3 {
+        .d-panel h2 {
             margin-top: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
             color: #1f4e79;
             font-size: 1.05rem;
         }
@@ -69,7 +71,7 @@
         }
 
         /* ---- grouping: one rule, three selectors ---- */
-        .d-group h4,
+        .d-group h3,
         .d-group p,
         .d-group li {
             font-family: Georgia, "Times New Roman", serif;
@@ -188,7 +190,7 @@
 
         <!-- ===== 1. TYPE SELECTOR ===== -->
         <section class="d-panel d-type">
-            <h3>Type (element) selector</h3>
+            <h2>Type (element) selector</h2>
             <span class="d-code">.d-type em { background-color: #ffe9b8; }</span>
             <p>
                 Selects every <em>emphasised word</em> inside this panel. No
@@ -199,7 +201,7 @@
 
         <!-- ===== 2. CLASS SELECTOR ===== -->
         <section class="d-panel">
-            <h3>Class selector</h3>
+            <h2>Class selector</h2>
             <span class="d-code">.d-highlight { background-color: #1f4e79; }</span>
             <p>
                 A class starts with a dot and may be reused:
@@ -211,7 +213,7 @@
 
         <!-- ===== 3. ID SELECTOR ===== -->
         <section class="d-panel" id="d-special">
-            <h3>Id selector</h3>
+            <h2>Id selector</h2>
             <span class="d-code">#d-special { border: 3px solid #c0392b; }</span>
             <p>
                 An id starts with a hash and may appear <strong>once</strong> per
@@ -222,7 +224,7 @@
 
         <!-- ===== 4. DESCENDANT AND CHILD ===== -->
         <section class="d-panel">
-            <h3>Descendant vs child</h3>
+            <h2>Descendant vs child</h2>
             <span class="d-code">.d-nav-demo a { color: #c0392b; }</span>
 
             <p class="d-nav-demo">
@@ -246,9 +248,9 @@
 
         <!-- ===== 5. GROUPING ===== -->
         <section class="d-panel d-group">
-            <h3>Grouping selectors</h3>
+            <h2>Grouping selectors</h2>
             <span class="d-code">.d-group h4, .d-group p, .d-group li { font-family: Georgia; }</span>
-            <h4>This heading is now serif</h4>
+            <h3>This heading is now serif</h3>
             <p>So is this paragraph, and the list item below.</p>
             <ul>
                 <li>One rule, three selectors, one set of declarations.</li>
@@ -257,7 +259,7 @@
 
         <!-- ===== 6. PSEUDO-CLASSES ===== -->
         <section class="d-panel">
-            <h3>Pseudo-classes</h3>
+            <h2>Pseudo-classes</h2>
 
             <span class="d-code">li:nth-child(odd) { background-color: #eef4fa; }</span>
             <ul class="d-zebra">
@@ -284,7 +286,7 @@
 
         <!-- ===== 7. PSEUDO-ELEMENTS ===== -->
         <section class="d-panel">
-            <h3>Pseudo-elements</h3>
+            <h2>Pseudo-elements</h2>
 
             <span class="d-code">p::first-letter { float: left; font-size: 3rem; }</span>
             <p class="d-pseudo-first">
@@ -303,7 +305,7 @@
 
         <!-- ===== 8. ATTRIBUTE SELECTORS ===== -->
         <section class="d-panel d-attr">
-            <h3>Attribute selectors</h3>
+            <h2>Attribute selectors</h2>
             <span class="d-code">input[type="email"] { border: 2px solid green; }</span>
             <p>
                 Only the e-mail field is framed green:
