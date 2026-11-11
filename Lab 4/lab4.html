@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 4 main page: a complete page styled from one external stylesheet, using class and id selectors, the box model, link states and a responsive card layout.">
+    <title>TechWeb Solutions &ndash; Styled with External CSS</title>
+    <!-- ===== THE ONLY CSS LINE ON THIS PAGE =====
+         Every colour, font, space and border you see below comes
+         from style4.css. No style attribute, no <style> block. -->
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+
+    <!-- ==================================================================
+         LAB 4 - CHAPTER 4 : CASCADING STYLE SHEETS
+         Page 1 of 6 : the main lab page.
+
+         Aim ...... separate content (HTML) from presentation (CSS)
+         Method ... one external stylesheet, style4.css
+         Skills ... type, class, id, descendant and pseudo-class
+                    selectors; the box model; link states; flex layout
+         ================================================================== -->
+
+    <!-- ===== HEADER =====
+         <header> is the semantic banner. The class "site-header"
+         paints the background, while ".brand-accent" inside it turns
+         just the word Solutions gold. -->
+    <header class="site-header">
+        <h1>TechWeb <span class="brand-accent">Solutions</span></h1>
+        <p class="tagline">Small websites, built properly &mdash; since 2019</p>
+    </header>
+
+    <!-- ===== NAVIGATION =====
+         The links point at the ids further down this same page, so
+         clicking one jumps to that section. Each link is a block, so
+         the whole 12px by 20px padding area is clickable. -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#about">Why us</a></li>
+            <li><a href="#how">How the CSS works</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ===== SECTION 1 : SERVICE CARDS =====
+             One h2 plus a flex row of three <article> cards. All three
+             share class "card"; the first one is styled differently by
+             the :first-child pseudo-class. -->
+        <section id="services">
+            <h2>What we build</h2>
+
+            <div class="card-grid">
+                <article class="card">
+                    <h3>Portfolio sites</h3>
+                    <p>
+                        A clean single page for your CV, your projects and a
+                        contact form. Hand-written HTML and CSS, no templates.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Small business pages</h3>
+                    <p>
+                        Menu, opening hours, location and a booking form. Loads
+                        fast on a phone, works without JavaScript.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h3>Fixing broken pages</h3>
+                    <p>
+                        Send us the URL and we return a list of the markup and
+                        CSS errors, each with the line number and the correction.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2 : PRICING TABLE =====
+             A data table styled with CSS only: thead is dark, the even
+             body rows are tinted by :nth-child(even), and the row under
+             the pointer turns gold by :hover. -->
+        <section id="pricing">
+            <h2>Pricing</h2>
+
+            <table class="pricing">
+                <caption>Prices in Malaysian Ringgit, one-off, student rate.</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Package</th>
+                        <th scope="col">Pages</th>
+                        <th scope="col">Delivery</th>
+                        <th scope="col">Price (RM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Starter</th>
+                        <td>1</td>
+                        <td>3 days</td>
+                        <td class="num">150.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Standard</th>
+                        <td>3</td>
+                        <td>1 week</td>
+                        <td class="num">380.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Portfolio</th>
+                        <td>5</td>
+                        <td>2 weeks</td>
+                        <td class="num">620.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Audit only</th>
+                        <td>&mdash;</td>
+                        <td>2 days</td>
+                        <td class="num">80.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ===== SECTION 3 : WHY US =====
+             An empty <ul> with list-style set to none. The green tick is
+             not an image: it is an escaped character added by the
+             ::before pseudo-element in the stylesheet. -->
+        <section id="about">
+            <h2>Why students pick us</h2>
+
+            <ul class="checklist">
+                <li>Every page validates with zero errors and zero warnings.</li>
+                <li>The CSS is commented, so you can explain it in a viva.</li>
+                <li>Mobile layout is included, not an extra charge.</li>
+                <li>Free corrections for two weeks after hand-over.</li>
+            </ul>
+        </section>
+
+        <!-- ===== SECTION 4 : THE EXPLANATION =====
+             A short reference to how the styling is attached, because
+             that is the point of Chapter 4. -->
+        <section id="how">
+            <h2>How the CSS works</h2>
+
+            <div class="notebox">
+                <p>
+                    This page holds <strong>no styling of its own</strong>. It
+                    borrows one file with
+                    <code>&lt;link rel="stylesheet" href="style4.css"&gt;</code>
+                    in the <code>&lt;head&gt;</code>. Edit a colour inside that
+                    file and every page linking it changes together.
+                </p>
+                <p>
+                    <a href="css4.html">See the three ways to attach CSS</a> &middot;
+                    <a href="selector4.html">See the selector reference</a> &middot;
+                    <a href="boxmodel4.html">See the box model</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>
+            Lab 4 &middot; CSF3133 Web Design &middot; S79146 &middot; Group K3 &middot;
+            <a href="../index.html">Back to the portfolio</a>
+        </p>
+    </footer>
+
+</body>
+</html>
