@@ -1,0 +1,308 @@
+/* ==================================================================
+   style.css  ·  CSF3133 Lab 4  ·  Problem A  ·  S79146
+   External style sheet for lab4_ExerA.html  (the "Visit Terengganu"
+   tourism page).
+
+   Attached with:  <link rel="stylesheet" href="style.css">
+   Only the two meter rules at the bottom of the internal <style>
+   block in the page are kept out of this file.
+
+   Sections
+     1. Page and type
+     2. Header
+     3. Navigation bar
+     4. Sections
+     5. Destination cards and prices
+     6. Video
+     7. Trip form
+     8. Footer
+     9. Link states
+    10. Small screens
+   ================================================================== */
+
+/* ===== 1. PAGE AND TYPE ===== */
+body {
+    /* Percentage width, as the brief asks, with a pixel ceiling so the
+       page does not stretch into one long line on a big monitor. */
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #23313d;
+    background-color: #f6f9fb;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    /* Text decoration, requirement 5: a line ABOVE the main heading */
+    text-decoration: overline;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #0b4f6c;
+    /* Text decoration, requirement 5: a line UNDER every section heading */
+    text-decoration: underline;
+    border-bottom: 3px solid #f2a541;
+    padding-bottom: 6px;
+}
+
+h3 {
+    margin: 0 0 6px;
+    color: #0b4f6c;
+    font-size: 1.1rem;
+}
+
+/* ===== 2. HEADER ===== */
+header {
+    background-color: #0b4f6c;
+    background-image: linear-gradient(135deg, #0b4f6c, #1a7ca3);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px 26px;
+    border-radius: 0 0 10px 10px;
+}
+
+header p {
+    margin: 8px 0 0;
+    color: #cfe9f3;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* ===== 3. NAVIGATION BAR =====
+   Requirement 2: no bullets, no underlines, a background colour,
+   padding, centred text and UPPERCASE labels - all of it here in
+   the external file, not in the page. */
+nav {
+    background-color: #08344a;
+    margin: 14px 0 26px;
+    border-radius: 8px;
+}
+
+nav ul {
+    list-style-type: none;      /* no bullet points */
+    margin: 0;
+    padding: 0;
+    text-align: center;         /* links sit in the middle */
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: block;
+    padding: 13px 24px;
+    color: #ffffff;
+    text-decoration: none;      /* no underline */
+    text-transform: uppercase;  /* small caps look */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* The background colour changes while the pointer is over an item */
+nav a:hover {
+    background-color: #f2a541;
+    color: #08344a;
+    border-radius: 8px;
+}
+
+/* ===== 4. SECTIONS ===== */
+section {
+    margin-bottom: 34px;
+}
+
+/* ===== 5. DESTINATION CARDS AND PRICES ===== */
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+/* Class selector 1 (the brief asks for at least two) */
+.card {
+    flex: 1 1 260px;
+    background-color: #ffffff;
+    border: 1px solid #d3e3ec;
+    border-top: 5px solid #1a7ca3;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 6px rgba(11, 79, 108, 0.10);
+}
+
+.card p {
+    margin: 0 0 12px;
+    font-size: 0.92rem;
+    color: #4a5b68;
+}
+
+/* Class selector 2 */
+.price {
+    display: block;
+    margin-top: 4px;
+}
+
+/* Requirement 5: the old price keeps a line through it */
+.old-price {
+    text-decoration: line-through;
+    color: #98a6b0;
+    font-size: 0.95rem;
+    margin-right: 8px;
+}
+
+.new-price {
+    color: #c0392b;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Class selector 3, used for the seats meter block */
+.center {
+    text-align: center;
+}
+
+/* ===== 6. VIDEO ===== */
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+video {
+    /* Requirement 8: the clip shrinks with the window instead of
+       overflowing it. */
+    max-width: 100%;
+    height: auto;
+    border: 6px solid #0b4f6c;
+    border-radius: 10px;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 0.88rem;
+    color: #5b6b78;
+    font-style: italic;
+}
+
+/* ===== 7. TRIP FORM =====
+   Requirement 7: a class carrying background-color, padding, border
+   and width. */
+.trip-form {
+    background-color: #ffffff;
+    padding: 20px 24px;
+    border: 2px solid #1a7ca3;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.trip-form fieldset {
+    border: 1px solid #d3e3ec;
+    border-radius: 8px;
+    margin: 0 0 16px;
+    padding: 12px 16px;
+}
+
+.trip-form legend {
+    padding: 0 6px;
+    font-weight: 700;
+    color: #0b4f6c;
+    font-size: 0.9rem;
+}
+
+.trip-form label {
+    display: inline-block;
+    margin: 4px 14px 4px 0;
+    font-size: 0.92rem;
+}
+
+.trip-form input[type="text"],
+.trip-form input[type="email"] {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    padding: 8px 10px;
+    margin: 4px 0 12px;
+    border: 1px solid #b9cdd8;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.trip-form input[type="submit"] {
+    background-color: #0b4f6c;
+    color: #ffffff;
+    padding: 10px 26px;
+    border: 0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.trip-form input[type="submit"]:hover {
+    background-color: #f2a541;
+    color: #08344a;
+}
+
+/* ===== 8. FOOTER ===== */
+footer {
+    background-color: #08344a;
+    color: #cfe9f3;
+    text-align: center;
+    padding: 22px 18px;
+    border-radius: 10px 10px 0 0;
+    font-size: 0.88rem;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 6px;
+}
+
+/* ===== 9. LINK STATES =====
+   Requirement 6: all four states, written in the order link, visited,
+   hover, active. A later rule of equal weight beats an earlier one,
+   so any other order would stop :hover from ever showing. */
+a:link {
+    color: #1a7ca3;
+}
+
+a:visited {
+    color: #6b4c8a;
+}
+
+a:hover {
+    color: #c0392b;
+    background-color: #fdf0d5;
+}
+
+a:active {
+    color: #1e7d4f;
+}
+
+/* ===== 10. SMALL SCREENS =====
+   On a phone the page keeps its 90% width but the type and the nav
+   padding come down so the bar still fits on one line. */
+@media (max-width: 600px) {
+    body {
+        width: 94%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        padding: 10px 14px;
+        font-size: 0.78rem;
+    }
+
+    .trip-form {
+        width: 100%;
+        padding: 16px;
+    }
+}
