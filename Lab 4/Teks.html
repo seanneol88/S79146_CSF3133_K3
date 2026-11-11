@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Decoration</title>
+    <style>
+        /* Each heading gets a different text-decoration line */
+        h1 { text-decoration: overline; }       /* line above */
+        h2 { text-decoration: line-through; }   /* line through */
+        h3 { text-decoration: underline; }      /* line below */
+        h4 { text-decoration: underline overline; } /* both at once */
+    </style>
+</head>
+<body>
+
+    <h1>This heading uses overline</h1>
+    <h2>This heading uses line-through</h2>
+    <h3>This heading uses underline</h3>
+    <h4>This one combines underline and overline</h4>
+    <p><b>Note:</b> the old "blink" decoration is ignored by modern
+       browsers, so we combine other values instead.</p>
+
+    <!-- text-decoration also removes link underlines:
+         a { text-decoration: none; } -->
+
+</body>
+</html>

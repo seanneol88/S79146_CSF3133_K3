@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigation Bar with CSS</title>
+    <style>
+        /* Turn a plain bullet list into a vertical menu bar */
+        ul {
+            list-style-type: none;   /* remove the bullets */
+            margin: 0;
+            padding: 0;
+        }
+        /* Each link becomes a solid rectangular "button" */
+        a:link, a:visited {
+            display: block;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #2E7D32;
+            width: 130px;
+            text-align: center;
+            padding: 6px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        /* Colour shift when the mouse hovers or the link is clicked */
+        a:hover, a:active {
+            background-color: #1B4D2E;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Navigation Bar</h1>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">Latest News</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#about">About Us</a></li>
+    </ul>
+
+    <!-- Hover over the items to see the hover state change -->
+
+</body>
+</html>

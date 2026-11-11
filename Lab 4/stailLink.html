@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styling Link States</title>
+    <style>
+        /* The four link states, each with its own colour */
+        a:link    { color: #FF0000; }  /* not yet visited */
+        a:visited { color: #008000; }  /* already visited */
+        a:hover   { color: #FF00FF; }  /* mouse hovering over it */
+        a:active  { color: #0000FF; }  /* the moment it is clicked */
+    </style>
+</head>
+<body>
+
+    <h1>Link States Demo</h1>
+    <p><b><a href="default.html" target="_blank">This is a link</a></b> -
+       watch it change colour as you hover and click it.</p>
+    <p>After visiting, come back to this page: the link shows the
+       green "visited" colour.</p>
+
+    <!-- A missing target file is fine here; the lesson is the
+         colour changes, not the destination -->
+
+</body>
+</html>
