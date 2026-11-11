@@ -14,7 +14,7 @@
     },
     "Lab 4": {
       "title": "Lab 4 — CSS, Video & Navigation",
-      "description": "Semantic HTML5 layout, an external and an internal style sheet, a CSS navigation bar, text-decoration, the four link states, an embedded `<video>`, a `<meter>` and a form — Problem A builds the Visit Terengganu page, Problem B debugs and extends e-Café Campus."
+      "description": "Chapter 4 practice pages — semantic structure, an embedded `<video>`, a CSS navigation bar, the selector types and text-decoration — followed by the two handout problems: the Visit Terengganu tourism page and the e-Café Campus debug-and-extend."
     }
   },
   "gallery": {
@@ -138,44 +138,44 @@
       "description": "Fourteen faults in the given code found and listed by line number, then corrected and extended: `cafe.css`, a styled nav bar, `.old-price` line-through, a captioned video and a `.feedback-form`."
     },
     "Lab 4/Class.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "Class Selector",
-      "description": "This paragraph shares the same class."
+      "description": "A `.center` class shared by a heading and a paragraph, with a third paragraph left-aligned because it has no class at all."
     },
     "Lab 4/navigation.html": {
-      "tag": "Page",
-      "title": "Navigation Bar with CSS",
-      "description": "HTML page in Lab 4."
+      "tag": "Practice",
+      "title": "CSS Navigation Bar",
+      "description": "A bullet list turned into a vertical menu bar: bullets removed, each link shown as a block with a background colour, and a darker colour on `:hover` and `:active`."
     },
     "Lab 4/stail.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "My First CSS",
-      "description": "on this page turns blue and centres itself, because one CSS rule styles them all at once --> Hello UMT!"
+      "description": "Internal CSS at its simplest — one type selector turns every paragraph blue and centres it, so a single rule styles the whole page."
     },
     "Lab 4/stailID.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "ID Selector",
-      "description": "Hello UMT!"
+      "description": "An `#intro` rule that styles only the paragraph carrying that id, while the unclassed paragraph beside it keeps the default look."
     },
     "Lab 4/stailLink.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "Styling Link States",
-      "description": "This is a link - watch it change colour as you hover and click it."
+      "description": "`:link`, `:visited`, `:hover` and `:active` written in the correct order, each with its own red, green, magenta or blue colour."
     },
     "Lab 4/structure.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "Semantic Page Structure",
-      "description": "Below is an example of the meter element:"
+      "description": "A `header`, three `section`s, a `meter` gauge and a `footer` holding `&copy;` plus an `address` with a `mailto:` link — the skeleton Problem A builds on."
     },
     "Lab 4/Teks.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "Text Decoration",
-      "description": "Note: the old \"blink\" decoration is ignored by modern browsers, so we combine other values instead."
+      "description": "`overline`, `line-through`, `underline` and a combined `underline overline` value, one per heading level."
     },
     "Lab 4/video.html": {
-      "tag": "Page",
+      "tag": "Practice",
       "title": "Video in HTML5",
-      "description": "HTML page in Lab 4."
+      "description": "A `<video>` element with `width`, `height` and `controls`, a `<source type=\"video/mp4\">` and fallback text for browsers without video support."
     }
   },
   "images": {
