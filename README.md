@@ -126,6 +126,7 @@ S79146_CSF3133_K3/
 │   ├── cafe.css
 │   ├── lab4_ExerA validation.png
 │   ├── lab4_ExerA.html
+│   ├── lab4_ExerB validation.png
 │   ├── lab4_ExerB.html
 │   ├── style css validation.png
 │   └── style.css
@@ -179,9 +180,10 @@ All exercise pages were checked with the W3C Markup Validation Service; the
 results are shown in the gallery on the home page and stored in the lab folders.
 Problem A has two results filed: `Lab 4/lab4_ExerA validation.png` for the
 markup (W3C Nu) and `Lab 4/style css validation.png` for its style sheet
-(W3C CSS validator, CSS level 3). Problem B's screenshots are still to come —
-drop them into `Lab 4/` as `lab4_ExerB validation.png` and
-`cafe css validation.png` and the gallery picks them up automatically.
+(W3C CSS validator, CSS level 3). Problem B has its markup result
+(`Lab 4/lab4_ExerB validation.png`); its style sheet is still to come — drop it
+into `Lab 4/` as `cafe css validation.png` and the gallery picks it up
+automatically.
 
 | Screenshot | Page checked |
 | --- | --- |
@@ -201,6 +203,7 @@ drop them into `Lab 4/` as `lab4_ExerB validation.png` and
 | [`Lab 3/intro5 validation.png`](Lab%203/intro5%20validation.png) | Lab 3 — intro page, clean after the fix |
 | [`Lab 4/lab4_ExerA validation.png`](Lab%204/lab4_ExerA%20validation.png) | Lab 4 — Problem A (Visit Terengganu) |
 | [`Lab 4/style css validation.png`](Lab%204/style%20css%20validation.png) | Lab 4 — Problem A style sheet (`style.css`) |
+| [`Lab 4/lab4_ExerB validation.png`](Lab%204/lab4_ExerB%20validation.png) | Lab 4 — Problem B (e-Café Campus) |
 
 ---
 
