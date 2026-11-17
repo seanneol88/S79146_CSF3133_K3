@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 practice page: one card grid that reflows from four columns to two to one as the window narrows, with a no-JavaScript readout naming the breakpoint you are in.">
+    <title>Responsive Design with Media Queries</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px 20px 40px;
+            font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #26333f;
+            background-color: #f2f5f8;
+        }
+
+        .wrap {
+            width: 92%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1b4965;
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            color: #1b4965;
+            border-bottom: 3px solid #f2a541;
+            padding-bottom: 5px;
+        }
+
+        /* The readout: three sentences, only one is ever displayed */
+        .readout {
+            background-color: #1b4965;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: center;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .readout span {
+            display: none;
+        }
+
+        /* The grid of cards, written once, reflowed three times */
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .tile {
+            flex: 1 1 22%;
+            background-color: #ffffff;
+            border: 1px solid #d6e2ea;
+            border-top: 5px solid #2f7fa8;
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+
+        .tile h3 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+            color: #1b4965;
+        }
+
+        .tile p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #4b5c69;
+        }
+
+        /* A stand-in for a photograph: an element that behaves like an
+           image, so max-width: 100% can be demonstrated without a file. */
+        .photo {
+            height: 140px;
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            background-image: linear-gradient(135deg, #1b4965, #2f7fa8 55%, #f2a541);
+        }
+
+        .note {
+            font-size: 0.86rem;
+            color: #5b6b78;
+        }
+
+        /* ---------- BREAKPOINT 1 : 900px and narrower ---------- */
+        @media (max-width: 900px) {
+            .tile {
+                flex: 1 1 44%;
+                border-top-color: #b3541e;
+            }
+
+            .readout .r-mid {
+                display: inline;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ---------- BREAKPOINT 2 : 600px and narrower ---------- */
+        @media (max-width: 600px) {
+            .wrap {
+                width: 96%;
+            }
+
+            .tile {
+                flex: 1 1 100%;
+                border-top-color: #2e8b57;
+            }
+
+            /* The medium sentence must be switched off again, or both
+               would show at once below 600px. */
+            .readout .r-mid {
+                display: none;
+            }
+
+            .readout .r-narrow {
+                display: inline;
+            }
+
+            .photo {
+                height: 100px;
+            }
+        }
+
+        /* ---------- The default, wide case ---------- */
+        @media (min-width: 901px) {
+            .readout .r-wide {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <h1>Responsive Design with Media Queries</h1>
+
+        <p class="readout">
+            <span class="r-wide">Wide window &mdash; four cards per row</span>
+            <span class="r-mid">Medium window (900px or less) &mdash; two cards per row</span>
+            <span class="r-narrow">Narrow window (600px or less) &mdash; one card per row</span>
+        </p>
+
+        <div class="photo" role="img" aria-label="A decorative colour gradient standing in for a photograph"></div>
+
+        <section>
+            <h2>One grid, three layouts</h2>
+
+            <div class="grid">
+                <article class="tile">
+                    <h3>Workshop</h3>
+                    <p>Soldering for beginners, lab 1.2, every Tuesday.</p>
+                </article>
+
+                <article class="tile">
+                    <h3>Hackathon</h3>
+                    <p>Thirty-six hours, four people per team, free pizza.</p>
+                </article>
+
+                <article class="tile">
+                    <h3>Study group</h3>
+                    <p>Data structures, Thursday nights, discussion room B.</p>
+                </article>
+
+                <article class="tile">
+                    <h3>Open day</h3>
+                    <p>Faculty tours for school leavers, 10 a.m. to 4 p.m.</p>
+                </article>
+            </div>
+
+            <p class="note">
+                Nothing in the markup of the four cards changes. Each card is
+                <code>flex: 1 1 22%</code> by default; the 900px query raises the
+                basis to 44% so only two fit on a line, and the 600px query
+                raises it to 100% so each one takes a full row.
+            </p>
+        </section>
+
+        <section>
+            <h2>What a media query is made of</h2>
+            <ul>
+                <li><code>@media</code> &mdash; the at-rule that starts it.</li>
+                <li><code>screen</code> &mdash; the media type; <code>print</code> is the other common one.</li>
+                <li><code>and (max-width: 600px)</code> &mdash; the condition that has to be true.</li>
+                <li>The braces hold ordinary rules, exactly as they would elsewhere.</li>
+            </ul>
+            <p class="note">
+                The <code>&lt;meta name="viewport"&gt;</code> tag in the head is
+                what makes these numbers mean real device pixels on a phone. Without
+                it the phone pretends to be 980 pixels wide and every breakpoint is
+                skipped.
+            </p>
+        </section>
+
+    </div>
+
+</body>
+</html>
