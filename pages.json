@@ -15,6 +15,10 @@
     "Lab 4": {
       "title": "Lab 4 — CSS, Video & Navigation",
       "description": "Chapter 4 practice pages — semantic structure, an embedded `<video>`, a CSS navigation bar, the selector types and text-decoration — followed by the two handout problems: the Visit Terengganu tourism page and the e-Café Campus debug-and-extend."
+    },
+    "Lab 5": {
+      "title": "Lab 5 — Layout & Responsive Design",
+      "description": "The box model, `float` with `clear` and the clearfix, the five `position` values, and media queries — then two exercises: a two-column bookshop page and a broken sports-centre layout to debug."
     }
   },
   "gallery": {
@@ -176,6 +180,36 @@
       "tag": "Practice",
       "title": "Video in HTML5",
       "description": "A `<video>` element with `width`, `height` and `controls`, a `<source type=\"video/mp4\">` and fallback text for browsers without video support."
+    },
+    "Lab 5/lab5.html": {
+      "tag": "Lab page",
+      "title": "Kampus Kreatif — Magazine Layout",
+      "description": "A two-column magazine: `float` left and right with a cleared wrapper, a sticky header, a badge absolutely positioned in the sidebar, and a media query that stacks the columns below 820px."
+    },
+    "Lab 5/float5.html": {
+      "tag": "Practice",
+      "title": "Float and Clear",
+      "description": "Float left and right side by side, then the same pair inside a wrapper that is not cleared and one that is — the collapsed border proves why `clear: both` matters."
+    },
+    "Lab 5/position5.html": {
+      "tag": "Practice",
+      "title": "The position Property",
+      "description": "`static`, `relative`, `absolute`, `fixed` and `sticky` demonstrated one at a time, including a badge pinned to a `position: relative` parent."
+    },
+    "Lab 5/media5.html": {
+      "tag": "Practice",
+      "title": "Responsive Design with Media Queries",
+      "description": "One card grid that reflows from four columns to two to one, with a no-JavaScript readout naming the breakpoint you are currently in."
+    },
+    "Lab 5/lab5_ExerA.html": {
+      "tag": "Exercise A",
+      "title": "Kedai Buku Kampus — Two Columns",
+      "description": "The campus bookshop laid out to a twelve-point brief: `border-box` throughout, floated columns, an absolute badge, all four link states and two breakpoints — all in one embedded style sheet."
+    },
+    "Lab 5/lab5_ExerB.html": {
+      "tag": "Exercise B",
+      "title": "Pusat Sukan — Debug the Layout",
+      "description": "Twelve faults in a broken two-column layout found and corrected by line number, from the missing viewport tag and the uncleared wrapper to the media query that was silently thrown away."
     }
   },
   "images": {

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 practice page: the five position values shown one by one, static, relative, absolute, fixed and sticky, with a positioned parent for the absolute badge.">
+    <title>The position Property</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px 20px 60px;
+            font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #26333f;
+            background-color: #f2f5f8;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1b4965;
+        }
+
+        h2 {
+            color: #1b4965;
+            border-bottom: 3px solid #f2a541;
+            padding-bottom: 5px;
+        }
+
+        .demo {
+            background-color: #ffffff;
+            border: 1px solid #d6e2ea;
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-bottom: 22px;
+        }
+
+        .block {
+            background-color: #dbe9f2;
+            border: 1px solid #a9c6d8;
+            padding: 12px 14px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        /* 1. static is the default: top and left are ignored */
+        .p-static {
+            position: static;
+            top: 40px;
+            left: 40px;
+        }
+
+        /* 2. relative moves the box from where it would have been,
+              without disturbing anything else on the page */
+        .p-relative {
+            position: relative;
+            top: 12px;
+            left: 32px;
+            background-color: #fde9c8;
+            border-color: #e0b25f;
+        }
+
+        /* 3. absolute leaves the flow and is measured from the nearest
+              positioned ancestor - here .stage, which is relative */
+        .stage {
+            position: relative;
+            background-color: #eef4f8;
+            border: 2px dashed #7aa8c4;
+            border-radius: 8px;
+            padding: 26px 16px 16px;
+        }
+
+        .p-absolute {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background-color: #c0392b;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* 4. fixed is measured from the viewport and does not scroll */
+        .p-fixed {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 20;
+            background-color: #1b4965;
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(27, 73, 101, 0.4);
+        }
+
+        /* 5. sticky behaves like relative until the scroll reaches the
+              offset, then it behaves like fixed */
+        .p-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #1b4965;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .filler {
+            height: 130px;
+            background-image: repeating-linear-gradient(
+                45deg,
+                #e4ecf2,
+                #e4ecf2 12px,
+                #f2f5f8 12px,
+                #f2f5f8 24px
+            );
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .note {
+            font-size: 0.86rem;
+            color: #5b6b78;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>The position Property</h1>
+
+    <p class="note">
+        Five values, five different behaviours. Scroll this page slowly to see
+        the sticky bar stick and the fixed chip stay put in the corner.
+    </p>
+
+    <!-- ===== 1. STATIC ===== -->
+    <section class="demo">
+        <h2>1. static &mdash; the default</h2>
+        <div class="block p-static">position: static with top: 40px and left: 40px</div>
+        <p class="note">
+            The offsets are written but ignored: an element that is
+            <code>static</code> simply sits where the normal flow puts it.
+        </p>
+    </section>
+
+    <!-- ===== 2. RELATIVE ===== -->
+    <section class="demo">
+        <h2>2. relative &mdash; nudged from its own place</h2>
+        <div class="block">A normal block, sitting still.</div>
+        <div class="block p-relative">position: relative; top: 12px; left: 32px</div>
+        <div class="block">The block after it has not moved.</div>
+        <p class="note">
+            The box is shifted 12 pixels down and 32 to the right of where it
+            would have been, but the space it originally occupied is still
+            reserved &mdash; which is why the third block did not slide up.
+        </p>
+    </section>
+
+    <!-- ===== 3. ABSOLUTE ===== -->
+    <section class="demo">
+        <h2>3. absolute &mdash; pinned to a positioned parent</h2>
+        <div class="stage">
+            <span class="p-absolute">Badge</span>
+            <p>
+                This grey panel is <code>position: relative</code>. Its child
+                is <code>position: absolute; top: 8px; right: 10px</code>, so
+                the badge lands in the panel's top-right corner and the panel
+                behaves as if the badge were not there.
+            </p>
+        </div>
+        <p class="note">
+            Remove <code>position: relative</code> from the panel and the badge
+            would jump to the top-right corner of the page instead, because the
+            nearest positioned ancestor would become the viewport.
+        </p>
+    </section>
+
+    <!-- ===== 4. FIXED ===== -->
+    <section class="demo">
+        <h2>4. fixed &mdash; pinned to the window</h2>
+        <div class="block">position: fixed element &rarr; the chip in the bottom-right</div>
+        <p class="note">
+            A <code>fixed</code> element is measured from the viewport, not the
+            document, so it stays in the corner while everything else scrolls
+            underneath it. That is why it is used for chat buttons and cookie
+            bars &mdash; and why it can cover content on a small screen.
+        </p>
+    </section>
+
+    <!-- ===== 5. STICKY ===== -->
+    <section class="demo">
+        <h2>5. sticky &mdash; relative until it is needed</h2>
+        <p class="note">Scroll down inside this page:</p>
+        <div class="p-sticky">I stick to the top of the window</div>
+        <div class="filler"></div>
+        <div class="filler"></div>
+        <p class="note">
+            <code>position: sticky; top: 0;</code> keeps the bar in the normal
+            flow, then fixes it to the top of the viewport once you scroll past
+            it. It stops being sticky when its parent scrolls away.
+        </p>
+    </section>
+
+    <div class="p-fixed">position: fixed</div>
+
+</body>
+</html>

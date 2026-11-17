@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 Exercise A: the Campus Bookshop page, a two-column layout built with the box model, float and clear, a sticky header and an absolutely positioned badge, reflowed with media queries.">
+    <title>Kedai Buku Kampus &ndash; Lab 5 Exercise A</title>
+
+    <!-- ==================================================================
+         LAB 5 - EXERCISE A : lay out the Campus Bookshop page
+
+         THE BRIEF (from Chapter 5)
+
+           Build one page for the campus bookshop and give it a real
+           layout: two columns, a sticky banner, a badge pinned inside
+           the sidebar, and a layout that stacks on a phone. Content
+           and presentation stay apart, and the page must work without
+           JavaScript.
+
+         REQUIREMENTS
+
+           1. HTML5 skeleton with charset and viewport meta.      [done]
+           2. A .container wrapper at 90% width, max 1000px.      [done]
+           3. A header with the shop name in an <h1>, sticky.     [done]
+           4. A nav bar of four in-page links.                    [done]
+           5. A .row wrapper holding .col-main (float left) and
+              .col-side (float right), each with a width.         [done]
+           6. The row must be cleared so the footer sits below.  [done]
+           7. At least three .card articles in the main column.  [done]
+           8. The sidebar box is position: relative and carries
+              an absolutely positioned badge in its corner.      [done]
+           9. box-sizing: border-box on everything, and padding,
+              border and margin used on purpose.                  [done]
+          10. Link states :link :visited :hover :active, in order. [done]
+          11. A media query at 800px that stacks the columns, and
+              one at 520px that shrinks the type.                  [done]
+          12. Validate with zero errors and zero warnings.        [done]
+         ================================================================== -->
+
+    <style>
+        /* ===== 1. BOX MODEL ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
+            line-height: 1.65;
+            color: #2b2b2b;
+            background-color: #f7f4ee;
+        }
+
+        /* ===== 2. CONTAINER ===== */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ===== 3. STICKY HEADER ===== */
+        .shop-head {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background-color: #5b3a29;
+            color: #fff6ea;
+            padding: 16px 0;
+            border-bottom: 4px solid #c9903f;
+        }
+
+        .shop-head h1 {
+            margin: 0;
+            font-size: 1.75rem;
+            letter-spacing: 1px;
+        }
+
+        .shop-head p {
+            margin: 3px 0 0;
+            font-size: 0.86rem;
+            color: #e8d3b8;
+        }
+
+        /* ===== 4. NAVIGATION ===== */
+        .shop-nav {
+            background-color: #3f2719;
+        }
+
+        .shop-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .shop-nav li {
+            display: inline-block;
+        }
+
+        .shop-nav a {
+            display: block;
+            padding: 10px 18px;
+            color: #f3e2cd;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+        }
+
+        .shop-nav a:hover {
+            background-color: #c9903f;
+            color: #2b1a10;
+        }
+
+        /* ===== 5. TWO COLUMNS + 6. CLEARFIX ===== */
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .col-main {
+            float: left;
+            width: 63%;
+        }
+
+        .col-side {
+            float: right;
+            width: 34%;
+        }
+
+        main {
+            padding: 24px 0 40px;
+        }
+
+        /* ===== 7. CARDS ===== */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e3d6c3;
+            border-left: 5px solid #c9903f;
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 {
+            margin: 0 0 6px;
+            font-size: 1.1rem;
+            color: #5b3a29;
+        }
+
+        .card p {
+            margin: 0 0 8px;
+            font-size: 0.93rem;
+            color: #4d453d;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #a33a1f;
+        }
+
+        /* ===== 8. SIDEBAR WITH THE ABSOLUTE BADGE ===== */
+        .side-box {
+            position: relative;
+            background-color: #fff9ef;
+            border: 1px solid #e3d6c3;
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 16px;
+        }
+
+        .side-box h2 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            color: #5b3a29;
+        }
+
+        .side-box p,
+        .side-box li {
+            font-size: 0.88rem;
+            color: #574a3d;
+        }
+
+        .side-box ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -11px;
+            right: 10px;
+            background-color: #a33a1f;
+            color: #ffffff;
+            font-family: Verdana, sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 2px 9px;
+            border-radius: 20px;
+        }
+
+        /* ===== 10. LINK STATES, IN ORDER ===== */
+        a:link {
+            color: #8a4b1d;
+        }
+
+        a:visited {
+            color: #6b4c8a;
+        }
+
+        a:hover {
+            color: #a33a1f;
+            background-color: #fdf0d5;
+        }
+
+        a:active {
+            color: #2e8b57;
+        }
+
+        /* ===== FOOTER ===== */
+        .shop-foot {
+            clear: both;
+            background-color: #3f2719;
+            color: #e8d3b8;
+            text-align: center;
+            padding: 18px 16px;
+            font-size: 0.82rem;
+        }
+
+        .shop-foot a {
+            color: #f0b429;
+        }
+
+        /* ===== 11. MEDIA QUERIES ===== */
+        @media (max-width: 800px) {
+            .col-main,
+            .col-side {
+                float: none;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: 94%;
+            }
+
+            .shop-head h1 {
+                font-size: 1.35rem;
+            }
+
+            .shop-nav a {
+                padding: 8px 10px;
+                font-size: 0.7rem;
+            }
+
+            .card {
+                padding: 13px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 3. HEADER ===== -->
+    <header class="shop-head">
+        <div class="container">
+            <h1>Kedai Buku Kampus</h1>
+            <p>Textbooks, stationery and printing &middot; Block C, ground floor</p>
+        </div>
+    </header>
+
+    <!-- ===== 4. NAVIGATION ===== -->
+    <nav class="shop-nav" aria-label="Bookshop sections">
+        <div class="container">
+            <ul>
+                <li><a href="#arrivals">New arrivals</a></li>
+                <li><a href="#hours">Opening hours</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- ===== 5. THE TWO-COLUMN ROW ===== -->
+        <div class="row">
+
+            <div class="col-main" id="arrivals">
+
+                <article class="card">
+                    <h2>Discrete Mathematics, 4th edition</h2>
+                    <p>
+                        The prescribed text for CSF3113. Includes the exercise
+                        answers that the third edition left out.
+                    </p>
+                    <p class="price">RM 78.00</p>
+                </article>
+
+                <article class="card">
+                    <h2>Web Design: HTML5 and CSS3</h2>
+                    <p>
+                        Covers everything from document structure to responsive
+                        layout, with a worked example at the end of every
+                        chapter.
+                    </p>
+                    <p class="price">RM 92.00</p>
+                </article>
+
+                <article class="card">
+                    <h2>A4 exercise books, pack of five</h2>
+                    <p>
+                        Eighty pages each, square ruled, with your faculty logo
+                        printed on the cover if you order ten packs or more.
+                    </p>
+                    <p class="price">RM 12.50</p>
+                </article>
+
+            </div>
+
+            <aside class="col-side">
+
+                <!-- ===== 8. THE BADGE =====
+                     .side-box is the positioned ancestor; .badge is
+                     absolute inside it. -->
+                <div class="side-box" id="services">
+                    <span class="badge">Offer</span>
+                    <h2>This week only</h2>
+                    <p>
+                        Twenty per cent off every reference title, and free
+                        plastic wrapping on any purchase over RM 50.
+                    </p>
+                </div>
+
+                <div class="side-box" id="hours">
+                    <h2>Opening hours</h2>
+                    <ul>
+                        <li>Monday to Thursday: 8 a.m. &ndash; 6 p.m.</li>
+                        <li>Friday: 8 a.m. &ndash; 12.15 p.m.</li>
+                        <li>Saturday: 9 a.m. &ndash; 1 p.m.</li>
+                        <li>Sunday: closed</li>
+                    </ul>
+                </div>
+
+                <div class="side-box" id="contact">
+                    <h2>Contact</h2>
+                    <p>
+                        <a href="mailto:bookshop@unisza.edu.my">bookshop@unisza.edu.my</a><br>
+                        <a href="tel:+6096688000">09-668 8000</a>, extension 2214
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <footer class="shop-foot">
+        <p>
+            Lab 5 Exercise A &middot; CSF3133 Web Design &middot; S79146 &middot; Group K3 &middot;
+            <a href="../index.html">Back to the portfolio</a>
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 practice page: float left and float right side by side, then the same pair inside a wrapper that is not cleared and one that is, showing why clear: both matters.">
+    <title>Float and Clear</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px 20px 40px;
+            font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #26333f;
+            background-color: #f2f5f8;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #1b4965;
+        }
+
+        h2 {
+            color: #1b4965;
+            border-bottom: 3px solid #f2a541;
+            padding-bottom: 5px;
+        }
+
+        .demo {
+            background-color: #ffffff;
+            border: 1px solid #d6e2ea;
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-bottom: 22px;
+        }
+
+        /* The three boxes used in every demonstration */
+        .box {
+            padding: 14px;
+            color: #ffffff;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        .box-left {
+            float: left;
+            width: 46%;
+            background-color: #1b4965;
+        }
+
+        .box-right {
+            float: right;
+            width: 46%;
+            background-color: #b3541e;
+        }
+
+        .box-after {
+            background-color: #6b7b88;
+        }
+
+        /* Wrapper A: no clearing at all */
+        .wrap-open {
+            border: 2px dashed #c0392b;
+            padding: 6px;
+            margin-bottom: 14px;
+        }
+
+        /* Wrapper B: cleared with the ::after trick */
+        .wrap-clear {
+            border: 2px solid #2e8b57;
+            padding: 6px;
+        }
+
+        .wrap-clear::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .note {
+            font-size: 0.86rem;
+            color: #5b6b78;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Float and Clear</h1>
+
+    <!-- ===== 1. THE BASIC FLOATS ===== -->
+    <section class="demo">
+        <h2>1. float left and float right</h2>
+
+        <div class="box box-left">float: left; width: 46%</div>
+        <div class="box box-right">float: right; width: 46%</div>
+        <!-- Without this clearing paragraph the two floated boxes would
+             not hold the container open, and whatever comes next would
+             slide underneath them. -->
+        <div class="box box-after">This box follows, after both floats</div>
+
+        <p class="note">
+            A floated element is taken out of the normal flow and pushed to
+            one side. Text and inline content wrap around it, but block
+            boxes further down the page start at the top of the float unless
+            they are cleared.
+        </p>
+    </section>
+
+    <!-- ===== 2. NOT CLEARED ===== -->
+    <section class="demo">
+        <h2>2. A wrapper that is NOT cleared</h2>
+
+        <div class="wrap-open">
+            <div class="box box-left">float: left</div>
+            <div class="box box-right">float: right</div>
+        </div>
+
+        <p class="note">
+            The red dashed border is the wrapper, and it has collapsed to
+            almost nothing: the two floats escaped it, so the wrapper thinks
+            it contains no content at all.
+        </p>
+    </section>
+
+    <!-- ===== 3. CLEARED ===== -->
+    <section class="demo">
+        <h2>3. The same wrapper, cleared</h2>
+
+        <div class="wrap-clear">
+            <div class="box box-left">float: left</div>
+            <div class="box box-right">float: right</div>
+        </div>
+
+        <p class="note">
+            Same markup, one extra rule: <code>.wrap-clear::after</code> gets
+            <code>content: ""</code>, <code>display: table</code> and
+            <code>clear: both</code>. A zero-height element is generated after
+            the floats, the wrapper has to grow to contain it, and the green
+            border now hugs both boxes.
+        </p>
+    </section>
+
+    <!-- ===== 4. THE THREE WAYS TO CLEAR ===== -->
+    <section class="demo">
+        <h2>4. Three ways to clear</h2>
+        <ul>
+            <li><code>clear: left;</code> on the next element pushes it below any left float.</li>
+            <li><code>clear: right;</code> does the same for a right float, and <code>clear: both;</code> for either side.</li>
+            <li><code>overflow: hidden;</code> on the wrapper works too, because it starts a new block formatting context.</li>
+        </ul>
+        <p class="note">
+            The <code>::after</code> clearfix in section 3 is the safest of the
+            three: it does not cut off content that overflows the wrapper, and
+            it does not need an extra empty element in the markup.
+        </p>
+    </section>
+
+</body>
+</html>

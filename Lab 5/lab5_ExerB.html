@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 Exercise B: the Pusat Sukan Kampus layout with twelve faults found and corrected by line number, from the missing viewport tag and the cleared wrapper to the broken media query.">
+    <title>Pusat Sukan Kampus &ndash; Lab 5 Exercise B</title>
+
+    <!-- ==================================================================
+         LAB 5 - EXERCISE B : debug a broken layout
+
+         The starting file came with the lab. Its two-column layout fell
+         apart in the browser: the footer rode up over the columns, the
+         sidebar shrank to a strip, the badge sat in the corner of the
+         window, and nothing stacked on a phone. The twelve faults are
+         listed at the top of the body and corrected below.
+         ================================================================== -->
+
+    <style>
+        /* Fault 3 corrected: border-box, so 63% + 34% + the 3% gap
+           really does add up to 100%. */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #212f3a;
+            background-color: #eef4f2;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+
+        /* Fault 10 corrected: sticky only sticks when it is actually
+           positioned - z-index alone does nothing. */
+        .sport-head {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #14532d;
+            color: #f0fdf4;
+            padding: 16px 0;
+        }
+
+        .sport-head h1 {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+
+        .sport-head p {
+            margin: 3px 0 0;
+            font-size: 0.85rem;
+            color: #c6e7d4;
+        }
+
+        .sport-nav {
+            background-color: #0f3d22;
+        }
+
+        .sport-nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .sport-nav li {
+            display: inline-block;
+        }
+
+        .sport-nav a {
+            display: block;
+            padding: 10px 18px;
+            color: #d8f3e2;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.76rem;
+            letter-spacing: 1px;
+        }
+
+        .sport-nav a:hover {
+            background-color: #f0b429;
+            color: #0f3d22;
+        }
+
+        /* Fault 5 corrected: the row is cleared with the ::after trick. */
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Fault 4 corrected: BOTH columns need a width. */
+        .col-main {
+            float: left;
+            width: 63%;
+        }
+
+        .col-side {
+            float: right;
+            width: 34%;
+        }
+
+        main {
+            padding: 22px 0 36px;
+        }
+
+        /* Fault 11 corrected: .card is a class, so it can repeat. */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #cfe0d6;
+            border-left: 5px solid #14532d;
+            border-radius: 8px;
+            padding: 15px 18px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            color: #14532d;
+        }
+
+        .card p {
+            margin: 0 0 8px;
+            font-size: 0.92rem;
+            color: #45535e;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card .time {
+            font-weight: 700;
+            color: #b3541e;
+        }
+
+        /* Fault 7 corrected: the sidebar is the positioning context. */
+        .side-box {
+            position: relative;
+            background-color: #ffffff;
+            border: 1px solid #cfe0d6;
+            border-radius: 8px;
+            padding: 15px 18px;
+            margin-bottom: 15px;
+        }
+
+        .side-box h2 {
+            margin: 0 0 8px;
+            font-size: 0.98rem;
+            color: #14532d;
+        }
+
+        .side-box p,
+        .side-box li {
+            font-size: 0.87rem;
+            color: #45535e;
+        }
+
+        .side-box ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -11px;
+            right: 10px;
+            background-color: #b3541e;
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 9px;
+            border-radius: 20px;
+        }
+
+        /* Fault 6 corrected: clear BOTH, not just the left float. */
+        .sport-foot {
+            clear: both;
+            background-color: #0f3d22;
+            color: #c6e7d4;
+            text-align: center;
+            padding: 18px 16px;
+            font-size: 0.82rem;
+        }
+
+        .sport-foot a {
+            color: #f0b429;
+        }
+
+        /* Fault 9 corrected: the stacked columns must also take the
+           full width, not keep their 63% and 34%. */
+        @media (max-width: 800px) {
+            .col-main,
+            .col-side {
+                float: none;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                width: 95%;
+            }
+
+            .sport-head h1 {
+                font-size: 1.3rem;
+            }
+
+            .sport-nav a {
+                padding: 8px 10px;
+                font-size: 0.68rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================================================================
+         THE TWELVE FAULTS  (line numbers refer to the original file)
+
+           1.  Line 4    No viewport meta tag, so a phone reports itself
+                         980 pixels wide and every media query is skipped.
+           2.  Line 6    The style block was opened after </head>, which is
+                         invalid; it belongs inside the head.
+           3.  Line 9    box-sizing: content-box made every column wider
+                         than its percentage, so the two columns could not
+                         fit side by side.
+           4.  Line 15   .col-side floated right with no width at all, so
+                         it shrank to a narrow strip of text.
+           5.  Line 22   The .row wrapper was never cleared; the floats
+                         escaped it and the page had no height.
+           6.  Line 28   footer { clear: left; } ignores the right float,
+                         so the footer still slid under the sidebar.
+           7.  Line 33   The badge was absolute, but .side-box was static,
+                         so it was positioned against the page instead of
+                         the box.
+           8.  Line 41   @media screen (max-width: 800px) is missing the
+                         word "and", so the whole query was discarded.
+           9.  Line 45   Inside that query only float: none was set; the
+                         widths stayed 63% and 34%, leaving a gap.
+          10.  Line 52   z-index: 10 was put on the header without
+                         position: sticky, so nothing stuck.
+          11.  Line 58   id="card" appeared on three articles. An id must
+                         be unique; it had to become class="card".
+          12.  Line 66   .card { flex: 1 1 30%; } was copied from a
+                         flexbox layout into a float layout, where it does
+                         nothing at all.
+         ================================================================== -->
+
+    <!-- ===== HEADER ===== -->
+    <header class="sport-head">
+        <div class="container">
+            <h1>Pusat Sukan Kampus</h1>
+            <p>Courts, classes and competitions &middot; Block G</p>
+        </div>
+    </header>
+
+    <nav class="sport-nav" aria-label="Sports centre sections">
+        <div class="container">
+            <ul>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#bookings">Bookings</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="row">
+
+            <div class="col-main" id="classes">
+
+                <article class="card">
+                    <h2>Badminton, beginners</h2>
+                    <p>
+                        Six sessions, all equipment provided. Court shoes are
+                        required &mdash; the wooden floor does not forgive
+                        trainers.
+                    </p>
+                    <p class="time">Tuesdays, 5.30 p.m. &ndash; 7 p.m.</p>
+                </article>
+
+                <article class="card">
+                    <h2>Futsal league</h2>
+                    <p>
+                        Eight teams, one round robin, floodlit pitch behind the
+                        engineering block. Register a squad of ten.
+                    </p>
+                    <p class="time">Thursdays, 8 p.m. &ndash; 10 p.m.</p>
+                </article>
+
+                <article class="card">
+                    <h2>Morning swim</h2>
+                    <p>
+                        The pool opens at seven for lap swimming. Free for
+                        students with a valid card, RM 3 for everyone else.
+                    </p>
+                    <p class="time">Daily, 7 a.m. &ndash; 9 a.m.</p>
+                </article>
+
+            </div>
+
+            <aside class="col-side">
+
+                <div class="side-box" id="bookings">
+                    <span class="badge">Open</span>
+                    <h2>Court bookings</h2>
+                    <p>
+                        Book a court forty-eight hours ahead at the counter or
+                        by e-mail. One hour per student per day.
+                    </p>
+                </div>
+
+                <div class="side-box" id="contact">
+                    <h2>Find us</h2>
+                    <ul>
+                        <li>Block G, level 1</li>
+                        <li><a href="mailto:sukan@unisza.edu.my">sukan@unisza.edu.my</a></li>
+                        <li><a href="tel:+6096688700">09-668 8700</a></li>
+                    </ul>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <footer class="sport-foot">
+        <p>
+            Lab 5 Exercise B &middot; CSF3133 Web Design &middot; S79146 &middot; Group K3 &middot;
+            <a href="../index.html">Back to the portfolio</a>
+        </p>
+    </footer>
+
+</body>
+</html>

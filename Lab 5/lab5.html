@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 main page: a two-column magazine layout built with the box model, float and clear, a sticky header and an absolutely positioned badge, then made responsive with media queries.">
+    <title>Kampus Kreatif &ndash; Lab 5 Layout Page</title>
+    <link rel="stylesheet" href="style5.css">
+</head>
+<body>
+
+    <!-- ==================================================================
+         LAB 5 - CHAPTER 5 : LAYOUT AND RESPONSIVE DESIGN
+
+         Everything on this page is positioned with the four techniques
+         from the chapter:
+            box model .... every card is width + padding + border + margin
+            float ........ .col-main floats left, .col-side floats right
+            clear ........ .row::after clears them so the page keeps height
+            position ..... the header is sticky, the badge is absolute
+
+         Resize the window below 820px and the two columns stack.
+         ================================================================== -->
+
+    <!-- ===== STICKY HEADER =====
+         position: sticky + top: 0 keeps this strip on screen once the
+         page scrolls; no scripting needed. -->
+    <header class="site-head">
+        <div class="container">
+            <h1>Kampus Kreatif</h1>
+            <p>The student magazine of FSKM &middot; issue 12</p>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="site-nav" aria-label="Magazine sections">
+        <div class="container">
+            <ul>
+                <li><a href="#stories">Stories</a></li>
+                <li><a href="#diary">Diary</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- ===== THE TWO-COLUMN ROW =====
+             .row gets the clearfix; the children carry the floats. -->
+        <div class="row">
+
+            <!-- ========== MAIN COLUMN : 64% ========== -->
+            <div class="col-main" id="stories">
+
+                <article class="card">
+                    <h2>Robotics club takes second place</h2>
+                    <p>
+                        Six students from the faculty spent eleven weeks building
+                        a line-following robot and came home with the runner-up
+                        trophy from the state competition.
+                    </p>
+                    <p>
+                        The chassis is laser-cut acrylic, the brain is a
+                        single-board computer, and the line sensor was tuned by
+                        hand on the cafeteria floor at two in the morning.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h2>New lab benches for the second floor</h2>
+                    <p>
+                        Twenty-four workstations were installed over the
+                        semester break. Each bench now has its own power strip
+                        and a monitor arm, so nobody has to fight over the
+                        socket by the door.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h2>Why the library extended its hours</h2>
+                    <p>
+                        From this week the library closes at eleven instead of
+                        nine, Monday to Thursday, after a survey showed that
+                        most final-year students study after dinner.
+                    </p>
+                </article>
+
+            </div>
+
+            <!-- ========== SIDEBAR : 33% ========== -->
+            <aside class="col-side" id="diary">
+
+                <!-- The badge is absolutely positioned inside .side-box,
+                     which is its nearest positioned ancestor. -->
+                <div class="side-box">
+                    <span class="badge">New</span>
+                    <h3>Diary</h3>
+                    <p>12 Nov &mdash; robotics demo, foyer, 10 a.m.</p>
+                    <p>19 Nov &mdash; coding clinic, lab 2.4, 2 p.m.</p>
+                    <p>26 Nov &mdash; magazine deadline, midnight.</p>
+                </div>
+
+                <div class="side-box">
+                    <h3>How this layout works</h3>
+                    <p>
+                        <code>.col-main</code> floats left at 64% and
+                        <code>.col-side</code> floats right at 33%; the 3% left
+                        over is the gap between them.
+                    </p>
+                    <p>
+                        Without <code>clear: both</code> on the wrapper, the
+                        floats would escape it and the footer would climb up
+                        the page.
+                    </p>
+                </div>
+
+                <div class="side-box">
+                    <h3>Try this</h3>
+                    <p>
+                        Drag the window narrower than 820 pixels: both columns
+                        stop floating and take the full width, because of the
+                        media query at the end of <code>style5.css</code>.
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- ===== ABOUT ===== -->
+        <section class="card" id="about">
+            <h2>About Kampus Kreatif</h2>
+            <p>
+                Written, edited, photographed and laid out by students. We meet
+                on Wednesdays at five in the newsroom behind the faculty office,
+                and anyone is welcome to walk in.
+            </p>
+            <p>
+                Send a story idea to
+                <a href="mailto:editor@kampus-kreatif.my">editor@kampus-kreatif.my</a>
+                &mdash; the next deadline is 26 November.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="site-foot">
+        <p>
+            Lab 5 &middot; CSF3133 Web Design &middot; S79146 &middot; Group K3 &middot;
+            <a href="../index.html">Back to the portfolio</a>
+        </p>
+    </footer>
+
+</body>
+</html>
