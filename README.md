@@ -150,9 +150,11 @@ S79146_CSF3133_K3/
 │   └── video.html
 ├── Lab 5/
 │   ├── books.jpg
+│   ├── food validation.png
 │   ├── food.css
 │   ├── food.html
 │   ├── header-bg.jpg
+│   ├── shop validation.png
 │   ├── shop.css
 │   └── shop.html
 ├── tools/
@@ -206,7 +208,9 @@ results are shown in the gallery on the home page and stored in the lab folders.
 Lab 4 has all four results filed: `lab4_ExerA validation.png` and
 `lab4_ExerB validation.png` for the markup (W3C Nu), and
 `style css validation.png` and `cafe css validation.png` for the two style
-sheets (W3C CSS validator, CSS level 3 — both "No Error Found").
+sheets (W3C CSS validator, CSS level 3 — both "No Error Found"). Lab 5 has
+`food validation.png` and `shop validation.png` for the markup; both report
+"No errors or warnings to show".
 
 | Screenshot | Page checked |
 | --- | --- |
@@ -228,6 +232,8 @@ sheets (W3C CSS validator, CSS level 3 — both "No Error Found").
 | [`Lab 4/style css validation.png`](Lab%204/style%20css%20validation.png) | Lab 4 — Problem A style sheet (`style.css`) |
 | [`Lab 4/lab4_ExerB validation.png`](Lab%204/lab4_ExerB%20validation.png) | Lab 4 — Problem B (e-Café Campus) |
 | [`Lab 4/cafe css validation.png`](Lab%204/cafe%20css%20validation.png) | Lab 4 — Problem B style sheet (`cafe.css`) |
+| [`Lab 5/food validation.png`](Lab%205/food%20validation.png) | Lab 5 — Problem A (Taste of Terengganu) |
+| [`Lab 5/shop validation.png`](Lab%205/shop%20validation.png) | Lab 5 — Problem B (Campus Bookstore) |
 
 ---
 
