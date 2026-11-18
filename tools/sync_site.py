@@ -77,6 +77,32 @@ def discover() -> tuple[list[Path], list[Path], list[Path]]:
     return pages, images, files
 
 
+URL_IN_CSS = re.compile(r"url\(\s*[\"']?([^\"')]+)[\"']?\s*\)")
+
+
+def background_images() -> set[str]:
+    """Repo-relative paths used as a CSS background, so they stay out of the
+    validation gallery: a photograph behind a header is decoration, not
+    evidence."""
+    found: set[str] = set()
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".css", ".html"}:
+            continue
+        if ".git" in path.parts:
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for match in URL_IN_CSS.finditer(text):
+            target = match.group(1).strip()
+            if target.startswith(("http:", "https:", "data:", "//")):
+                continue
+            resolved = (path.parent / target).resolve()
+            try:
+                found.add(resolved.relative_to(ROOT).as_posix())
+            except ValueError:
+                continue
+    return found
+
+
 def natural_key(name: str) -> list:
     """Sort "Lab 2" before "Lab 10" and keep "(root)" last."""
     if name == "(root)":
@@ -373,6 +399,9 @@ def replace_block(text: str, name: str, body: str, source: str) -> str:
 
 def main() -> int:
     pages, images, files = discover()
+    backgrounds = background_images()
+    decorative = [i for i in images if i.as_posix() in backgrounds]
+    images = [i for i in images if i.as_posix() not in backgrounds]
     meta = sync_meta(load_meta(), pages, images)
 
     META.write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -389,6 +418,9 @@ def main() -> int:
     readme = replace_block(readme, "REPO_TREE", render_tree(files), "README.md")
     README.write_text(readme, encoding="utf-8")
 
+    if decorative:
+        names = ", ".join(i.as_posix() for i in decorative)
+        print(f"  - gallery skipped background image(s): {names}")
     print(f"synced {len(pages)} pages, {len(images)} images")
     return 0
 

@@ -1,0 +1,213 @@
+/* ==================================================================
+   food.css  ·  CSF3133 Lab 5  ·  Problem A  ·  S79146
+   External style sheet for food.html (Taste of Terengganu).
+
+   Attached with:  <link rel="stylesheet" href="food.css">
+
+   The internal <style> block in food.html styles the <h2> headings and
+   the inline style attribute dresses the "Free entry" notice, so those
+   two rules are deliberately NOT in this file.
+
+   Sizes come from the appendix colour swatch:
+     #FBF7F0  page background      #2C2C2C  dark navigation
+     #E67E22  accent orange        #1B4F72  deep blue (table header)
+     #FDEBD0  notice / hover       #EFE6D8  alternate row
+     #ddd     cell borders         #111     link hover
+   ================================================================== */
+
+/* ===== 1. PAGE ===== */
+body {
+    margin: 0;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2C2C2C;
+    background-color: #FBF7F0;
+}
+
+/* ===== 2. HEADER WITH THE BACKGROUND IMAGE =====
+   A dark gradient is layered over the photograph so the white text
+   stays readable whatever part of the sunset sits behind it. */
+header {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url("header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    text-align: center;
+    padding: 90px 20px 80px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: "Poppins", "Segoe UI", Verdana, sans-serif;
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+header p {
+    margin: 12px auto 0;
+    max-width: 640px;
+    font-size: 1rem;
+    color: #FDEBD0;
+}
+
+/* ===== 3. HORIZONTAL NAVIGATION BAR =====
+   overflow: hidden makes the bar contain its floated items. */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2C2C2C;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    padding: 14px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Hover state */
+nav li a:hover {
+    background-color: #111111;
+    color: #E67E22;
+}
+
+/* The class that marks the page you are on */
+nav li a.active {
+    background-color: #1B4F72;
+    color: #ffffff;
+}
+
+/* ===== 4. CONTENT WIDTH =====
+   90% wide but never past 980px, so the text stays readable. */
+main {
+    width: 90%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 30px 0 45px;
+}
+
+section {
+    margin-bottom: 36px;
+}
+
+/* Body copy is justified, as the brief asks */
+main p {
+    text-align: justify;
+    line-height: 1.75;
+}
+
+/* ===== 5. STYLED TABLE ===== */
+#stalls {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 14px;
+    background-color: #ffffff;
+}
+
+#stalls th,
+#stalls td {
+    border: 1px solid #dddddd;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+#stalls th {
+    background-color: #1B4F72;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+}
+
+/* Alternating row colour */
+#stalls tbody tr:nth-child(even) {
+    background-color: #EFE6D8;
+}
+
+/* Row under the pointer */
+#stalls tbody tr:hover {
+    background-color: #FDEBD0;
+}
+
+/* Money reads better flush right */
+#stalls td.price {
+    text-align: right;
+}
+
+/* ===== 6. FOOTER ===== */
+footer {
+    background-color: #EFE6D8;
+    color: #2C2C2C;
+    text-align: center;
+    padding: 22px 18px;
+    font-size: 0.86rem;
+    border-top: 4px solid #E67E22;
+}
+
+footer a {
+    color: #1B4F72;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 6px;
+}
+
+/* ===== 7. LINK STATES, IN ORDER ===== */
+a:link {
+    color: #1B4F72;
+}
+
+a:visited {
+    color: #6b4c8a;
+}
+
+a:hover {
+    color: #E67E22;
+}
+
+a:active {
+    color: #C0392B;
+}
+
+/* ===== 8. SMALL SCREENS =====
+   The floated menu items wrap, and the header padding comes down. */
+@media (max-width: 640px) {
+    header {
+        padding: 60px 16px 55px;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    nav li a {
+        padding: 10px 14px;
+        font-size: 0.72rem;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    #stalls th,
+    #stalls td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+}

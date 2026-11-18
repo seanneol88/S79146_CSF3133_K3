@@ -1,0 +1,203 @@
+/* ==================================================================
+   shop.css  ·  CSF3133 Lab 5  ·  Problem B  ·  S79146
+   External style sheet for shop.html (Campus Bookstore).
+
+   Every fault in the given file is corrected here and each part is
+   commented, as Part 2, step 9 asks:
+
+     line 2   'Robotto'            -> 'Roboto'  (the linked family)
+     line 4   no repeat            -> no-repeat
+     line 5   bacground-position   -> background-position
+     line 18  display: inline      -> display: block
+     line 23  li:a:hover           -> li a:hover
+     line 26  #products            -> #product
+     line 27  collapsed            -> collapse
+     line 34  tr:nth-child(2)      -> tr:nth-child(even)
+     line 37  tr:hovered           -> tr:hover
+     line 45  missing semicolon after background-color
+   ================================================================== */
+
+/* ===== PAGE =====
+   Roboto for the body, Merriweather for the headings (Part 2, step 8). */
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2C2C2C;
+    background-color: #FBF7F0;
+    background-image: url("books.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 300px auto;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Merriweather', Georgia, serif;
+}
+
+/* ===== HEADER (Part 2, step 5) =====
+   The same photograph, cropped to fill the banner, with a dark layer
+   behind the text so it stays readable. */
+header {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("books.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    text-align: center;
+    padding: 64px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+header p {
+    margin: 8px 0 0;
+    font-size: 0.95rem;
+    color: #FDEBD0;
+}
+
+/* ===== NAVIGATION BAR =====
+   No bullets, no padding, overflow hidden so the bar contains its floats. */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li {
+    float: left;
+}
+
+/* The whole padded area has to be clickable, so the link is a block */
+nav li a {
+    display: block;
+    color: #ffffff;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+}
+
+/* Hover state: darker background */
+nav li a:hover {
+    background-color: #111111;
+    color: #04AA6D;
+}
+
+/* The current page (Part 2, step 6) */
+nav li a.active {
+    background-color: #04AA6D;
+    color: #ffffff;
+}
+
+/* ===== MAIN COLUMN ===== */
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 26px 0 40px;
+}
+
+main p {
+    line-height: 1.6;
+}
+
+/* ===== TABLE =====
+   One set of borders, alternating rows, a hover row, an uppercase
+   header and prices on the right (Part 2, step 7). */
+#product {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 14px;
+    background-color: #ffffff;
+}
+
+#product td,
+#product th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#product th {
+    background-color: #04AA6D;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+/* Every other row is tinted */
+#product tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* The row under the pointer */
+#product tbody tr:hover {
+    background-color: #ddd;
+}
+
+/* Money reads better flush right */
+#product td.price {
+    text-align: right;
+}
+
+/* ===== FOOTER =====
+   The missing semicolon on the original line 45 was swallowing these
+   two declarations. */
+footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.86rem;
+    color: #2C2C2C;
+}
+
+footer a {
+    color: #1B4F72;
+}
+
+footer address {
+    font-style: normal;
+    margin-top: 6px;
+}
+
+/* ===== SMALL SCREENS =====
+   The floated menu items wrap onto a second line. */
+@media (max-width: 600px) {
+    header {
+        padding: 44px 16px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav li a {
+        padding: 10px 12px;
+        font-size: 0.72rem;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    #product td,
+    #product th {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+}

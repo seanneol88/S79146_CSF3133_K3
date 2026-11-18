@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lab 5 Problem B: the Campus Bookstore page, with sixteen faults in the given HTML and CSS found and corrected, then extended with semantic structure, an active menu item and a fully styled table.">
+    <title>Campus Bookstore &ndash; Lab 5 Problem B</title>
+
+    <!-- Two Google Fonts in one request: Roboto for the page, and the
+         Merriweather heading face added in Part 2, step 8. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+
+    <!-- ==================================================================
+         LAB 5 - PROBLEM B : Campus Bookstore
+         CSF3133 Web Design · S79146 · Group K3
+
+         THE FAULTS FOUND IN THE GIVEN CODE
+
+           1.  shop.html, line 7    rel="stylesheets" is not a valid link
+                                    type, so shop.css was never fetched -
+                                    which is why the page showed the
+                                    default font.
+           2.  shop.html, line 10   The <style> block sat inside <body>.
+                                    A style element belongs in the head.
+           3.  shop.html, line 18   style="color=#1B4F72;" used an equals
+                                    sign; a declaration needs a colon.
+           4.  shop.html, lines 13-17  The list and the heading went
+                                    straight into the body with no
+                                    <nav>, <header> or <main> around
+                                    them (Part 2, step 5).
+           5.  shop.html, line 20   The table carried id="product" while
+                                    the sheet styled #products, so no
+                                    table rule matched at all.
+           6.  shop.html, line 21   The header row was a bare <tr><th>
+                                    with no <thead> or <tbody> to separate
+                                    it from the data rows.
+           7.  shop.css, line 2     'Robotto' - the family that was linked
+                                    is Roboto.
+           8.  shop.css, line 4     background-repeat: no repeat - the
+                                    keyword is hyphenated: no-repeat.
+           9.  shop.css, line 5     "bacground-position" is misspelt, so
+                                    the position was ignored.
+          10.  shop.css, line 18    display: inline - padding on an inline
+                                    link does not build a menu bar, and it
+                                    overlaps the neighbouring item.
+          11.  shop.css, line 23    li:a:hover is not a selector. It was
+                                    meant to be li a:hover (a descendant).
+          12.  shop.css, line 26    #products again - the id in the markup
+                                    is #product.
+          13.  shop.css, line 27    border-collapse: collapsed - the value
+                                    is collapse, so the table kept its
+                                    double borders.
+          14.  shop.css, line 34    tr:nth-child(2) tints one single row;
+                                    the alternating effect needs
+                                    tr:nth-child(even).
+          15.  shop.css, line 37    tr:hovered is not a pseudo-class. It
+                                    should be tr:hover.
+          16.  shop.css, line 45    background-color: #f1f1f1 had no
+                                    semicolon, so text-align and padding on
+                                    the footer were thrown away with it.
+         ================================================================== -->
+
+    <!-- ===== HEADER (Part 2, step 5) =====
+         The photograph is set in shop.css with background-size: cover. -->
+    <header id="home">
+        <h1>Campus Bookstore</h1>
+        <p>Textbooks, stationery and more for every student</p>
+    </header>
+
+    <!-- ===== NAVIGATION BAR =====
+         .active marks the page you are on (Part 2, step 6). -->
+    <nav aria-label="Bookstore sections">
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ===== PRODUCT TABLE ===== -->
+        <section id="books">
+            <h2>Our shelves</h2>
+
+            <p>
+                Everything below is in stock at the counter in Block C.
+                Student card holders get ten per cent off textbooks.
+            </p>
+
+            <table id="product">
+                <caption>Prices in Malaysian Ringgit, inclusive of tax.</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Price (RM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Web Design Basics</td>
+                        <td>Textbook</td>
+                        <td class="price">45.00</td>
+                    </tr>
+                    <tr>
+                        <td>A4 Notebook</td>
+                        <td>Stationery</td>
+                        <td class="price">6.50</td>
+                    </tr>
+                    <tr>
+                        <td>USB Drive 32GB</td>
+                        <td>Gadget</td>
+                        <td class="price">25.00</td>
+                    </tr>
+                    <tr>
+                        <td>Highlighter Set</td>
+                        <td>Stationery</td>
+                        <td class="price">9.90</td>
+                    </tr>
+                    <tr>
+                        <td>Discrete Mathematics</td>
+                        <td>Textbook</td>
+                        <td class="price">78.00</td>
+                    </tr>
+                    <tr>
+                        <td>Graphing Calculator</td>
+                        <td>Gadget</td>
+                        <td class="price">120.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact">
+            <h2>Visit us</h2>
+            <p>
+                Block C, ground floor, open from eight in the morning until six
+                in the evening, Monday to Friday.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Campus Bookstore &middot; CSF3133 Lab 5 · S79146</p>
+        <address>
+            <a href="mailto:bookstore@unisza.edu.my">bookstore@unisza.edu.my</a>
+            &middot; <a href="tel:+6096688200">09-668 8200</a>
+        </address>
+    </footer>
+
+</body>
+</html>
