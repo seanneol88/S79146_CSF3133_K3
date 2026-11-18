@@ -244,7 +244,7 @@
             <div class="pill-row">
                 <!-- AUTO:STATS:START -->
                 <span class="pill">5 labs</span>
-                <span class="pill">34 HTML pages</span>
+                <span class="pill">42 HTML pages</span>
 <!-- AUTO:STATS:END -->
                 <span class="pill">Plain HTML &amp; CSS</span>
             </div>
@@ -525,14 +525,63 @@
 
         <section class="lab">
             <div class="lab-head">
-                <h2>Lab 5 — Backgrounds, Fonts &amp; Tables</h2>
+                <h2>Lab 5 — CSS Part 2</h2>
                 <span class="folder">Lab 5/</span>
             </div>
             <p class="desc">
-                Three ways of adding CSS at once, Google Fonts, <code>background-image</code> with <code>cover</code> and <code>center</code>, a horizontal CSS navigation bar, and a fully styled data table — Problem A builds the Taste of Terengganu festival page, Problem B finds sixteen faults in the Campus Bookstore code and extends it.
+                The CSS Part 2 chapter worked through in order — inline, internal and external styles, a style sheet borrowed from Google Fonts, background images, a styled data table and a navigation bar — then Lab Exercise 5&#x27;s UMT profile page (<code>umt.html</code> + <code>umt.css</code>), followed by the two handout problems: the Taste of Terengganu festival page and the Campus Bookstore debug-and-extend.
             </p>
 
             <div class="grid">
+                <a class="card" href="Lab%205/inline.html">
+                    <span class="tag">5.3</span>
+                    <h3>Inline CSS</h3>
+                    <p>The same page styled straight onto the elements with the <code>style</code> attribute — a blue 24px heading and a paragraph on a yellow, padded background.</p>
+                    <span class="file">Lab 5/inline.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/internal.html">
+                    <span class="tag">5.4</span>
+                    <h3>Internal CSS</h3>
+                    <p>The rules moved into a <code>&lt;style&gt;</code> block in <code>&lt;head&gt;</code>: a green centred heading and a pale paragraph panel.</p>
+                    <span class="file">Lab 5/internal.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/external.html">
+                    <span class="tag">5.5</span>
+                    <h3>External CSS</h3>
+                    <p>The styles kept in <code>style.css</code> beside the page and pulled in with a <code>&lt;link&gt;</code>, so one sheet can dress a whole site.</p>
+                    <span class="file">Lab 5/external.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/link.html">
+                    <span class="tag">5.6</span>
+                    <h3>CSS from Another Website</h3>
+                    <p>Roboto loaded from Google&#x27;s font service and applied with a <code>font-family</code> rule — no font files in the repository at all.</p>
+                    <span class="file">Lab 5/link.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/bgImage.html">
+                    <span class="tag">5.7</span>
+                    <h3>Background Images</h3>
+                    <p>Two background images on one element: a tiled photograph and a second placed once in the corner, using <code>background-position</code> and a two-value <code>background-repeat</code>.</p>
+                    <span class="file">Lab 5/bgImage.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/table.html">
+                    <span class="tag">5.8</span>
+                    <h3>CSS Table</h3>
+                    <p>The <code>#customers</code> sheet — single collapsed borders, zebra rows, a hover highlight and an uppercase white-on-teal header.</p>
+                    <span class="file">Lab 5/table.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/navigation.html">
+                    <span class="tag">5.9</span>
+                    <h3>CSS Navigation Bar</h3>
+                    <p>An unordered list turned into a horizontal bar: bullets and default margins stripped, items floated, links turned into blocks and darkened on hover.</p>
+                    <span class="file">Lab 5/navigation.html</span>
+                </a>
+
                 <a class="card" href="Lab%205/food.html">
                     <span class="tag">Problem A</span>
                     <h3>Taste of Terengganu — Food Festival</h3>
@@ -545,6 +594,13 @@
                     <h3>Campus Bookstore — Debug &amp; Extend</h3>
                     <p>Sixteen faults in the supplied HTML and CSS found and listed with file and line number, then corrected and extended: <code>header</code>/<code>nav</code>/<code>main</code>/<code>footer</code>, two Google Fonts, an active menu item and a table with single borders, zebra rows and right-aligned prices.</p>
                     <span class="file">Lab 5/shop.html</span>
+                </a>
+
+                <a class="card" href="Lab%205/umt.html">
+                    <span class="tag">Exercise 5</span>
+                    <h3>Universiti Malaysia Terengganu</h3>
+                    <p>Lab Exercise 5: a full page about UMT with <code>header</code>, <code>nav</code>, <code>section</code>, <code>article</code> and <code>footer</code>, an external <code>umt.css</code>, two Google Fonts, a gradient background, a milestone table with alternating and hover rows, and a centred footer.</p>
+                    <span class="file">Lab 5/umt.html</span>
                 </a>
 
             </div>

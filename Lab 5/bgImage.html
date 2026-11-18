@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 5 - Section 5.7 CSS Backgrounds (pages 45-46)
+    Body carries two background images at once: books.jpg tiles from the top
+    left, header-bg.jpg sits once in the bottom right corner. The module asks
+    for paper.gif and img_flwr.gif from a short link; those files were not
+    supplied, so the two photographs already in this folder stand in for them.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The background-image Property</title>
+    <style>
+        body {
+            background-image: url("books.jpg"), url("header-bg.jpg");
+            background-position: right bottom, left top;
+            background-repeat: no-repeat, repeat;
+            padding: 15px;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        /* A pale panel keeps the text readable over the two photographs. */
+        .panel {
+            max-width: 760px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.94);
+            padding: 26px 30px;
+            border-radius: 8px;
+        }
+
+        /* Step 6 of the module: one image, left to tile on its own. */
+        .swatch {
+            height: 140px;
+            margin-top: 20px;
+            border: 1px solid #bbb;
+            background-image: url("books.jpg");
+            background-repeat: repeat;
+        }
+
+        p {
+            line-height: 1.7;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h1>The background-image Property</h1>
+
+        <p>
+            This demo shows some different techniques on how to set a
+            background image of a HTML element.</p>
+
+        <p>
+            Terengganu, once written Trengganu or Tringganu, is a sultanate and
+            a constituent state of Malaysia, also known by the Arabic honorific
+            Darul Iman, "Abode of Faith". Kuala Terengganu, the coastal capital,
+            stands at the mouth of the broad Terengganu River and is both the
+            royal town and the largest city in the state. Several islands lie
+            close to the coast, among them the Perhentian Islands and Redang
+            Island.</p>
+
+        <div class="swatch"></div>
+    </div>
+</body>
+</html>

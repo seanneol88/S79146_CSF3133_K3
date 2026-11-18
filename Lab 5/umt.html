@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 5 - Section 5.10 Lab Exercise 5 (pages 51-53)
+    "Designing a Webpage with External CSS and Web Design Principles"
+
+    Checklist from the exercise:
+      * semantic HTML5 structure - header, nav, section, article, footer
+      * a CSS-styled navigation bar with hover states
+      * a table of relevant data (here: UMT milestones)
+      * two to three paragraphs about Universiti Malaysia Terengganu
+      * an external style sheet, umt.css, linked from <head>
+      * body background, Google Fonts, styled nav, styled table,
+        readable text and a centred footer with a subtle background
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A short profile of Universiti Malaysia Terengganu, built for CSF3133 Lab Exercise 5.">
+    <title>Universiti Malaysia Terengganu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="umt.css">
+</head>
+<body>
+
+    <header id="home">
+        <h1>Universiti Malaysia Terengganu</h1>
+        <p class="tagline">Kuala Nerus &middot; Terengganu &middot; Malaysia</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#milestones">Milestones</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About the University</h2>
+
+            <article>
+                <p>
+                    Universiti Malaysia Terengganu, usually shortened to UMT, is a
+                    public university on the coast of Kuala Nerus in Terengganu,
+                    Malaysia. Its campus sits beside the South China Sea, which
+                    makes the water itself part of the teaching: students walk
+                    from a lecture hall to a jetty, a hatchery or a reef survey
+                    within the same afternoon. That setting shaped the subjects
+                    the university is best known for, among them marine science,
+                    oceanography, fisheries and the management of coastal
+                    resources.</p>
+
+                <p>
+                    The institution's history reaches back to 1972, when fisheries
+                    and marine science teaching began in Kuala Terengganu. It grew
+                    into Kolej Universiti Sains dan Teknologi Malaysia, or KUSTEM,
+                    in 1999, and was upgraded to a full university under its
+                    present name in 2007. Alongside the marine disciplines, UMT
+                    now teaches ocean engineering, informatics, business,
+                    economics and social development, so a degree there can lead
+                    to a laboratory, a research vessel, a government agency or a
+                    company in the blue economy.</p>
+
+                <p>
+                    Teaching is built around fieldwork. Undergraduate projects
+                    often take place on the islands and estuaries near the campus,
+                    where students sample water, count coral or record catches
+                    with local fishing communities. The results feed into
+                    research on biodiversity, aquaculture and climate, and they
+                    keep the university's work tied to the people whose lives
+                    depend on the sea.</p>
+            </article>
+        </section>
+
+        <section id="milestones">
+            <h2>Milestones</h2>
+
+            <table>
+                <caption>A short history of the university</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Year</th>
+                        <th scope="col">Milestone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="year">1972</td>
+                        <td>Fisheries and marine science teaching begins in Kuala Terengganu.</td>
+                    </tr>
+                    <tr>
+                        <td class="year">1999</td>
+                        <td>KUSTEM, Kolej Universiti Sains dan Teknologi Malaysia, is established.</td>
+                    </tr>
+                    <tr>
+                        <td class="year">2007</td>
+                        <td>The college is upgraded and renamed Universiti Malaysia Terengganu.</td>
+                    </tr>
+                    <tr>
+                        <td class="year">2010s</td>
+                        <td>Marine, ocean engineering and informatics programmes expand on the Kuala Nerus campus.</td>
+                    </tr>
+                    <tr>
+                        <td class="year">Today</td>
+                        <td>Programmes span marine science, fisheries, engineering, computing, business and social development.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+
+            <address>
+                Universiti Malaysia Terengganu<br>
+                21030 Kuala Nerus<br>
+                Terengganu, Malaysia
+            </address>
+
+            <p class="links">
+                <a href="https://www.umt.edu.my/">www.umt.edu.my</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Universiti Malaysia Terengganu</p>
+        <p class="note">Built for CSF3133 Web-Based Interface Design, Lab Exercise 5.</p>
+    </footer>
+
+</body>
+</html>

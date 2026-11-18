@@ -1,0 +1,15 @@
+/* ==========================================================================
+   CSF3133 Lab Module 5 - Section 5.5 External CSS (page 42)
+   The same two rules the module lists, kept in a file of their own so that
+   every page on a site can share them.
+   ========================================================================== */
+
+h1 {
+    color: red;
+    font-family: Arial, sans-serif;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}

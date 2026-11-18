@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 5 - Section 5.9 CSS Navigation Bar (pages 48-51)
+    Steps 8 and 9 of the module: the bullets and default margins go, the list
+    is floated into a horizontal bar, the links become blocks so the whole
+    strip is clickable, and :hover darkens the item under the pointer.
+    A short section for each link keeps the four anchors pointing somewhere.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Navigation Bar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: #111;
+        }
+
+        section {
+            padding: 24px 28px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <section id="home">
+        <h2>Home</h2>
+        <p>A horizontal menu is an unordered list with the bullets, margins and
+            padding removed, the items floated left and each link turned into a
+            block so the padding fills the bar.</p>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <p>Because every item is floated, the list would collapse; the
+            overflow: hidden on the ul keeps the dark background wrapped around
+            the links.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>The same pattern works point-downwards: drop the float and give the
+            list a width instead, and you have a vertical sidebar of links.</p>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>Hovering a link changes its background from the bar's #333 to #111,
+            which marks the item under the pointer without moving the layout.</p>
+    </section>
+</body>
+</html>
