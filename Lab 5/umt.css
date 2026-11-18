@@ -116,6 +116,14 @@ h2 {
     border-bottom: 3px solid #C9A227;
 }
 
+h3 {
+    margin: 0 0 14px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: #1D7874;
+}
+
 p {
     margin: 0 0 18px;
     text-align: justify;
@@ -245,6 +253,10 @@ footer .note {
 
     h2 {
         font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.05rem;
     }
 
     p {
