@@ -122,6 +122,23 @@ def page_order(path: Path) -> tuple[int, str]:
     return (2, stem)
 
 
+def section_pages(meta: dict, key: str, pages: list[Path]) -> list[Path]:
+    """Pages of one section, in the order its config asks for.
+
+    A section may list file names under "order" in pages.json when the
+    handout runs in a different sequence from the alphabet - Lab 5 walks
+    through its chapter exercises before the two graded problems. Anything
+    it does not name falls back to the default page_order.
+    """
+    found = [p for p in pages if section_key(p) == key]
+    wanted = meta["sections"][key].get("order") or []
+    if not wanted:
+        return sorted(found, key=page_order)
+    rank = {name.lower(): index for index, name in enumerate(wanted)}
+    fallback = len(rank)
+    return sorted(found, key=lambda p: (rank.get(p.name.lower(), fallback), page_order(p)))
+
+
 def image_order(path: Path) -> tuple[list, int, str]:
     """Group by folder, validation screenshots first, then other images."""
     is_other = 1 if "validation" not in path.stem.lower() else 0
@@ -273,7 +290,7 @@ def render_sections(meta: dict, pages: list[Path], images: list[Path]) -> str:
             "",
             '            <div class="grid">',
         ]
-        for page in sorted((p for p in pages if section_key(p) == key), key=page_order):
+        for page in section_pages(meta, key, pages):
             info = meta["pages"][page.as_posix()]
             out += [
                 f'                <a class="card" href="{encode_url(page.as_posix())}">',
@@ -340,7 +357,7 @@ def render_page_table(meta: dict, pages: list[Path]) -> str:
         "| --- | --- | --- |",
     ]
     for key in sections_in_order(meta, pages):
-        for page in sorted((p for p in pages if section_key(p) == key), key=page_order):
+        for page in section_pages(meta, key, pages):
             info = meta["pages"][page.as_posix()]
             path = page.as_posix()
             rows.append(

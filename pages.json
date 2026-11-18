@@ -17,8 +17,20 @@
       "description": "Chapter 4 practice pages — semantic structure, an embedded `<video>`, a CSS navigation bar, the selector types and text-decoration — followed by the two handout problems: the Visit Terengganu tourism page and the e-Café Campus debug-and-extend."
     },
     "Lab 5": {
-      "title": "Lab 5 — Backgrounds, Fonts & Tables",
-      "description": "Three ways of adding CSS at once, Google Fonts, `background-image` with `cover` and `center`, a horizontal CSS navigation bar, and a fully styled data table — Problem A builds the Taste of Terengganu festival page, Problem B finds sixteen faults in the Campus Bookstore code and extends it."
+      "title": "Lab 5 — CSS Part 2",
+      "description": "The CSS Part 2 chapter worked through in order — inline, internal and external styles, a style sheet borrowed from Google Fonts, background images, a styled data table and a navigation bar — then Lab Exercise 5's UMT profile page (`umt.html` + `umt.css`), followed by the two handout problems: the Taste of Terengganu festival page and the Campus Bookstore debug-and-extend.",
+      "order": [
+        "inline.html",
+        "internal.html",
+        "external.html",
+        "link.html",
+        "bgImage.html",
+        "table.html",
+        "navigation.html",
+        "food.html",
+        "shop.html",
+        "umt.html"
+      ]
     }
   },
   "gallery": {
@@ -190,6 +202,46 @@
       "tag": "Problem B",
       "title": "Campus Bookstore — Debug & Extend",
       "description": "Sixteen faults in the supplied HTML and CSS found and listed with file and line number, then corrected and extended: `header`/`nav`/`main`/`footer`, two Google Fonts, an active menu item and a table with single borders, zebra rows and right-aligned prices."
+    },
+    "Lab 5/inline.html": {
+      "tag": "5.3",
+      "title": "Inline CSS",
+      "description": "The same page styled straight onto the elements with the `style` attribute — a blue 24px heading and a paragraph on a yellow, padded background."
+    },
+    "Lab 5/internal.html": {
+      "tag": "5.4",
+      "title": "Internal CSS",
+      "description": "The rules moved into a `<style>` block in `<head>`: a green centred heading and a pale paragraph panel."
+    },
+    "Lab 5/external.html": {
+      "tag": "5.5",
+      "title": "External CSS",
+      "description": "The styles kept in `style.css` beside the page and pulled in with a `<link>`, so one sheet can dress a whole site."
+    },
+    "Lab 5/link.html": {
+      "tag": "5.6",
+      "title": "CSS from Another Website",
+      "description": "Roboto loaded from Google's font service and applied with a `font-family` rule — no font files in the repository at all."
+    },
+    "Lab 5/bgImage.html": {
+      "tag": "5.7",
+      "title": "Background Images",
+      "description": "Two background images on one element: a tiled photograph and a second placed once in the corner, using `background-position` and a two-value `background-repeat`."
+    },
+    "Lab 5/table.html": {
+      "tag": "5.8",
+      "title": "CSS Table",
+      "description": "The `#customers` sheet — single collapsed borders, zebra rows, a hover highlight and an uppercase white-on-teal header."
+    },
+    "Lab 5/navigation.html": {
+      "tag": "5.9",
+      "title": "CSS Navigation Bar",
+      "description": "An unordered list turned into a horizontal bar: bullets and default margins stripped, items floated, links turned into blocks and darkened on hover."
+    },
+    "Lab 5/umt.html": {
+      "tag": "Exercise 5",
+      "title": "Universiti Malaysia Terengganu",
+      "description": "Lab Exercise 5: a full page about UMT with `header`, `nav`, `section`, `article` and `footer`, an external `umt.css`, two Google Fonts, a gradient background, a milestone table with alternating and hover rows, and a centred footer."
     }
   },
   "images": {
