@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Exercise 6 (Additional) - Problem B
+    Student Grade Calculator, after the debugging and the extensions.
+
+    The corrected parts are marked in the comments below; the full list of
+    errors and their fixes sits at the top of grade.js.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Grade calculator — CSF3133 additional Lab Exercise 6, Problem B.">
+    <title>Grade Calculator</title>
+    <!-- Extension step 9: the page now has a style sheet of its own. -->
+    <link rel="stylesheet" href="grade.css">
+</head>
+<body>
+    <h1>Student Grade Calculator</h1>
+
+    <!-- Error 2: onsubmit must return the function's value, or the form
+         submits and the page reloads before the result can be read. -->
+    <form name="gradeForm" onsubmit="return checkMark()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="mark">Mark (0-100):</label>
+            <input type="text" id="mark" name="mark">
+        </div>
+
+        <div class="actions">
+            <button type="submit">Check Grade</button>
+            <!-- Extension step 7: fill the mark field with a random 0-100. -->
+            <button type="button" onclick="randomMark()">Random Mark</button>
+        </div>
+    </form>
+
+    <p id="result"></p>
+    <!-- Extension step 8: when the grade was worked out. -->
+    <p id="checkedOn"></p>
+
+    <!-- Error 3: the function is showTable(), not showtable(). -->
+    <button type="button" onclick="showTable()">Show Grade Table</button>
+    <div id="tableContainer"></div>
+
+    <!-- Error 1: the script file is grade.js, not grades.js. -->
+    <script src="grade.js"></script>
+</body>
+</html>

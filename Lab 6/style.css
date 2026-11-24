@@ -1,294 +1,293 @@
 /* ==========================================================================
-   CSF3133 Lab Module 6 - Section 6.12 Lab Exercise 6
-   Style sheet for the quiz application (index.html).
+   CSF3133 Lab Exercise 6 (Additional) - Problem A
+   Style sheet for lab6_ExerA.html: the Rock, Paper, Scissors game.
 
    Palette
-     slate   #1F2933   page background
-     card    #FFFFFF   panels
-     ink     #22303C   body copy
-     amber   #E8A33D   primary action, timer
-     teal    #2E8B7A   correct answers
-     clay    #C0574B   wrong answers
+     night   #232A36   bars and headings
+     sky     #3E6D8E   the game panel headings
+     sand    #F7F3EC   page background
+     grass   #2F8F5B   a win
+     brick   #C0392B   a loss
+     stone   #6B7280   a draw
    ========================================================================== */
 
 * {
     box-sizing: border-box;
 }
 
+/* ---------- Page --------------------------------------------------------- */
+
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
     font-size: 17px;
-    line-height: 1.65;
-    color: #22303C;
-    background-color: #1F2933;
-    background-image: linear-gradient(160deg, #1F2933 0%, #2C3A46 55%, #3A4B57 100%);
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    line-height: 1.6;
+    color: #2B3440;
+    background-color: #F7F3EC;
 }
 
 /* ---------- Header ------------------------------------------------------- */
 
 header {
-    padding: 56px 24px 34px;
+    padding: 48px 24px 40px;
     text-align: center;
-    color: #F7FAFC;
+    color: #FFFFFF;
+    background-color: #232A36;
+    background-image: linear-gradient(135deg, #232A36 0%, #3E6D8E 100%);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.3rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
 }
 
-header .lede {
+header p {
     max-width: 620px;
     margin: 14px auto 0;
-    color: #C7D3DC;
-    font-size: 1rem;
+    color: #CFDBE4;
 }
 
 /* ---------- Panels ------------------------------------------------------- */
 
 main {
-    width: 100%;
-    max-width: 760px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 20px 40px;
-    flex: 1 0 auto;
+    padding: 34px 20px 10px;
 }
 
-.card {
+section {
+    margin-bottom: 24px;
+    padding: 26px 28px;
     background-color: #FFFFFF;
-    border-radius: 14px;
-    padding: 30px 32px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-.card h2 {
-    margin: 0 0 18px;
-    font-size: 1.45rem;
-    line-height: 1.35;
-}
-
-/* ---------- Heads-up display -------------------------------------------- */
-
-.hud {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    font-size: 0.9rem;
-}
-
-#progress {
-    margin-right: auto;
-    font-weight: 600;
-    color: #5A6B78;
-    letter-spacing: 0.3px;
-}
-
-.badge {
-    padding: 6px 12px;
-    border-radius: 999px;
-    background-color: #F1F5F8;
-    color: #33424E;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-}
-
-#timer {
-    background-color: #FDEFD8;
-    color: #8A5A10;
-}
-
-#timer.low {
-    background-color: #F7DCD6;
-    color: #8A2F22;
-}
-
-/* ---------- Options ------------------------------------------------------ */
-
-fieldset {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-legend {
-    padding: 0;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #5A6B78;
-}
-
-.options {
-    display: grid;
-    gap: 10px;
-    margin: 18px 0 22px;
-}
-
-.option {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 14px 16px;
-    border: 2px solid #DFE6EB;
     border-radius: 10px;
-    background-color: #FBFCFD;
-    cursor: pointer;
-    transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    box-shadow: 0 2px 8px rgba(35, 42, 54, 0.08);
 }
 
-.option:hover {
-    border-color: #B9C8D3;
-    background-color: #F4F8FB;
+h2 {
+    margin: 0 0 16px;
+    font-size: 1.15rem;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #3E6D8E;
 }
 
-.option input {
-    margin-top: 4px;
-    accent-color: #E8A33D;
-}
+/* ---------- Form controls ------------------------------------------------ */
 
-.option span {
-    flex: 1;
-}
-
-/* The chosen answer, marked while its radio is checked. */
-.option input:checked + span {
+label {
+    margin-right: 8px;
     font-weight: 600;
-    color: #1F2933;
 }
 
-/* ---------- Buttons ------------------------------------------------------ */
+input[type="text"] {
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 2px solid #D7DEE5;
+    border-radius: 8px;
+    width: 240px;
+}
 
-.actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+input[type="text"]:focus {
+    outline: none;
+    border-color: #3E6D8E;
 }
 
 button {
+    padding: 10px 20px;
+    margin: 6px 6px 6px 0;
     font-family: inherit;
     font-size: 1rem;
     font-weight: 600;
-    padding: 12px 24px;
+    color: #FFFFFF;
+    background-color: #3E6D8E;
     border: 0;
-    border-radius: 999px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.12s ease-in-out, background-color 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
 }
 
 button:hover {
-    transform: translateY(-1px);
+    background-color: #2C5673;
 }
 
-button:disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-    transform: none;
+button.secondary {
+    background-color: #8A939F;
 }
 
-.primary {
-    background-color: #E8A33D;
-    color: #2A1F0B;
+button.secondary:hover {
+    background-color: #6F7883;
 }
 
-.primary:hover {
-    background-color: #D9942F;
+/* The three weapon buttons sit in a row and grow on hover. */
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
 }
 
-.secondary {
-    background-color: #E7EDF1;
-    color: #22303C;
+.choices .choice {
+    flex: 1 1 0;
+    padding: 14px 10px;
+    font-size: 1.05rem;
+    background-color: #E4EDF3;
+    color: #23364A;
 }
 
-.secondary:hover {
-    background-color: #D8E1E7;
+.choices .choice:hover {
+    background-color: #C9DCE8;
 }
 
-/* ---------- Feedback ----------------------------------------------------- */
+/* ---------- Arena -------------------------------------------------------- */
 
-.feedback {
-    margin-top: 18px;
-    min-height: 1.6em;
-    font-weight: 600;
+.arena {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    padding: 18px;
+    background-color: #FAF7F1;
+    border: 1px dashed #D6CBB8;
+    border-radius: 10px;
 }
 
-.feedback.correct {
-    color: #2E8B7A;
+.arena figure {
+    margin: 0;
+    text-align: center;
 }
 
-.feedback.wrong {
-    color: #C0574B;
+.arena img {
+    width: 120px;
+    height: 120px;
+    display: block;
 }
 
-.feedback.info {
-    color: #5A6B78;
+.arena figcaption {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6B7280;
 }
 
-/* ---------- Results ------------------------------------------------------ */
-
-.result-line {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
+.versus {
+    margin: 0;
+    font-size: 1.1rem;
     font-weight: 700;
+    color: #B7A98F;
+}
+
+/* ---------- Result and scoreboard ---------------------------------------- */
+
+#result {
+    min-height: 1.6em;
+    margin: 0 0 16px;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.scoreboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.scoreboard li {
+    flex: 1 1 0;
+    padding: 12px 14px;
+    text-align: center;
+    background-color: #F1F5F8;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #5A6774;
+}
+
+.scoreboard span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #232A36;
+}
+
+/* ---------- History table ------------------------------------------------ */
+
+table {
+    width: 100%;
+    margin-bottom: 14px;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    border: 1px solid #DCE3E9;
+    text-align: left;
+}
+
+th {
+    background-color: #232A36;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 0.8rem;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #F7F9FB;
+}
+
+#summary {
+    margin: 0 0 14px;
+    font-weight: 700;
+    color: #2F8F5B;
 }
 
 /* ---------- Footer ------------------------------------------------------- */
 
 footer {
-    flex-shrink: 0;
     padding: 22px 24px 28px;
     text-align: center;
-    color: #DCE6EC;
-    background-color: rgba(0, 0, 0, 0.22);
+    color: #D5DEE6;
+    background-color: #232A36;
 }
 
 footer p {
-    margin: 0;
-    font-weight: 600;
-}
-
-footer .note {
-    margin-top: 4px;
-    font-size: 0.82rem;
-    font-weight: 400;
-    color: #A9BCC8;
+    margin: 4px 0;
+    font-size: 0.8rem;
 }
 
 /* ---------- Small screens ------------------------------------------------ */
 
-@media (max-width: 560px) {
-    header {
-        padding: 40px 18px 26px;
-    }
-
+@media (max-width: 600px) {
     header h1 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
-    .card {
-        padding: 22px 20px;
-        border-radius: 12px;
+    section {
+        padding: 20px 18px;
     }
 
-    .card h2 {
-        font-size: 1.2rem;
-    }
-
-    .hud {
-        font-size: 0.82rem;
-    }
-
-    button {
+    input[type="text"] {
         width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .arena {
+        gap: 12px;
+    }
+
+    .arena img {
+        width: 88px;
+        height: 88px;
+    }
+
+    .scoreboard li {
+        flex: 1 1 45%;
     }
 }

@@ -1,0 +1,294 @@
+/* ==========================================================================
+   CSF3133 Lab Module 6 - Section 6.12 Lab Exercise 6
+   Style sheet for the quiz application (index.html).
+
+   Palette
+     slate   #1F2933   page background
+     card    #FFFFFF   panels
+     ink     #22303C   body copy
+     amber   #E8A33D   primary action, timer
+     teal    #2E8B7A   correct answers
+     clay    #C0574B   wrong answers
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #22303C;
+    background-color: #1F2933;
+    background-image: linear-gradient(160deg, #1F2933 0%, #2C3A46 55%, #3A4B57 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Header ------------------------------------------------------- */
+
+header {
+    padding: 56px 24px 34px;
+    text-align: center;
+    color: #F7FAFC;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.3rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+header .lede {
+    max-width: 620px;
+    margin: 14px auto 0;
+    color: #C7D3DC;
+    font-size: 1rem;
+}
+
+/* ---------- Panels ------------------------------------------------------- */
+
+main {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+    flex: 1 0 auto;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    padding: 30px 32px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card h2 {
+    margin: 0 0 18px;
+    font-size: 1.45rem;
+    line-height: 1.35;
+}
+
+/* ---------- Heads-up display -------------------------------------------- */
+
+.hud {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+#progress {
+    margin-right: auto;
+    font-weight: 600;
+    color: #5A6B78;
+    letter-spacing: 0.3px;
+}
+
+.badge {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background-color: #F1F5F8;
+    color: #33424E;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+#timer {
+    background-color: #FDEFD8;
+    color: #8A5A10;
+}
+
+#timer.low {
+    background-color: #F7DCD6;
+    color: #8A2F22;
+}
+
+/* ---------- Options ------------------------------------------------------ */
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+legend {
+    padding: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5A6B78;
+}
+
+.options {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 22px;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 2px solid #DFE6EB;
+    border-radius: 10px;
+    background-color: #FBFCFD;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.option:hover {
+    border-color: #B9C8D3;
+    background-color: #F4F8FB;
+}
+
+.option input {
+    margin-top: 4px;
+    accent-color: #E8A33D;
+}
+
+.option span {
+    flex: 1;
+}
+
+/* The chosen answer, marked while its radio is checked. */
+.option input:checked + span {
+    font-weight: 600;
+    color: #1F2933;
+}
+
+/* ---------- Buttons ------------------------------------------------------ */
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.12s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.primary {
+    background-color: #E8A33D;
+    color: #2A1F0B;
+}
+
+.primary:hover {
+    background-color: #D9942F;
+}
+
+.secondary {
+    background-color: #E7EDF1;
+    color: #22303C;
+}
+
+.secondary:hover {
+    background-color: #D8E1E7;
+}
+
+/* ---------- Feedback ----------------------------------------------------- */
+
+.feedback {
+    margin-top: 18px;
+    min-height: 1.6em;
+    font-weight: 600;
+}
+
+.feedback.correct {
+    color: #2E8B7A;
+}
+
+.feedback.wrong {
+    color: #C0574B;
+}
+
+.feedback.info {
+    color: #5A6B78;
+}
+
+/* ---------- Results ------------------------------------------------------ */
+
+.result-line {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* ---------- Footer ------------------------------------------------------- */
+
+footer {
+    flex-shrink: 0;
+    padding: 22px 24px 28px;
+    text-align: center;
+    color: #DCE6EC;
+    background-color: rgba(0, 0, 0, 0.22);
+}
+
+footer p {
+    margin: 0;
+    font-weight: 600;
+}
+
+footer .note {
+    margin-top: 4px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #A9BCC8;
+}
+
+/* ---------- Small screens ------------------------------------------------ */
+
+@media (max-width: 560px) {
+    header {
+        padding: 40px 18px 26px;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    .card {
+        padding: 22px 20px;
+        border-radius: 12px;
+    }
+
+    .card h2 {
+        font-size: 1.2rem;
+    }
+
+    .hud {
+        font-size: 0.82rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
