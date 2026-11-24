@@ -53,7 +53,7 @@
   },
   "gallery": {
     "title": "Validation Evidence",
-    "description": "W3C markup validation results for the exercise pages."
+    "description": "W3C markup and CSS validation results for the exercise pages, followed by a run-through of the Lab 6 Rock, Paper, Scissors game."
   },
   "pages": {
     "Lab 1/lab1.html": {
@@ -344,7 +344,12 @@
     "Lab 5/food validation.png": "Lab 5 · Problem A (Taste of Terengganu)",
     "Lab 5/shop validation.png": "Lab 5 · Problem B (Campus Bookstore)",
     "Lab 5/food css validation.png": "Lab 5 · Problem A — CSS (food.css)",
-    "Lab 5/shop css validation.png": "Lab 5 · Problem B — CSS (shop.css)"
+    "Lab 5/shop css validation.png": "Lab 5 · Problem B — CSS (shop.css)",
+    "Lab 6/lab6_ExerA round 1.png": "Lab 6 · Rock, Paper, Scissors — after 1 round",
+    "Lab 6/lab6_ExerA round 3.png": "Lab 6 · Rock, Paper, Scissors — after 3 rounds",
+    "Lab 6/lab6_ExerA round 4.png": "Lab 6 · Rock, Paper, Scissors — after 4 rounds",
+    "Lab 6/lab6_ExerA round 5.png": "Lab 6 · Rock, Paper, Scissors — after 5 rounds",
+    "Lab 6/lab6_ExerA round 6.png": "Lab 6 · Rock, Paper, Scissors — after 6 rounds"
   },
   "decorative": [
     "Lab 6/pic_bulbon.svg",

@@ -204,6 +204,11 @@ S79146_CSF3133_K3/
 │   ├── guess-number.html
 │   ├── guess-number.js
 │   ├── index.html
+│   ├── lab6_ExerA round 1.png
+│   ├── lab6_ExerA round 3.png
+│   ├── lab6_ExerA round 4.png
+│   ├── lab6_ExerA round 5.png
+│   ├── lab6_ExerA round 6.png
 │   ├── lab6_ExerA.html
 │   ├── message.js
 │   ├── multiplication-table.html
@@ -271,6 +276,10 @@ Lab 4 has all four results filed: `lab4_ExerA validation.png` and
 `style css validation.png` and `cafe css validation.png` for the two style
 sheets (W3C CSS validator, CSS level 3 — both "No Error Found").
 
+Lab 6's Rock, Paper, Scissors game is filed as a run rather than a validation:
+five screenshots taken after 1, 3, 4, 5 and 6 rounds, showing the pictures,
+the coloured verdict, the scoreboard and the growing history table.
+
 Lab 5 is complete as well: `food validation.png` and `shop validation.png`
 for the markup (both "No errors or warnings to show"), and
 `food css validation.png` and `shop css validation.png` for the style sheets
@@ -300,6 +309,11 @@ for the markup (both "No errors or warnings to show"), and
 | [`Lab 5/shop validation.png`](Lab%205/shop%20validation.png) | Lab 5 — Problem B (Campus Bookstore) |
 | [`Lab 5/food css validation.png`](Lab%205/food%20css%20validation.png) | Lab 5 — Problem A style sheet (`food.css`) |
 | [`Lab 5/shop css validation.png`](Lab%205/shop%20css%20validation.png) | Lab 5 — Problem B style sheet (`shop.css`) |
+| [`Lab 6/lab6_ExerA round 1.png`](Lab%206/lab6_ExerA%20round%201.png) | Lab 6 — Rock, Paper, Scissors, after 1 round |
+| [`Lab 6/lab6_ExerA round 3.png`](Lab%206/lab6_ExerA%20round%203.png) | Lab 6 — Rock, Paper, Scissors, after 3 rounds |
+| [`Lab 6/lab6_ExerA round 4.png`](Lab%206/lab6_ExerA%20round%204.png) | Lab 6 — Rock, Paper, Scissors, after 4 rounds |
+| [`Lab 6/lab6_ExerA round 5.png`](Lab%206/lab6_ExerA%20round%205.png) | Lab 6 — Rock, Paper, Scissors, after 5 rounds |
+| [`Lab 6/lab6_ExerA round 6.png`](Lab%206/lab6_ExerA%20round%206.png) | Lab 6 — Rock, Paper, Scissors, after 6 rounds |
 
 ---
 
