@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - Section 6.6 Change HTML Attribute Values (page 58)
+    Two buttons rewrite the src attribute of one <img>, so the picture changes
+    without the page being reloaded.
+
+    The module points at a short link for pic_bulbon.gif and pic_bulboff.gif;
+    that link no longer resolves, so the two drawings here are SVG instead.
+    The attribute swap is exactly the one the module describes.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Change HTML Attribute Values</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>What Can JavaScript Do?</h2>
+
+    <p>JavaScript can change HTML attribute values.</p>
+    <p>In this case, JavaScript changes the value of the 'src' (source) attribute of an image.</p>
+
+    <!-- Button to turn the light ON -->
+    <button type="button" onclick="changeLight('pic_bulbon.svg', 'A light bulb, switched on')">Turn on the light</button>
+
+    <!-- Image tag -->
+    <p>
+        <img id="myImage" src="pic_bulboff.svg" alt="A light bulb, currently switched off" style="width: 100px">
+    </p>
+
+    <!-- Button to turn the light OFF -->
+    <button type="button" onclick="changeLight('pic_bulboff.svg', 'A light bulb, switched off')">Turn off the light</button>
+
+    <script>
+        // Swap the src attribute, and keep the alt text honest while doing it.
+        function changeLight(source, description) {
+            const bulb = document.getElementById("myImage");
+            bulb.src = source;
+            bulb.alt = description;
+        }
+    </script>
+</body>
+</html>

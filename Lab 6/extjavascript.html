@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - Section 6.7.3 External References (pages 60-61)
+    The function lives in message.js; this page only links the file and calls
+    the function from a button.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>External JavaScript Example</title>
+    <!-- Link the external JavaScript file -->
+    <script src="message.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Click the Button to See the Message</h2>
+
+    <!-- Button to trigger the JavaScript function -->
+    <button type="button" onclick="msg()">Click Me</button>
+
+    <noscript>
+        <p>This demonstration needs JavaScript, which your browser has switched off.</p>
+    </noscript>
+</body>
+</html>

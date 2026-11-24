@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - Section 6.8 Working with events (pages 61-62)
+    A contextmenu listener greys out the browser's own menu and shows a
+    message instead. Section 6.8.1 explains the three parts: the event, the
+    preventDefault() call and the alert.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Disable Right-Click</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+            line-height: 1.7;
+        }
+    </style>
+    <script>
+        // JavaScript to disable right-click
+        document.addEventListener("contextmenu", function (event) {
+            alert("Right-click is disabled on this page.");
+            event.preventDefault();
+        });
+    </script>
+</head>
+<body>
+    <h2>Right-Click Disabled</h2>
+    <p>Try right-clicking anywhere on this page.</p>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - Section 6.12 Lab Exercise 6 (pages 72-74)
+    "Quiz Application"
+
+    The three files the exercise asks for:
+        index.html  - structure: header, question section, feedback section,
+                      submit / next buttons, footer holding the score
+        style.css   - the look of the quiz
+        script.js   - questions array, shuffleQuestions(), startTimer(),
+                      displayQuestion(), checkAnswer(), nextQuestion(),
+                      startQuiz()
+
+    The questions are shuffled on every run and each one gets its own
+    countdown, so no two attempts are quite the same.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A timed, randomised multiple-choice quiz built for CSF3133 Lab Exercise 6.">
+    <title>Web Design Quiz — CSF3133 Lab 6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Web Design Quiz</h1>
+        <p class="lede">Ten questions on HTML, CSS and JavaScript. The order changes every run
+            and each question is timed, so read quickly and choose carefully.</p>
+    </header>
+
+    <main>
+        <!-- Start screen -->
+        <section id="startScreen" class="card">
+            <h2>Ready?</h2>
+            <p>You have <strong>15 seconds</strong> per question. Your score builds as you go
+                and is shown at the foot of the page.</p>
+            <button type="button" id="startBtn" class="primary">Start the quiz</button>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quizScreen" class="card" hidden>
+            <div class="hud">
+                <span id="progress">Question 1 of 10</span>
+                <span id="timer" class="badge">Time left: 15s</span>
+                <span id="scoreBadge" class="badge">Score: 0</span>
+            </div>
+
+            <h2 id="question">Question text</h2>
+
+            <form id="answerForm">
+                <fieldset id="optionsFieldset">
+                    <legend class="visually-hidden">Answer options</legend>
+                    <div id="options" class="options"></div>
+                </fieldset>
+
+                <div class="actions">
+                    <button type="submit" id="submitBtn" class="primary">Submit answer</button>
+                    <button type="button" id="nextBtn" class="secondary" hidden>Next question</button>
+                </div>
+            </form>
+
+            <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        </section>
+
+        <!-- Results -->
+        <section id="resultScreen" class="card" hidden>
+            <h2>Quiz complete</h2>
+            <p id="resultLine" class="result-line"></p>
+            <p id="resultComment"></p>
+            <button type="button" id="restartBtn" class="primary">Play again</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Score: <span id="score">0</span> / <span id="total">10</span></p>
+        <p class="note">CSF3133 Web-Based Interface Design &middot; Lab Exercise 6</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

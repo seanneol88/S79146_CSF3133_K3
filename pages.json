@@ -31,6 +31,22 @@
         "shop.html",
         "umt.html"
       ]
+    },
+    "Lab 6": {
+      "title": "Lab 6 — JavaScript",
+      "description": "The JavaScript chapter in order — `document.write` and `getElementById()`, the date and time, changing an image's `src`, an external `.js` file, an event listener, a generated multiplication table, two kinds of client-side validation and a guessing game — finishing with Lab Exercise 6's timed, randomised quiz application.",
+      "order": [
+        "firstjs.html",
+        "datetimejs.html",
+        "changelight.html",
+        "extjavascript.html",
+        "disable-right-click.html",
+        "multiplication-table.html",
+        "form-validation.html",
+        "numeric-validation.html",
+        "guess-number.html",
+        "index.html"
+      ]
     }
   },
   "gallery": {
@@ -242,6 +258,56 @@
       "tag": "Exercise 5",
       "title": "Universiti Malaysia Terengganu",
       "description": "Lab Exercise 5: a full page about UMT with `header`, `nav`, `section`, `article` and `footer`, an external `umt.css`, two Google Fonts, a gradient background, a milestone table with alternating and hover rows, and a centred footer."
+    },
+    "Lab 6/firstjs.html": {
+      "tag": "6.3–6.4",
+      "title": "My First JS",
+      "description": "`document.write()` printing bold and italic text, then a button that rewrites a paragraph through `getElementById()` and `innerHTML`."
+    },
+    "Lab 6/datetimejs.html": {
+      "tag": "6.5",
+      "title": "Date and Time",
+      "description": "A button that writes `Date()` into a paragraph with `innerText`, then recolours the same element through its `style` object."
+    },
+    "Lab 6/changelight.html": {
+      "tag": "6.6",
+      "title": "Changing an Attribute",
+      "description": "Two buttons swap the `src` of one image, so the bulb lights up and goes dark without a reload — `getElementById(...).src` in its simplest form."
+    },
+    "Lab 6/extjavascript.html": {
+      "tag": "6.7",
+      "title": "External JavaScript",
+      "description": "`message.js` linked from `<head>` and called by `onclick`, keeping the function out of the page and reusable."
+    },
+    "Lab 6/disable-right-click.html": {
+      "tag": "6.8",
+      "title": "Working with Events",
+      "description": "A `contextmenu` listener with `preventDefault()` — the browser's own right-click menu is replaced by an alert."
+    },
+    "Lab 6/multiplication-table.html": {
+      "tag": "6.9",
+      "title": "Multiplication Table",
+      "description": "Two number inputs and a loop that builds a rows × columns table as a string, then drops it into the page with `innerHTML`."
+    },
+    "Lab 6/form-validation.html": {
+      "tag": "6.10.1",
+      "title": "Form Validation",
+      "description": "Submitting with an empty field is blocked by returning `false` from the `onsubmit` handler; filling it in reports success."
+    },
+    "Lab 6/numeric-validation.html": {
+      "tag": "6.10.2",
+      "title": "Numeric Validation",
+      "description": "Four cases in one script: empty, `isNaN()`, an age outside 1–120, and a value that passes every check."
+    },
+    "Lab 6/guess-number.html": {
+      "tag": "6.11",
+      "title": "Guess a Number",
+      "description": "`Math.random()` and `Math.floor()` pick a secret number from 1 to 10, `prompt()` takes the guess and the result comes back through `alert()`."
+    },
+    "Lab 6/index.html": {
+      "tag": "Exercise 6",
+      "title": "Quiz Application",
+      "description": "Lab Exercise 6: a timed multiple-choice quiz with shuffled questions, per-question countdown, instant feedback and a live score, split across `index.html`, `style.css` and `script.js`."
     }
   },
   "images": {
@@ -267,5 +333,9 @@
     "Lab 5/shop validation.png": "Lab 5 · Problem B (Campus Bookstore)",
     "Lab 5/food css validation.png": "Lab 5 · Problem A — CSS (food.css)",
     "Lab 5/shop css validation.png": "Lab 5 · Problem B — CSS (shop.css)"
-  }
+  },
+  "decorative": [
+    "Lab 6/pic_bulbon.svg",
+    "Lab 6/pic_bulboff.svg"
+  ]
 }
