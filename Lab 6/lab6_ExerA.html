@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Exercise 6 (Additional) - Problem A
+    Rock, Paper, Scissors game for the Computer Science Club open day.
+
+    Structure: a header, a player panel (name + Start Game), a game panel with
+    the three choice buttons and the two pictures, a result panel with the
+    message and the scoreboard, a history panel with the round table, the
+    summary and reset buttons, and a footer carrying the start time and a
+    copyright line.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rock, Paper, Scissors against the computer — CSF3133 additional Lab Exercise 6, Problem A.">
+    <title>Rock, Paper, Scissors — CSF3133 Lab 6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= Header ================= -->
+    <header>
+        <h1>Rock, Paper, Scissors</h1>
+        <p>Enter your name, press <strong>Start Game</strong>, then pick rock, paper or scissors.
+            Scissors beats paper, paper beats rock and rock beats scissors.</p>
+    </header>
+
+    <main>
+        <!-- ================= Player ================= -->
+        <section id="player">
+            <h2>1. Your name</h2>
+            <label for="playerName">Name:</label>
+            <input type="text" id="playerName" name="playerName" placeholder="e.g. Aisyah">
+            <button type="button" onclick="startGame()">Start Game</button>
+            <p id="welcome" class="welcome"></p>
+        </section>
+
+        <!-- ================= Game ================= -->
+        <section id="game">
+            <h2>2. Choose your weapon</h2>
+
+            <div class="choices">
+                <button type="button" class="choice" onclick="playRound('rock')">Rock</button>
+                <button type="button" class="choice" onclick="playRound('paper')">Paper</button>
+                <button type="button" class="choice" onclick="playRound('scissors')">Scissors</button>
+            </div>
+
+            <div class="arena">
+                <figure>
+                    <img id="playerImg" src="rock.png" alt="Player choice" width="120" height="120">
+                    <figcaption>You</figcaption>
+                </figure>
+                <p class="versus">vs</p>
+                <figure>
+                    <img id="computerImg" src="rock.png" alt="Computer choice" width="120" height="120">
+                    <figcaption>Computer</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ================= Result and scoreboard ================= -->
+        <section id="resultPanel">
+            <h2>3. Result</h2>
+            <p id="result"></p>
+
+            <ul class="scoreboard">
+                <li>Wins <span id="wins">0</span></li>
+                <li>Losses <span id="losses">0</span></li>
+                <li>Draws <span id="draws">0</span></li>
+            </ul>
+        </section>
+
+        <!-- ================= History ================= -->
+        <section id="historyPanel">
+            <h2>4. Round history</h2>
+            <table id="history">
+                <thead>
+                    <tr>
+                        <th scope="col">Round</th>
+                        <th scope="col">You</th>
+                        <th scope="col">Computer</th>
+                        <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody id="historyBody"></tbody>
+            </table>
+
+            <p id="summary"></p>
+
+            <div class="actions">
+                <button type="button" onclick="showSummary()">Show Summary</button>
+                <button type="button" class="secondary" onclick="resetGame()">Reset</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer>
+        <p id="startTime"></p>
+        <p>&copy; 2024 Computer Science Club</p>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
