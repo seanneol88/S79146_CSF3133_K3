@@ -198,6 +198,9 @@ S79146_CSF3133_K3/
 │   ├── form-validation.html
 │   ├── form-validation.js
 │   ├── game.js
+│   ├── grade A.png
+│   ├── grade C.png
+│   ├── grade F.png
 │   ├── grade.css
 │   ├── grade.html
 │   ├── grade.js
@@ -278,7 +281,10 @@ sheets (W3C CSS validator, CSS level 3 — both "No Error Found").
 
 Lab 6's Rock, Paper, Scissors game is filed as a run rather than a validation:
 five screenshots taken after 1, 3, 4, 5 and 6 rounds, showing the pictures,
-the coloured verdict, the scoreboard and the growing history table.
+the coloured verdict, the scoreboard and the growing history table. The grade
+calculator has three results captured too - grade A in green, grade C in
+orange and grade F in red, each with the "Checked on" line and the four-row
+grade table.
 
 Lab 5 is complete as well: `food validation.png` and `shop validation.png`
 for the markup (both "No errors or warnings to show"), and
@@ -314,6 +320,9 @@ for the markup (both "No errors or warnings to show"), and
 | [`Lab 6/lab6_ExerA round 4.png`](Lab%206/lab6_ExerA%20round%204.png) | Lab 6 — Rock, Paper, Scissors, after 4 rounds |
 | [`Lab 6/lab6_ExerA round 5.png`](Lab%206/lab6_ExerA%20round%205.png) | Lab 6 — Rock, Paper, Scissors, after 5 rounds |
 | [`Lab 6/lab6_ExerA round 6.png`](Lab%206/lab6_ExerA%20round%206.png) | Lab 6 — Rock, Paper, Scissors, after 6 rounds |
+| [`Lab 6/grade A.png`](Lab%206/grade%20A.png) | Lab 6 — Grade Calculator, grade A (93) |
+| [`Lab 6/grade C.png`](Lab%206/grade%20C.png) | Lab 6 — Grade Calculator, grade C (63.5) |
+| [`Lab 6/grade F.png`](Lab%206/grade%20F.png) | Lab 6 — Grade Calculator, grade F (0) |
 
 ---
 
