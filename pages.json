@@ -309,7 +309,7 @@
     "Lab 6/index.html": {
       "tag": "Exercise 6",
       "title": "Quiz Application",
-      "description": "Lab Exercise 6: a timed multiple-choice quiz with shuffled questions, per-question countdown, instant feedback and a live score, split across `index.html`, `style.css` and `script.js`."
+      "description": "Lab Exercise 6: a timed multiple-choice quiz with shuffled questions, per-question countdown, instant feedback and a live score, split across `index.html`, `quiz.css` and `script.js`."
     },
     "Lab 6/lab6_ExerA.html": {
       "tag": "Problem A",
@@ -319,7 +319,7 @@
     "Lab 6/grade.html": {
       "tag": "Problem B",
       "title": "Student Grade Calculator — Debug & Extend",
-      "description": "Twelve errors in the supplied `grade.html` and `grade.js` listed with file and line number, then fixed and extended: empty-mark check, colour by grade, a Random Mark button, the date and time of the check, and a `grade.css` sheet."
+      "description": "Thirteen errors in the supplied `grade.html` and `grade.js` listed with file and line number, then fixed and extended: empty-mark check, colour by grade, a Random Mark button, the date and time of the check, and a `grade.css` sheet."
     }
   },
   "images": {
