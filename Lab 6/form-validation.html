@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - Section 6.10.1 Form Validation (pages 65-67)
+    Case 1: submit with the field empty - the alert stops the form.
+    Case 2: fill the field in - the script reports a successful submit.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form Validation</title>
+    <!-- Add basic styling -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Validation Example</h2>
+
+    <form name="myForm" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Include JavaScript -->
+    <script src="form-validation.js"></script>
+</body>
+</html>

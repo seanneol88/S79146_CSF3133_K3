@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - JavaScript
+    Sections 6.3 Basic JavaScript (page 56) and 6.4 getElementById() (page 57)
+
+    Step 1 of 6.3 asks for document.write("My First JS!"), step 3 replaces the
+    string with "<b>My First</b>" + "<i>Java Script</i>", and 6.4 then swaps the
+    whole body for a button that rewrites a paragraph through getElementById().
+    Both states are kept here: the document.write output runs while the page
+    parses, the button demo sits underneath it.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My First JS</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>My First JS</h1>
+
+    <p>
+        <script>
+            document.write("<b>My First</b> " + "<i>Java Script</i>");
+        </script>
+    </p>
+
+    <hr>
+
+    <h2>What Can JavaScript Do?</h2>
+    <p id="demo">JavaScript can change HTML content.</p>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">Click Me!</button>
+</body>
+</html>

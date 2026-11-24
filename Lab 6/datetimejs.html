@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+    CSF3133 Lab Module 6 - Section 6.5 Date and Time (pages 57-58)
+    The button writes Date() into the paragraph with innerText, then the same
+    element is recoloured through its style object.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Date and Time</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+            line-height: 1.7;
+        }
+
+        button {
+            padding: 10px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #demo {
+            display: inline-block;
+            min-height: 1.7em;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Date and Time</h1>
+
+    <p>
+        <button type="button" onclick="showDateTime()">Click me to display Date and Time</button>
+    </p>
+
+    <p id="demo"></p>
+
+    <script>
+        function showDateTime() {
+            const demo = document.getElementById("demo");
+            demo.innerText = Date();
+            demo.style.color = "red";
+            demo.style.backgroundColor = "yellow";
+        }
+    </script>
+</body>
+</html>

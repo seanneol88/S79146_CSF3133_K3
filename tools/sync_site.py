@@ -417,8 +417,13 @@ def replace_block(text: str, name: str, body: str, source: str) -> str:
 def main() -> int:
     pages, images, files = discover()
     backgrounds = background_images()
-    decorative = [i for i in images if i.as_posix() in backgrounds]
-    images = [i for i in images if i.as_posix() not in backgrounds]
+    # pages.json may also name art that is part of a page rather than evidence
+    # of a validation run - the two light-bulb drawings on Lab 6's
+    # changelight.html, for instance.
+    listed = set(load_meta().get("decorative", []))
+    skip = backgrounds | listed
+    decorative = [i for i in images if i.as_posix() in skip]
+    images = [i for i in images if i.as_posix() not in skip]
     meta = sync_meta(load_meta(), pages, images)
 
     META.write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -437,7 +442,7 @@ def main() -> int:
 
     if decorative:
         names = ", ".join(i.as_posix() for i in decorative)
-        print(f"  - gallery skipped background image(s): {names}")
+        print(f"  - gallery skipped decorative image(s): {names}")
     print(f"synced {len(pages)} pages, {len(images)} images")
     return 0
 
