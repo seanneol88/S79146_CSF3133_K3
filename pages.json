@@ -53,7 +53,7 @@
   },
   "gallery": {
     "title": "Validation Evidence",
-    "description": "W3C markup and CSS validation results for the exercise pages, followed by a run-through of the Lab 6 Rock, Paper, Scissors game."
+    "description": "W3C markup and CSS validation results for the exercise pages, followed by a run-through of the Lab 6 Rock, Paper, Scissors game and the grade calculator."
   },
   "pages": {
     "Lab 1/lab1.html": {
@@ -349,7 +349,10 @@
     "Lab 6/lab6_ExerA round 3.png": "Lab 6 · Rock, Paper, Scissors — after 3 rounds",
     "Lab 6/lab6_ExerA round 4.png": "Lab 6 · Rock, Paper, Scissors — after 4 rounds",
     "Lab 6/lab6_ExerA round 5.png": "Lab 6 · Rock, Paper, Scissors — after 5 rounds",
-    "Lab 6/lab6_ExerA round 6.png": "Lab 6 · Rock, Paper, Scissors — after 6 rounds"
+    "Lab 6/lab6_ExerA round 6.png": "Lab 6 · Rock, Paper, Scissors — after 6 rounds",
+    "Lab 6/grade A.png": "Lab 6 · Grade Calculator — grade A (93, green)",
+    "Lab 6/grade C.png": "Lab 6 · Grade Calculator — grade C (63.5, orange)",
+    "Lab 6/grade F.png": "Lab 6 · Grade Calculator — grade F (0, red)"
   },
   "decorative": [
     "Lab 6/pic_bulbon.svg",
